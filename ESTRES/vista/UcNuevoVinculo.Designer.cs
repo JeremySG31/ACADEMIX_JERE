@@ -1,16 +1,16 @@
 ﻿namespace Academix.vista
 {
-    partial class FrmNuevoVinculo
+    partial class UcNuevoVinculo
     {
-        /// <summary>
-        /// Required designer variable.
+        /// <summary> 
+        /// Variable del diseñador necesaria.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
+        /// <summary> 
+        /// Limpiar los recursos que se estén usando.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,11 +20,11 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Código generado por el Diseñador de componentes
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// <summary> 
+        /// Método necesario para admitir el Diseñador. No se puede modificar
+        /// el contenido de este método con el editor de código.
         /// </summary>
         private void InitializeComponent()
         {
@@ -62,10 +62,10 @@
             this.grpDatosPrincipales.Controls.Add(this.btnInsertar);
             this.grpDatosPrincipales.Controls.Add(this.txtVinculo);
             this.grpDatosPrincipales.Controls.Add(this.lblNombres);
-            this.grpDatosPrincipales.Location = new System.Drawing.Point(12, 12);
+            this.grpDatosPrincipales.Location = new System.Drawing.Point(39, 19);
             this.grpDatosPrincipales.Name = "grpDatosPrincipales";
             this.grpDatosPrincipales.Size = new System.Drawing.Size(409, 283);
-            this.grpDatosPrincipales.TabIndex = 8;
+            this.grpDatosPrincipales.TabIndex = 9;
             this.grpDatosPrincipales.TabStop = false;
             this.grpDatosPrincipales.Text = "DATOS PRINCIPALES";
             // 
@@ -168,7 +168,6 @@
             this.button1.Size = new System.Drawing.Size(108, 37);
             this.button1.TabIndex = 18;
             this.button1.Text = "Cancelar";
-            this.button1.Click += new System.EventHandler(this.Cancelar_Click);
             // 
             // btnInsertar
             // 
@@ -179,7 +178,6 @@
             this.btnInsertar.TabIndex = 0;
             this.btnInsertar.Text = "Registrar";
             this.btnInsertar.UseVisualStyleBackColor = false;
-            this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
             // 
             // txtVinculo
             // 
@@ -196,14 +194,13 @@
             this.lblNombres.TabIndex = 4;
             this.lblNombres.Text = "ID Estudiante:";
             // 
-            // FrmNuevoVinculo
+            // UcNuevoVinculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(437, 314);
             this.Controls.Add(this.grpDatosPrincipales);
-            this.Name = "FrmNuevoVinculo";
-            this.Text = "FrmNuevoVinculo";
+            this.Name = "UcNuevoVinculo";
+            this.Size = new System.Drawing.Size(529, 336);
             this.grpDatosPrincipales.ResumeLayout(false);
             this.grpDatosPrincipales.PerformLayout();
             this.ResumeLayout(false);
@@ -213,19 +210,19 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grpDatosPrincipales;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnInsertar;
-        private System.Windows.Forms.Label lblNombres;
+        private System.Windows.Forms.ComboBox cbApoderado;
+        private System.Windows.Forms.ComboBox cbEstudiante;
+        private System.Windows.Forms.ComboBox cbPrioridad;
+        private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtParentesco;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbPrioridad;
-        private System.Windows.Forms.ComboBox cbEstado;
-        private System.Windows.Forms.ComboBox cbApoderado;
-        private System.Windows.Forms.ComboBox cbEstudiante;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnInsertar;
         private System.Windows.Forms.TextBox txtVinculo;
+        private System.Windows.Forms.Label lblNombres;
     }
 }

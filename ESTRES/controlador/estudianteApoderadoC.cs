@@ -99,27 +99,18 @@ namespace Academix.controlador
             combo.SelectedIndex = -1;
         }
 
-        public estudianteApoderadoM obtenerPorId(string id)
-        {
-            DataTable dt = x.manipular("SELECT * FROM estudiante_apoderados WHERE id = '" + id + "'");
-            if (dt.Rows.Count > 0)
-            {
-                DataRow row = dt.Rows[0];
-                return new estudianteApoderadoM(
-                    row["id"].ToString(),
-                    row["id_apoderado"].ToString(),
-                    row["id_estudiante"].ToString(),
-                    row["parentesco"].ToString(),
-                    Convert.ToInt32(row["prioridad"]),
-                    row["estado"].ToString()
-                );
-            }
-            return null;
-        }
-
-        public void selectIDMatriculados(ComboBox combo)
+        public void selectIDEliminar(ComboBox combo)
         {
             DataTable dt = x.manipular("SELECT id FROM estudiante_apoderados");
+            combo.DataSource = dt;
+            combo.DisplayMember = "id";
+            combo.ValueMember = "id";
+            combo.SelectedIndex = -1;
+        }
+
+        public void selectIDModificar(ComboBox combo)
+        {
+            DataTable dt = x.manipular("SELECT id, id_apoderado, id_estudiante, parentesco, prioridad, estado FROM estudiante_apoderados");
             combo.DataSource = dt;
             combo.DisplayMember = "id";
             combo.ValueMember = "id";
@@ -131,8 +122,5 @@ namespace Academix.controlador
             L.DataSource = x.manipular("select * from estudiante_apoderados");
 
         }
-
-
-
     }
 }

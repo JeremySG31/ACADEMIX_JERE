@@ -302,12 +302,6 @@
     <Compile Include="vista\FrmEliminarUsuario.Designer.cs">
       <DependentUpon>FrmEliminarUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="vista\FrmEliminarVinculo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="vista\FrmEliminarVinculo.Designer.cs">
-      <DependentUpon>FrmEliminarVinculo.cs</DependentUpon>
-    </Compile>
     <Compile Include="vista\FrmGrado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -418,12 +412,6 @@
     <Compile Include="vista\FrmModificarUsuario.Designer.cs">
       <DependentUpon>FrmModificarUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="vista\FrmModificarVinculo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="vista\FrmModificarVinculo.Designer.cs">
-      <DependentUpon>FrmModificarVinculo.cs</DependentUpon>
-    </Compile>
     <Compile Include="vista\FrmNuevaMatricula.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -495,12 +483,6 @@
     </Compile>
     <Compile Include="vista\FrmNuevoUsuario.Designer.cs">
       <DependentUpon>FrmNuevoUsuario.cs</DependentUpon>
-    </Compile>
-    <Compile Include="vista\FrmNuevoVinculo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="vista\FrmNuevoVinculo.Designer.cs">
-      <DependentUpon>FrmNuevoVinculo.cs</DependentUpon>
     </Compile>
     <Compile Include="vista\FrmPerfil.cs">
       <SubType>Form</SubType>
@@ -602,9 +584,6 @@
     <EmbeddedResource Include="vista\FrmEliminarUsuario.resx">
       <DependentUpon>FrmEliminarUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="vista\FrmEliminarVinculo.resx">
-      <DependentUpon>FrmEliminarVinculo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="vista\FrmGrado.resx">
       <DependentUpon>FrmGrado.cs</DependentUpon>
     </EmbeddedResource>
@@ -659,9 +638,6 @@
     <EmbeddedResource Include="vista\FrmModificarUsuario.resx">
       <DependentUpon>FrmModificarUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="vista\FrmModificarVinculo.resx">
-      <DependentUpon>FrmModificarVinculo.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="vista\FrmNuevaMatricula.resx">
       <DependentUpon>FrmNuevaMatricula.cs</DependentUpon>
     </EmbeddedResource>
@@ -697,9 +673,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="vista\FrmNuevoUsuario.resx">
       <DependentUpon>FrmNuevoUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="vista\FrmNuevoVinculo.resx">
-      <DependentUpon>FrmNuevoVinculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vista\FrmPerfil.resx">
       <DependentUpon>FrmPerfil.cs</DependentUpon>

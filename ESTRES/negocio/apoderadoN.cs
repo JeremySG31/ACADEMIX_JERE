@@ -7,22 +7,27 @@ namespace Academix.negocio
     internal class apoderadoN
     {
         apoderadoC x;
+
         public apoderadoN()
         {
             x = new apoderadoC();
         }
-        public void insertar(string Id, string IdUsuario)
+
+        public void insertar(string id, string nombres, string nombreUsuario, string apePaterno, string apeMaterno, string estado)
         {
-            x.insert(new apoderadoM(Id, IdUsuario));
+            x.insert(new apoderadoM(id, nombres, nombreUsuario, apePaterno, apeMaterno, estado));
         }
-        public void modificar(string Id, string IdUsuario)
+
+        public void modificar(string id, string nombres, string nombreUsuario, string apePaterno, string apeMaterno, string estado)
         {
-            x.update(new apoderadoM(Id, IdUsuario));
+            x.update(new apoderadoM(id, nombres, nombreUsuario, apePaterno, apeMaterno, estado));
         }
-        public void eliminar(string Id, string IdUsuario)
+
+        public void eliminar(string id)
         {
-            x.delete(new apoderadoM(Id, IdUsuario));
+            x.delete(id);
         }
+
         public void seleccionar(DataGridView L)
         {
             x.select(L);

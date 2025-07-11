@@ -2,14 +2,21 @@
 {
     internal class profesorM
     {
-        public profesorM(string id, string id_usuario)
+        public profesorM(string idProfesor, string nombres, string nombreUsuario, string apePaterno, string apeMaterno, string estado)
         {
-            Id = id;
-            IdUsuario = id_usuario;
+            IdProfesor = idProfesor;
+            Nombres = nombres;
+            NombreUsuario = nombreUsuario;
+            ApePaterno = apePaterno;
+            ApeMaterno = apeMaterno;
+            Estado = estado;
         }
 
-
-        public string Id { get; set; }
-        public string IdUsuario { get; set; }
+        public string IdProfesor { get; set; } 
+        public string Nombres { get; set; }
+        public string NombreUsuario { get; set; }
+        public string ApePaterno { get; set; }
+        public string ApeMaterno { get; set; }
+        public string Estado { get; set; }
     }
 }

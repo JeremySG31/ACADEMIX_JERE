@@ -35,20 +35,17 @@ namespace Academix.vista
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            FrmNuevoGrado frmNuevoGrado = new FrmNuevoGrado();
-            frmNuevoGrado.Show();
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            FrmModificarGrado frmModificarGrado = new FrmModificarGrado();
-            frmModificarGrado.Show();
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            FrmEliminarGrado frmEliminarGrado = new FrmEliminarGrado();
-            frmEliminarGrado.Show();
+
         }
     }
 }

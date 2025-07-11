@@ -30,20 +30,17 @@ namespace Academix.vista
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            FrmNuevoCursoM frmNuevoCursoM = new FrmNuevoCursoM();
-            frmNuevoCursoM.Show();
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            FrmModificarCursoM frmModificarCursoM = new FrmModificarCursoM();
-            frmModificarCursoM.Show();
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            FrmEliminarCursoM frmEliminarCursoM = new FrmEliminarCursoM();
-            frmEliminarCursoM.Show();
+
         }
     }
 }

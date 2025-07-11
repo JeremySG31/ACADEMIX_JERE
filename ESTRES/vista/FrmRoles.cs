@@ -37,20 +37,17 @@ namespace Academix.vista
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            FrmNuevoRol frmNuevoRol = new FrmNuevoRol();
-            frmNuevoRol.Show();
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            FrmModificarRol frmModificarRol = new FrmModificarRol();
-            frmModificarRol.Show();
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            FrmEliminarRol frmEliminarRol = new FrmEliminarRol();
-            frmEliminarRol.Show();
+
         }
     }
 }

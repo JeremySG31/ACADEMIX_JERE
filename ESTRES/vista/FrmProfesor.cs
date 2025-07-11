@@ -1,5 +1,4 @@
 ﻿using Academix.controlador;
-using Academix.vista;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -31,20 +30,17 @@ namespace ESTRES.vista
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            FrmNuevoProfesor frmNuevoProfesor = new FrmNuevoProfesor();
-            frmNuevoProfesor.Show();
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            FrmModificarProfesor frmModificarProfesor = new FrmModificarProfesor();
-            frmModificarProfesor.Show();
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            FrmEliminarProfesor frmEliminarProfesor = new FrmEliminarProfesor();
-            frmEliminarProfesor.Show();
+
         }
     }
 }

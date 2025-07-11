@@ -34,20 +34,17 @@ namespace Academix.vista
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            FrmNuevoAnioLectivo frmNuevoAnioLectivo = new FrmNuevoAnioLectivo();
-            frmNuevoAnioLectivo.Show();
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            FrmModificarAnioLectivo frmModificarAnioLectivo = new FrmModificarAnioLectivo();
-            frmModificarAnioLectivo.Show();
+    
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            FrmEliminarAnioLectivo frmEliminarAnioLectivo = new FrmEliminarAnioLectivo();
-            frmEliminarAnioLectivo.Show();
+
         }
     }
 }

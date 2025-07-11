@@ -35,20 +35,17 @@ namespace Academix.vista
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            FrmNuevaSeccion frmNuevaSeccion = new FrmNuevaSeccion();
-            frmNuevaSeccion.Show();
+ 
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            FrmModificarSeccion frmModificarSeccion = new FrmModificarSeccion();
-            frmModificarSeccion.Show();
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            FrmEliminarSeccion frmEliminarSeccion = new FrmEliminarSeccion();
-            frmEliminarSeccion.Show();
+
         }
     }
 }

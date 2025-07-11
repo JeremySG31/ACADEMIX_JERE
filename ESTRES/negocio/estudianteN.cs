@@ -1,28 +1,33 @@
-﻿using ESTRES.controlador;
-using ESTRES.modelo;
+﻿using Academix.controlador;
+using Academix.modelo;
 using System.Windows.Forms;
 
-namespace ESTRES.negocio
+namespace Academix.negocio
 {
     internal class estudianteN
     {
         estudianteC x;
+
         public estudianteN()
         {
             x = new estudianteC();
         }
-        public void insertar(string Id, string IdUsuario)
+
+        public void insertar(string idEstudiante, string nombres, string nombreUsuario, string apePaterno, string apeMaterno, string estado)
         {
-            x.insert(new estudianteM(Id, IdUsuario));
+            x.insert(new estudianteM(idEstudiante, nombres, nombreUsuario, apePaterno, apeMaterno, estado));
         }
-        public void modificar(string Id, string IdUsuario)
+
+        public void modificar(string idEstudiante, string nombres, string nombreUsuario, string apePaterno, string apeMaterno, string estado)
         {
-            x.update(new estudianteM(Id, IdUsuario));
+            x.update(new estudianteM(idEstudiante, nombres, nombreUsuario, apePaterno, apeMaterno, estado));
         }
-        public void eliminar(string Id, string IdUsuario)
+
+        public void eliminar(string idEstudiante)
         {
-            x.delete(new estudianteM(Id, IdUsuario));
+            x.delete(idEstudiante);
         }
+
         public void seleccionar(DataGridView L)
         {
             x.select(L);

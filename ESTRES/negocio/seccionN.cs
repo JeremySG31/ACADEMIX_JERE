@@ -1,0 +1,31 @@
+﻿using Academix.controlador;
+using Academix.modelo;
+using System.Windows.Forms;
+
+namespace Academix.negocio
+{
+    internal class seccionN
+    {
+        seccionC x;
+        public seccionN()
+        {
+            x = new seccionC();
+        }
+        public void insertar(string id, string nombre, string id_estudiante)
+        {
+            x.insert(new seccionM(id, nombre, id_estudiante));
+        }
+        public void modificar(string id, string nombre, string id_estudiante)
+        {
+            x.update(new seccionM(id, nombre, id_estudiante));
+        }
+        public void eliminar(string id, string id_estudiante)
+        {
+            x.delete(new seccionM(id, "", id_estudiante));
+        }
+        public void seleccionar(DataGridView L)
+        {
+            x.select(L);
+        }
+    }
+}

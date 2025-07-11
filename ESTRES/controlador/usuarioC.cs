@@ -1,8 +1,6 @@
 ﻿using ESTRES.dao;
 using ESTRES.modelo;
-using System;
 using System.Data;
-using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace ESTRES.controlador
@@ -40,11 +38,11 @@ namespace ESTRES.controlador
         }
 
 
-        public void select(ComboBox cbBuscarColumna )
+        public void select(ComboBox cbBuscarColumna)
         {
             DataTable dt = x.manipular("SELECT id, nombres FROM usuarios");
             cbBuscarColumna.DataSource = dt;
-            cbBuscarColumna.DisplayMember = "nombres"; 
+            cbBuscarColumna.DisplayMember = "nombres";
             cbBuscarColumna.ValueMember = "id";
             cbBuscarColumna.SelectedIndex = 0;
         }

@@ -27,7 +27,7 @@ namespace ESTRES.controlador
 
         public void select(ComboBox cbBuscarColumna)
         {
-        DataTable dt = x.manipular("SELECT e.id, u.nombres FROM estudiantes e JOIN usuarios u ON e.id_usuario = u.id;");
+            DataTable dt = x.manipular("SELECT e.id, u.nombres FROM estudiantes e JOIN usuarios u ON e.id_usuario = u.id;");
             cbBuscarColumna.DataSource = dt;
             cbBuscarColumna.DisplayMember = "nombres";
             cbBuscarColumna.ValueMember = "id";

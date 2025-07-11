@@ -35,6 +35,7 @@
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btLimpiarCampos = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnInsertar = new System.Windows.Forms.Button();
@@ -123,15 +124,29 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btLimpiarCampos);
             this.groupBox3.Controls.Add(this.btnEliminar);
             this.groupBox3.Controls.Add(this.btnModificar);
             this.groupBox3.Controls.Add(this.btnInsertar);
             this.groupBox3.Location = new System.Drawing.Point(478, 81);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(250, 265);
+            this.groupBox3.Size = new System.Drawing.Size(250, 316);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ACCIONES";
+            // 
+            // btLimpiarCampos
+            // 
+            this.btLimpiarCampos.BackColor = System.Drawing.Color.Snow;
+            this.btLimpiarCampos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLimpiarCampos.ForeColor = System.Drawing.Color.Black;
+            this.btLimpiarCampos.Location = new System.Drawing.Point(16, 257);
+            this.btLimpiarCampos.Name = "btLimpiarCampos";
+            this.btLimpiarCampos.Size = new System.Drawing.Size(216, 53);
+            this.btLimpiarCampos.TabIndex = 47;
+            this.btLimpiarCampos.Text = "Limpiar campos";
+            this.btLimpiarCampos.UseVisualStyleBackColor = false;
+            this.btLimpiarCampos.Click += new System.EventHandler(this.btLimpiarCampos_Click);
             // 
             // btnEliminar
             // 
@@ -406,5 +421,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbIdModificar;
+        private System.Windows.Forms.Button btLimpiarCampos;
     }
 }

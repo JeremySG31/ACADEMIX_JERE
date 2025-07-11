@@ -1,10 +1,5 @@
 ﻿using Academix.controlador;
 using Academix.modelo;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Academix.negocio
@@ -18,7 +13,7 @@ namespace Academix.negocio
         }
         public void insertar(string id, string id_apoderado, string id_estudiante, string parentesco, int prioridad, string estado)
         {
-            x.insert(new estudianteApoderadoM(id,id_apoderado,  id_estudiante,  parentesco, prioridad, estado));
+            x.insert(new estudianteApoderadoM(id, id_apoderado, id_estudiante, parentesco, prioridad, estado));
         }
         public void modificar(string id, string id_apoderado, string id_estudiante, string parentesco, int prioridad, string estado)
         {

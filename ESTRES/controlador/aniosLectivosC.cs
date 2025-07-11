@@ -1,11 +1,6 @@
 ﻿using Academix.modelo;
 using ESTRES.dao;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Academix.controlador
@@ -19,11 +14,11 @@ namespace Academix.controlador
         }
         public void insert(aniosLectivosM dato)
         {
-            x.manipular("insert into aniosLectivos values('" + dato.Id + "','"+ "')");
+            x.manipular("insert into aniosLectivos values('" + dato.Id + "','" + "')");
         }
         public void update(aniosLectivosM dato)
         {
-            x.manipular("update aniosLectivos set id_estudiante='"  + "' where id='" + dato.Id + "'");
+            x.manipular("update aniosLectivos set id_estudiante='" + "' where id='" + dato.Id + "'");
         }
         public void delete(aniosLectivosM dato)
         {
@@ -32,7 +27,7 @@ namespace Academix.controlador
 
         public void select(ComboBox cbBuscarColumna)
         {
-        DataTable dt = x.manipular("SELECT id, nombre FROM aniosLectivos");
+            DataTable dt = x.manipular("SELECT id, nombre FROM aniosLectivos");
             cbBuscarColumna.DataSource = dt;
             cbBuscarColumna.DisplayMember = "id";
             cbBuscarColumna.ValueMember = "nombre";

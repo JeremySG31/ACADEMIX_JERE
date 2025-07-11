@@ -1,11 +1,6 @@
 ﻿using Academix.modelo;
 using ESTRES.dao;
-using ESTRES.modelo;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Academix.controlador

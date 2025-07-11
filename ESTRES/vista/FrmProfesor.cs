@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Academix.controlador;
+using Academix.vista;
+using System;
 using System.Data;
 using System.Windows.Forms;
-using Academix.controlador;
-using Academix.vista;
 
 namespace ESTRES.vista
 {

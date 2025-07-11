@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Academix.modelo
 {
     internal class asistenciaMatriculadosM
     {
-        public asistenciaMatriculadosM(string id, string id_matricula, DateTime fecha_matricula, string estado )
+        public asistenciaMatriculadosM(string id, string id_matricula, DateTime fecha_matricula, string estado)
         {
             Id = id;
             this.IdMatricula = id_matricula;
@@ -23,5 +19,5 @@ namespace Academix.modelo
 
 
 
-        }
+    }
 }

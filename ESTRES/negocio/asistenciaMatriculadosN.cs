@@ -1,10 +1,6 @@
 ﻿using Academix.controlador;
 using Academix.modelo;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Academix.negocio
@@ -16,7 +12,7 @@ namespace Academix.negocio
         {
             x = new asistenciaMatriculadosC();
         }
-        public void insertar(string Id, string IdMatricula, DateTime fecha_matricula, string estado )
+        public void insertar(string Id, string IdMatricula, DateTime fecha_matricula, string estado)
         {
             x.insert(new asistenciaMatriculadosM(Id, IdMatricula, fecha_matricula, estado));
         }

@@ -1,13 +1,6 @@
 ﻿using Academix.controlador;
-using ESTRES.controlador;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Academix.vista
@@ -17,7 +10,7 @@ namespace Academix.vista
         public FrmCursosMatriculados()
         {
             InitializeComponent();
-            this.Load += FrmCursosMatriculados_Load; 
+            this.Load += FrmCursosMatriculados_Load;
             this.cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
         }
 

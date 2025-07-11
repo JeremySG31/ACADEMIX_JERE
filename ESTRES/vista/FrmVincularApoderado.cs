@@ -1,13 +1,7 @@
 ﻿using Academix.controlador;
 using Academix.negocio;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Academix.vista
@@ -59,7 +53,9 @@ namespace Academix.vista
 
         private void ActualizarCampos()
         {
+            cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
             estudianteApoderadoC controlador = new estudianteApoderadoC();
+            cbIdModificar.DataSource = null;
             controlador.select(dgvUsuarios);
             controlador.select(cbBuscarColumna);
             controlador.selectIDapoderado(cbApoderado);
@@ -68,23 +64,37 @@ namespace Academix.vista
             controlador.selectEstado(cbEstado);
             controlador.selectIDModificar(cbIdModificar);
             controlador.selectIDEliminar(cbIdEliminar);
-
-            txtParentesco.Text = "";
-            txtVinculo.Text = "";
-            txtBuscar.Text = "";
-            txtBuscar2.Text = "";
-
-            cbApoderado.SelectedIndex = -1;
-            cbEstudiante.SelectedIndex = -1;
-            cbPrioridad.SelectedIndex = -1;
-            cbEstado.SelectedIndex = -1;
-            cbIdEliminar.SelectedIndex = -1;
+            cbIdModificar.SelectedIndex = -1;
+            cbIdModificar.Text = "";
+            cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
         }
+
+        private void btLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
+            txtParentesco.Clear();
+            txtVinculo.Clear();
+            cbApoderado.SelectedIndex = -1;
+            cbApoderado.Text = "";
+            cbEstudiante.SelectedIndex = -1;
+            cbEstudiante.Text = "";
+            cbPrioridad.SelectedIndex = -1;
+            cbPrioridad.Text = "";
+            cbEstado.SelectedIndex = -1;
+            cbEstado.Text = "";
+            cbIdModificar.SelectedIndex = -1;
+            cbIdModificar.Text = "";
+            cbIdEliminar.SelectedIndex = -1;
+            cbIdEliminar.Text = "";
+            cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
+        }
+
 
         private void btnInsertar_Click_1(object sender, EventArgs e)
         {
-            estudianteApoderadoN negocio = new estudianteApoderadoN();
+            if (!ValidarLlenarCampos()) return;
 
+            estudianteApoderadoN negocio = new estudianteApoderadoN();
             int prioridad = 0;
             int.TryParse(cbPrioridad.SelectedValue?.ToString(), out prioridad);
 
@@ -102,21 +112,10 @@ namespace Academix.vista
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            try
-            {       if (cbPrioridad.SelectedValue == null || 
-                    cbApoderado.SelectedValue == null || 
-                    cbEstudiante.SelectedValue == null || 
-                    cbEstado.SelectedValue == null || 
-                    string.IsNullOrEmpty(txtVinculo.Text) || 
-                    string.IsNullOrEmpty(txtParentesco.Text))
-                {
-                    MessageBox.Show("Por favor, complete todos los campos requeridos.", 
-                                  "Campos Incompletos", 
-                                  MessageBoxButtons.OK, 
-                                  MessageBoxIcon.Warning);
-                    return;
-                }
+            if (!ValidarLlenarCampos()) return;
 
+            try
+            {
                 estudianteApoderadoN negocio = new estudianteApoderadoN();
                 int prioridad = Convert.ToInt32(cbPrioridad.SelectedValue);
 
@@ -128,23 +127,16 @@ namespace Academix.vista
                     prioridad,
                     cbEstado.SelectedValue.ToString()
                 );
-                
-                MessageBox.Show("Registro modificado correctamente.", 
-                               "Éxito", 
-                               MessageBoxButtons.OK, 
+
+                MessageBox.Show("Registro modificado correctamente.",
+                               "Éxito",
+                               MessageBoxButtons.OK,
                                MessageBoxIcon.Information);
                 ActualizarCampos();
             }
-            catch (InvalidOperationException ex)
-            {
-                MessageBox.Show("Error: Asegúrese de seleccionar valores válidos en todos los campos.\nDetalles: " + ex.Message,
-                               "Error de Operación",
-                               MessageBoxButtons.OK,
-                               MessageBoxIcon.Error);
-            }
             catch (Exception ex)
             {
-                MessageBox.Show("Error inesperado al modificar el registro.\nDetalles: " + ex.Message,
+                MessageBox.Show("Error al modificar el registro: " + ex.Message,
                                "Error",
                                MessageBoxButtons.OK,
                                MessageBoxIcon.Error);
@@ -153,11 +145,39 @@ namespace Academix.vista
 
         private void btnEliminar_Click_1(object sender, EventArgs e)
         {
+            if (cbIdEliminar.SelectedValue == null)
+            {
+                MessageBox.Show("Por favor, seleccione un registro para eliminar.",
+                              "Selección requerida",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return;
+            }
+
             var idSeleccionado = cbIdEliminar.SelectedValue?.ToString() ?? "";
             estudianteApoderadoN negocio = new estudianteApoderadoN();
             negocio.eliminar(idSeleccionado, "", "", "", 0, "");
             MessageBox.Show("Registro eliminado correctamente.");
             ActualizarCampos();
         }
+
+        private bool ValidarLlenarCampos()
+        {
+            if (cbPrioridad.SelectedValue == null ||
+                cbApoderado.SelectedValue == null ||
+                cbEstudiante.SelectedValue == null ||
+                cbEstado.SelectedValue == null ||
+                string.IsNullOrEmpty(txtVinculo.Text) ||
+                string.IsNullOrEmpty(txtParentesco.Text))
+            {
+                MessageBox.Show("Por favor, complete todos los campos requeridos.",
+                              "Campos Incompletos",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+        }
+
     }
 }

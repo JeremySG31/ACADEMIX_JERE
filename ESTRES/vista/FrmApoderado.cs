@@ -5,7 +5,7 @@ using System.Data;
 using System.Windows.Forms;
 
 namespace ESTRES.vista
-{   
+{
     public partial class FrmApoderado : Form
     {
         public FrmApoderado()

@@ -1,12 +1,6 @@
 ﻿using Academix.modelo;
 using ESTRES.dao;
-using ESTRES.modelo;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Academix.controlador
@@ -24,7 +18,7 @@ namespace Academix.controlador
         }
         public void update(asistenciaMatriculadosM dato)
         {
-            x.manipular("update asistencias_matriculados set id_matricula='" + dato.IdMatricula+ "' where id='" + dato.Id + "'");
+            x.manipular("update asistencias_matriculados set id_matricula='" + dato.IdMatricula + "' where id='" + dato.Id + "'");
         }
         public void delete(asistenciaMatriculadosM dato)
         {

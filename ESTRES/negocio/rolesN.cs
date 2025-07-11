@@ -1,10 +1,5 @@
 ﻿using Academix.controlador;
 using Academix.modelo;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Academix.negocio
@@ -22,7 +17,7 @@ namespace Academix.negocio
         }
         public void modificar(string id, string nombreRol)
         {
-            x.update(new rolesM(id, nombreRol ));
+            x.update(new rolesM(id, nombreRol));
         }
         public void eliminar(string id, string nombreRol)
         {

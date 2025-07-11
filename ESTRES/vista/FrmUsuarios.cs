@@ -22,7 +22,7 @@ namespace ESTRES.vista
         }
 
 
-        
+
         private void cbBuscarColumna_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbBuscarColumna.SelectedItem is DataRowView row && row["id"] != DBNull.Value)
@@ -39,7 +39,7 @@ namespace ESTRES.vista
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            FrmModificarUsuario frmModificarUsuario= new FrmModificarUsuario(); 
+            FrmModificarUsuario frmModificarUsuario = new FrmModificarUsuario();
             frmModificarUsuario.Show();
         }
 

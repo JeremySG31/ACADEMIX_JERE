@@ -13,12 +13,7 @@ namespace ESTRES.vista
             InitializeComponent();
             this.Load += FrmCurso_Load;
             this.cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
-            this.btnInsertar.Click += btnInsertar_Click;
-            this.btnModificar.Click += btnModificar_Click;
-            this.btnEliminar.Click += btnEliminar_Click;
-            this.btLimpiarCampos.Click += btLimpiarCampos_Click;
             this.cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
-            this.dgvCursos.CellClick += dgvCursos_CellClick;
         }
 
         private void FrmCurso_Load(object sender, EventArgs e)
@@ -49,7 +44,6 @@ namespace ESTRES.vista
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvCursos.Rows[e.RowIndex];
-
                 txtIdCurso.Text = row.Cells["id"].Value?.ToString() ?? "";
                 txtCurso.Text = row.Cells["nombre"].Value?.ToString() ?? "";
                 txtDescripcion.Text = row.Cells["descripcion"].Value?.ToString() ?? "";
@@ -122,21 +116,30 @@ namespace ESTRES.vista
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (cbIdEliminar.SelectedValue == null)
+            {
+                return;
+            }
+
+            try
+            {
                 cursoN negocio = new cursoN();
                 negocio.eliminar(cbIdEliminar.SelectedValue.ToString(), "");
                 ActualizarCampos();
+            }
+            catch (Exception)
+            {
+            }
         }
-
-        private void btLimpiarCampos_Click(object sender, EventArgs e)
-        {
-            LimpiarCampos();
-        }
-
         private void btActualizarCampos_Click(object sender, EventArgs e)
         {
             ActualizarCampos();
         }
 
+        private void btLimpiarCampos_Click_1(object sender, EventArgs e)
+        {
+            LimpiarCampos();
 
+        }
     }
 }

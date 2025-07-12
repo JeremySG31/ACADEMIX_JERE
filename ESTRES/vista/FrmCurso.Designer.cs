@@ -131,6 +131,7 @@
             this.btLimpiarCampos.TabIndex = 48;
             this.btLimpiarCampos.Text = "Limpiar campos";
             this.btLimpiarCampos.UseVisualStyleBackColor = false;
+            this.btLimpiarCampos.Click += new System.EventHandler(this.btLimpiarCampos_Click_1);
             // 
             // btnEliminar
             // 

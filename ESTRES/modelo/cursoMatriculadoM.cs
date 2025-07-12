@@ -11,7 +11,7 @@
         }
         public string Id { get; set; }
         public string Id_cursos { get; set; }
-        public string Id_estudiante { get; }
-        public string Id_matricula { get; }
+        public string Id_estudiante { get; set; }
+        public string Id_matricula { get; set; }
     }
 }

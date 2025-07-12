@@ -24,9 +24,10 @@ namespace ESTRES.controlador
             x.manipular("UPDATE cursos SET nombre='" + dato.Nombre + "', descripcion='" + dato.Descripcion + "' WHERE id='" + dato.Id + "'");
         }
 
-        public void delete(cursoM dato)
+        // Modificado para aceptar solo el ID para la eliminación
+        public void delete(string idCurso)
         {
-            x.manipular("DELETE FROM cursos WHERE id ='" + dato.Id + "'");
+            x.manipular("DELETE FROM cursos WHERE id ='" + idCurso + "'");
         }
 
         public void select(ComboBox cbBuscarColumna)
@@ -56,8 +57,8 @@ namespace ESTRES.controlador
         {
             DataTable dt = x.manipular("SELECT id, nombre, descripcion FROM cursos");
             combo.DataSource = dt;
-            combo.DisplayMember = "id"; 
-            combo.ValueMember = "id";   
+            combo.DisplayMember = "id";
+            combo.ValueMember = "id";
             combo.SelectedIndex = -1;
         }
     }

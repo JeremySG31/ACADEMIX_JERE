@@ -19,9 +19,10 @@ namespace ESTRES.negocio
         {
             x.update(new cursoM(id, nombre, descripcion));
         }
-        public void eliminar(string id, string descripcion)
+        // Modificado para eliminar solo por ID
+        public void eliminar(string id)
         {
-            x.delete(new cursoM(id, "", descripcion));
+            x.delete(id);
         }
         public void seleccionar(DataGridView L)
         {

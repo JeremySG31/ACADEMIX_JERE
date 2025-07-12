@@ -24,29 +24,29 @@ namespace Academix.controlador
             x.manipular("UPDATE cursos_matriculados SET id_matricula='" + dato.Id_matricula + "', id_cursos='" + dato.Id_cursos + "', id_estudiante='" + dato.Id_estudiante + "' WHERE id='" + dato.Id + "'");
         }
 
-        public void delete(cursoMatriculadoM dato)
+        public void delete(string idCursoMatriculado)
         {
-            x.manipular("DELETE FROM cursos_matriculados WHERE id ='" + dato.Id + "'");
+            x.manipular("DELETE FROM cursos_matriculados WHERE id ='" + idCursoMatriculado + "'");
         }
 
         public void selectBuscarColumna(ComboBox cb)
         {
-            DataTable dt = x.manipular("SELECT id,id_estudiante FROM cursos_matriculados");
+            DataTable dt = x.manipular("SELECT id, id_estudiante FROM cursos_matriculados");
             cb.DataSource = dt;
             cb.DisplayMember = "id";
-            cb.ValueMember = "id_estudiante";
+            cb.ValueMember = "id";
             cb.SelectedIndex = -1;
         }
 
         public void select(DataGridView L)
         {
             string consulta = "SELECT cm.id, cm.id_matricula, " +
-                              "cm.id_cursos, c.nombre AS nombre_curso, " +
-                              "cm.id_estudiante " +
-                              "FROM cursos_matriculados cm " +
-                              "LEFT JOIN matriculas m ON cm.id_matricula = m.id " +
-                              "LEFT JOIN cursos c ON cm.id_cursos = c.id " +
-                              "LEFT JOIN estudiantes e ON cm.id_estudiante = e.id";
+                                  "cm.id_cursos, c.nombre AS nombre_curso, " +
+                                  "cm.id_estudiante " +
+                                  "FROM cursos_matriculados cm " +
+                                  "LEFT JOIN matriculas m ON cm.id_matricula = m.id " +
+                                  "LEFT JOIN cursos c ON cm.id_cursos = c.id " +
+                                  "LEFT JOIN estudiantes e ON cm.id_estudiante = e.id";
 
             DataTable dt = x.manipular(consulta);
 

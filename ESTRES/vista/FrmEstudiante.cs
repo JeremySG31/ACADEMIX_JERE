@@ -33,7 +33,7 @@ namespace ESTRES.vista
         {
             if (cbIdModificar.SelectedItem is DataRowView fila)
             {
-                txtIdEstudiante.Text = fila["id"].ToString(); 
+                txtIdEstudiante.Text = fila["id"].ToString();
                 txtNombres.Text = fila["nombres"].ToString();
                 txtNombreUsuario.Text = fila["nombre_usuario"].ToString();
                 txtApePater.Text = fila["ape_paterno"].ToString();
@@ -46,9 +46,11 @@ namespace ESTRES.vista
         private void ActualizarCampos()
         {
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
-            estudianteC controlador = new estudianteC(); 
+            cbBuscarColumna.SelectedIndexChanged -= cbBuscarColumna_SelectedIndexChanged;
 
-            dgvUsuarios.DataSource = null; 
+            estudianteC controlador = new estudianteC();
+
+            dgvUsuarios.DataSource = null;
             cbBuscarColumna.DataSource = null;
             cbEstado.DataSource = null;
             cbIdModificar.DataSource = null;
@@ -69,13 +71,18 @@ namespace ESTRES.vista
             cbIdEliminar.Text = "";
 
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
+            cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
+
             LimpiarCampos();
         }
 
         private void LimpiarCampos()
         {
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
-            txtIdEstudiante.Clear(); 
+            cbBuscarColumna.SelectedIndexChanged -= cbBuscarColumna_SelectedIndexChanged;
+
+
+            txtIdEstudiante.Clear();
             txtNombres.Clear();
             txtNombreUsuario.Clear();
             txtApePater.Clear();
@@ -89,7 +96,9 @@ namespace ESTRES.vista
             cbBuscarColumna.SelectedIndex = -1;
             cbBuscarColumna.Text = "";
             txtBuscar.Clear();
+
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
+            cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
         }
 
         private void btnInsertar_Click(object sender, EventArgs e)
@@ -98,9 +107,10 @@ namespace ESTRES.vista
 
             try
             {
-                estudianteN x= new estudianteN(); 
-                x.insertar(txtIdEstudiante.Text, txtNombres.Text,txtNombreUsuario.Text,txtApePater.Text,txtApeMater.Text,cbEstado.SelectedValue?.ToString() ?? "" );
+                estudianteN x = new estudianteN();
+                x.insertar(txtIdEstudiante.Text, txtNombres.Text, txtNombreUsuario.Text, txtApePater.Text, txtApeMater.Text, cbEstado.SelectedValue?.ToString() ?? "");
                 ActualizarCampos();
+                MessageBox.Show("Estudiante insertado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -111,12 +121,18 @@ namespace ESTRES.vista
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if (!ValidarLlenarCampos()) return;
+            if (cbIdModificar.SelectedValue == null || string.IsNullOrEmpty(cbIdModificar.SelectedValue.ToString()))
+            {
+                MessageBox.Show("Por favor, seleccione un ID de estudiante para modificar.", "Selección Requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             try
             {
                 estudianteN x = new estudianteN();
-                x.modificar(txtIdEstudiante.Text, txtNombres.Text,txtNombreUsuario.Text,txtApePater.Text,txtApeMater.Text,cbEstado.SelectedValue?.ToString() ?? "");
+                x.modificar(txtIdEstudiante.Text, txtNombres.Text, txtNombreUsuario.Text, txtApePater.Text, txtApeMater.Text, cbEstado.SelectedValue?.ToString() ?? "");
                 ActualizarCampos();
+                MessageBox.Show("Estudiante modificado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -126,7 +142,7 @@ namespace ESTRES.vista
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (cbIdEliminar.SelectedValue == null)
+            if (cbIdEliminar.SelectedValue == null || string.IsNullOrEmpty(cbIdEliminar.SelectedValue.ToString()))
             {
                 MessageBox.Show("Por favor, seleccione un registro para eliminar.", "Selección requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -134,9 +150,10 @@ namespace ESTRES.vista
 
             try
             {
-                estudianteN x = new estudianteN(); 
-                x.eliminar(cbIdEliminar.Text);
+                estudianteN x = new estudianteN();
+                x.eliminar(cbIdEliminar.SelectedValue.ToString()); 
                 ActualizarCampos();
+                MessageBox.Show("Estudiante eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -146,7 +163,7 @@ namespace ESTRES.vista
 
         private bool ValidarLlenarCampos()
         {
-            if (string.IsNullOrEmpty(txtIdEstudiante.Text) || 
+            if (string.IsNullOrEmpty(txtIdEstudiante.Text) ||
                 string.IsNullOrEmpty(txtNombres.Text) ||
                 string.IsNullOrEmpty(txtNombreUsuario.Text) ||
                 string.IsNullOrEmpty(txtApePater.Text) ||
@@ -167,7 +184,6 @@ namespace ESTRES.vista
         private void btLimpiarCampos_Click_1(object sender, EventArgs e)
         {
             LimpiarCampos();
-
         }
     }
 }

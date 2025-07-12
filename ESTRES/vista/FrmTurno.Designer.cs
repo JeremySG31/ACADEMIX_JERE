@@ -103,7 +103,7 @@
             this.dgvUsuarios.RowHeadersWidth = 51;
             this.dgvUsuarios.Size = new System.Drawing.Size(536, 320);
             this.dgvUsuarios.TabIndex = 3;
-            this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
+            this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellClick);
             // 
             // label1
             // 

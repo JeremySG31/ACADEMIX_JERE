@@ -105,7 +105,7 @@
             this.dgvUsuarios.RowHeadersWidth = 51;
             this.dgvUsuarios.Size = new System.Drawing.Size(534, 332);
             this.dgvUsuarios.TabIndex = 3;
-            this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
+            this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellClick);
             // 
             // label1
             // 
@@ -341,7 +341,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmAniosLectivos";
             this.Text = "FrmAniosLectivos";
-            this.Load += new System.EventHandler(this.FrmAniosLectivos_Load_1);
+            this.Load += new System.EventHandler(this.FrmAniosLectivos_Load);
             this.grpListadoBusqueda.ResumeLayout(false);
             this.grpListadoBusqueda.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();

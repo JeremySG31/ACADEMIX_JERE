@@ -16,7 +16,6 @@ namespace Academix.vista
             this.cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
             this.dgvCursosMatriculados.CellClick += dgvCursosMatriculados_CellClick;
             this.btLimpiarCampos.Click += btLimpiarCampos_Click;
-
             this.btnInsertar.Click += btnInsertar_Click;
             this.btnModificar.Click += btnModificar_Click;
             this.btnEliminar.Click += btnEliminar_Click;
@@ -31,32 +30,22 @@ namespace Academix.vista
         {
             cbBuscarColumna.SelectedIndexChanged -= cbBuscarColumna_SelectedIndexChanged;
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
-
             cursoMatriculadoC controlador = new cursoMatriculadoC();
-
             dgvCursosMatriculados.DataSource = null;
             controlador.select(dgvCursosMatriculados);
-
             cbBuscarColumna.DataSource = null;
             controlador.selectBuscarColumna(cbBuscarColumna);
-
             cbEstudiantes.DataSource = null;
             controlador.selectEstudiantes(cbEstudiantes);
-
             cbCursos.DataSource = null;
             controlador.selectCursos(cbCursos);
-
             cbIdMatricula.DataSource = null;
             controlador.selectMatriculas(cbIdMatricula);
-
             cbIdModificar.DataSource = null;
             controlador.selectIDModificar(cbIdModificar);
-
             cbIdEliminar.DataSource = null;
             controlador.selectIDEliminar(cbIdEliminar);
-
             LimpiarCampos();
-
             cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
         }
@@ -65,7 +54,6 @@ namespace Academix.vista
         {
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged -= cbBuscarColumna_SelectedIndexChanged;
-
             txtCursoMatriculado.Text = "";
             cbEstudiantes.SelectedIndex = -1;
             cbEstudiantes.Text = "";
@@ -73,16 +61,13 @@ namespace Academix.vista
             cbCursos.Text = "";
             cbIdMatricula.SelectedIndex = -1;
             cbIdMatricula.Text = "";
-
             cbBuscarColumna.SelectedIndex = -1;
             cbBuscarColumna.Text = "";
             txtBuscar.Clear();
-
             cbIdModificar.SelectedIndex = -1;
             cbIdModificar.Text = "";
             cbIdEliminar.SelectedIndex = -1;
             cbIdEliminar.Text = "";
-
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
         }
@@ -154,15 +139,8 @@ namespace Academix.vista
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (cbIdEliminar.SelectedValue == null || string.IsNullOrEmpty(cbIdEliminar.SelectedValue.ToString()))
-            {
-                MessageBox.Show("Seleccione un ID de curso matriculado para eliminar.", "Selección Requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             cursoMatriculadoN negocio = new cursoMatriculadoN();
-            string idAEliminar = cbIdEliminar.SelectedValue.ToString();
-            negocio.eliminar(idAEliminar);
+            negocio.eliminar(cbIdEliminar.Text);
             ActualizarCampos();
         }
 

@@ -34,10 +34,10 @@
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btLimpiarCampos = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnInsertar = new System.Windows.Forms.Button();
-            this.btLimpiarCampos = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbIdModificar = new System.Windows.Forms.ComboBox();
@@ -45,12 +45,12 @@
             this.lblRol = new System.Windows.Forms.Label();
             this.cbIdEliminar = new System.Windows.Forms.ComboBox();
             this.grpDatosPrincipales = new System.Windows.Forms.GroupBox();
-            this.cbIdSecciones = new System.Windows.Forms.ComboBox();
+            this.cbSeccion = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbEstudiantes = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.cbSeccion = new System.Windows.Forms.ComboBox();
+            this.txtIdSeccion = new System.Windows.Forms.TextBox();
             this.grpListadoBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -98,7 +98,6 @@
             this.dgvUsuarios.RowHeadersWidth = 51;
             this.dgvUsuarios.Size = new System.Drawing.Size(689, 374);
             this.dgvUsuarios.TabIndex = 3;
-            this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
             // 
             // label1
             // 
@@ -120,6 +119,19 @@
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ACCIONES";
+            // 
+            // btLimpiarCampos
+            // 
+            this.btLimpiarCampos.BackColor = System.Drawing.Color.Snow;
+            this.btLimpiarCampos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLimpiarCampos.ForeColor = System.Drawing.Color.Black;
+            this.btLimpiarCampos.Location = new System.Drawing.Point(31, 276);
+            this.btLimpiarCampos.Name = "btLimpiarCampos";
+            this.btLimpiarCampos.Size = new System.Drawing.Size(178, 46);
+            this.btLimpiarCampos.TabIndex = 50;
+            this.btLimpiarCampos.Text = "Limpiar campos";
+            this.btLimpiarCampos.UseVisualStyleBackColor = false;
+            this.btLimpiarCampos.Click += new System.EventHandler(this.btLimpiarCampos_Click_1);
             // 
             // btnEliminar
             // 
@@ -156,18 +168,6 @@
             this.btnInsertar.Text = "Registrar nueva sección";
             this.btnInsertar.UseVisualStyleBackColor = false;
             this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
-            // 
-            // btLimpiarCampos
-            // 
-            this.btLimpiarCampos.BackColor = System.Drawing.Color.Snow;
-            this.btLimpiarCampos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLimpiarCampos.ForeColor = System.Drawing.Color.Black;
-            this.btLimpiarCampos.Location = new System.Drawing.Point(31, 276);
-            this.btLimpiarCampos.Name = "btLimpiarCampos";
-            this.btLimpiarCampos.Size = new System.Drawing.Size(178, 46);
-            this.btLimpiarCampos.TabIndex = 50;
-            this.btLimpiarCampos.Text = "Limpiar campos";
-            this.btLimpiarCampos.UseVisualStyleBackColor = false;
             // 
             // groupBox1
             // 
@@ -223,8 +223,8 @@
             // 
             // grpDatosPrincipales
             // 
+            this.grpDatosPrincipales.Controls.Add(this.txtIdSeccion);
             this.grpDatosPrincipales.Controls.Add(this.cbSeccion);
-            this.grpDatosPrincipales.Controls.Add(this.cbIdSecciones);
             this.grpDatosPrincipales.Controls.Add(this.label2);
             this.grpDatosPrincipales.Controls.Add(this.cbEstudiantes);
             this.grpDatosPrincipales.Controls.Add(this.label3);
@@ -236,12 +236,39 @@
             this.grpDatosPrincipales.TabStop = false;
             this.grpDatosPrincipales.Text = "DATOS PRINCIPALES";
             // 
-            // cbIdSecciones
+            // cbSeccion
             // 
-            this.cbIdSecciones.Location = new System.Drawing.Point(165, 27);
-            this.cbIdSecciones.Name = "cbIdSecciones";
-            this.cbIdSecciones.Size = new System.Drawing.Size(231, 24);
-            this.cbIdSecciones.TabIndex = 27;
+            this.cbSeccion.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z"});
+            this.cbSeccion.Location = new System.Drawing.Point(165, 89);
+            this.cbSeccion.Name = "cbSeccion";
+            this.cbSeccion.Size = new System.Drawing.Size(231, 24);
+            this.cbSeccion.TabIndex = 28;
             // 
             // label2
             // 
@@ -274,12 +301,12 @@
             this.label6.TabIndex = 19;
             this.label6.Text = "ID Estudiante:";
             // 
-            // cbSeccion
+            // txtIdSeccion
             // 
-            this.cbSeccion.Location = new System.Drawing.Point(165, 89);
-            this.cbSeccion.Name = "cbSeccion";
-            this.cbSeccion.Size = new System.Drawing.Size(231, 24);
-            this.cbSeccion.TabIndex = 28;
+            this.txtIdSeccion.Location = new System.Drawing.Point(165, 25);
+            this.txtIdSeccion.Name = "txtIdSeccion";
+            this.txtIdSeccion.Size = new System.Drawing.Size(230, 22);
+            this.txtIdSeccion.TabIndex = 5;
             // 
             // FrmSeccion
             // 
@@ -300,6 +327,7 @@
             this.groupBox1.ResumeLayout(false);
             this.grpInformacionAdicional.ResumeLayout(false);
             this.grpDatosPrincipales.ResumeLayout(false);
+            this.grpDatosPrincipales.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -324,10 +352,10 @@
         private System.Windows.Forms.ComboBox cbIdEliminar;
         private System.Windows.Forms.GroupBox grpDatosPrincipales;
         private System.Windows.Forms.ComboBox cbSeccion;
-        private System.Windows.Forms.ComboBox cbIdSecciones;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbEstudiantes;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtIdSeccion;
     }
 }

@@ -11,18 +11,22 @@ namespace Academix.negocio
         {
             x = new seccionC();
         }
+
         public void insertar(string id, string nombre, string id_estudiante)
         {
             x.insert(new seccionM(id, nombre, id_estudiante));
         }
+
         public void modificar(string id, string nombre, string id_estudiante)
         {
             x.update(new seccionM(id, nombre, id_estudiante));
         }
-        public void eliminar(string id, string id_estudiante)
+
+        public void eliminar(string id)
         {
-            x.delete(new seccionM(id, "", id_estudiante));
+            x.delete(new seccionM(id, "", ""));
         }
+
         public void seleccionar(DataGridView L)
         {
             x.select(L);

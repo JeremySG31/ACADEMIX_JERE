@@ -40,9 +40,15 @@ namespace ESTRES.vista
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnEliminar_Click(object sender, EventArgs e)
         {
 
         }
+        private void btLimpiarCampos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

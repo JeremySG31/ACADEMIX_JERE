@@ -14,6 +14,8 @@ namespace Academix.vista
             this.Load += FrmSeccion_Load;
             this.cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
             this.cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
+            this.btLimpiarCampos.Click += btLimpiarCampos_Click_1;
+
         }
 
         private void FrmSeccion_Load(object sender, EventArgs e)

@@ -120,7 +120,7 @@
             this.groupBox3.Controls.Add(this.btnEliminar);
             this.groupBox3.Controls.Add(this.btnModificar);
             this.groupBox3.Controls.Add(this.btnInsertar);
-            this.groupBox3.Location = new System.Drawing.Point(378, 48);
+            this.groupBox3.Location = new System.Drawing.Point(378, 49);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);

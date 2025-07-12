@@ -13,9 +13,8 @@
 
         }
 
-        public string Id { get => id; set => id = value; }
-        public string Id_estudiante { get => id_estudiante; set => id_estudiante = value; }
-
-        public string Nombre { get => nombre; set => nombre = value; }
+        public string Id { get ; set ; }
+        public string Id_estudiante { get ; set ; }
+        public string Nombre { get; set; }
     }
 }

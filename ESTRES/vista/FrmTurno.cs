@@ -1,4 +1,5 @@
 ﻿using ESTRES.controlador;
+using ESTRES.negocio;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -35,7 +36,8 @@ namespace ESTRES.vista
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-
+            turnoN x = new turnoN();
+            x.insertar(txtIdTurno.Text, cbEstudiantes.Text, cbTurno.Text);
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

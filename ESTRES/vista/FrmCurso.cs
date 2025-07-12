@@ -1,4 +1,5 @@
 ﻿using ESTRES.controlador;
+using ESTRES.negocio;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -12,17 +13,17 @@ namespace ESTRES.vista
             InitializeComponent();
             this.Load += FrmCurso_Load;
             this.cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
+            this.btnInsertar.Click += btnInsertar_Click;
+            this.btnModificar.Click += btnModificar_Click;
+            this.btnEliminar.Click += btnEliminar_Click;
+            this.btLimpiarCampos.Click += btLimpiarCampos_Click;
+            this.cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
+            this.dgvCursos.CellClick += dgvCursos_CellClick;
         }
 
         private void FrmCurso_Load(object sender, EventArgs e)
         {
-            cursoC controlador = new cursoC();
-            controlador.select(dgvCursos);
-            controlador.select(cbBuscarColumna);
-        }
-        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            ActualizarCampos();
         }
 
         private void cbBuscarColumna_SelectedIndexChanged(object sender, EventArgs e)
@@ -33,19 +34,109 @@ namespace ESTRES.vista
             }
         }
 
+        private void cbIdModificar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbIdModificar.SelectedItem is DataRowView fila)
+            {
+                txtIdCurso.Text = fila["id"].ToString();
+                txtCurso.Text = fila["nombre"].ToString();
+                txtDescripcion.Text = fila["descripcion"].ToString();
+            }
+        }
+
+        private void dgvCursos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvCursos.Rows[e.RowIndex];
+
+                txtIdCurso.Text = row.Cells["id"].Value?.ToString() ?? "";
+                txtCurso.Text = row.Cells["nombre"].Value?.ToString() ?? "";
+                txtDescripcion.Text = row.Cells["descripcion"].Value?.ToString() ?? "";
+            }
+        }
+
+        private void ActualizarCampos()
+        {
+            cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
+
+            cursoC controlador = new cursoC();
+
+            dgvCursos.DataSource = null;
+            controlador.select(dgvCursos);
+
+            cbBuscarColumna.DataSource = null;
+            controlador.select(cbBuscarColumna);
+
+            cbIdModificar.DataSource = null;
+            controlador.selectIDModificar(cbIdModificar);
+
+            cbIdEliminar.DataSource = null;
+            controlador.selectIDEliminar(cbIdEliminar);
+
+            cbBuscarColumna.SelectedIndex = -1;
+            cbBuscarColumna.Text = "";
+            txtBuscar.Clear();
+            cbIdModificar.SelectedIndex = -1;
+            cbIdModificar.Text = "";
+            cbIdEliminar.SelectedIndex = -1;
+            cbIdEliminar.Text = "";
+
+            cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
+            LimpiarCampos();
+        }
+
+        private void LimpiarCampos()
+        {
+            cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
+
+            txtIdCurso.Clear();
+            txtCurso.Clear();
+            txtDescripcion.Clear();
+
+            cbBuscarColumna.SelectedIndex = -1;
+            cbBuscarColumna.Text = "";
+            txtBuscar.Clear();
+            cbIdModificar.SelectedIndex = -1;
+            cbIdModificar.Text = "";
+            cbIdEliminar.SelectedIndex = -1;
+            cbIdEliminar.Text = "";
+
+            cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
+        }
+
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-    
+                cursoN negocio = new cursoN();
+                negocio.insertar(txtIdCurso.Text, txtCurso.Text, txtDescripcion.Text);
+                ActualizarCampos();
         }
+        
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
+                cursoN negocio = new cursoN();
+                negocio.modificar(txtIdCurso.Text, txtCurso.Text, txtDescripcion.Text);
+                ActualizarCampos();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
+                cursoN negocio = new cursoN();
+                negocio.eliminar(cbIdEliminar.SelectedValue.ToString(), "");
+                ActualizarCampos();
         }
+
+        private void btLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+        }
+
+        private void btActualizarCampos_Click(object sender, EventArgs e)
+        {
+            ActualizarCampos();
+        }
+
+
     }
 }

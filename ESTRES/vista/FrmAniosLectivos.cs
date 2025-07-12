@@ -46,5 +46,10 @@ namespace Academix.vista
         {
 
         }
+
+        private void FrmAniosLectivos_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

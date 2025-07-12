@@ -16,7 +16,7 @@ namespace ESTRES.dao
             try
             {
                 //cnSql = new SqlConnection("Data Source=176.50.40.250;" + "Initial Catalog=G1asistenciaEC;User ID=sa;" + "password=12345");
-                cnSql = new SqlConnection("Data Source=192.168.18.157;" + "Initial Catalog=G1asistenciaEC;Integrated Security=True;");
+                cnSql = new SqlConnection("Data Source=176.50.40.243;" + "Initial Catalog=G1asistenciaEC;Integrated Security=True;");
 
                 cnSql.Open();
                 // MessageBox.Show("Exito", "Conexion", MessageBoxButtons.OK, MessageBoxIcon.Information);                

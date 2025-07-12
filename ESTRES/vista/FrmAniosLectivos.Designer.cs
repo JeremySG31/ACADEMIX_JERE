@@ -34,12 +34,31 @@
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btLimpiarCampos = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnInsertar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbIdModificar = new System.Windows.Forms.ComboBox();
+            this.grpInformacionAdicional = new System.Windows.Forms.GroupBox();
+            this.lblRol = new System.Windows.Forms.Label();
+            this.cbIdEliminar = new System.Windows.Forms.ComboBox();
+            this.grpDatosPrincipales = new System.Windows.Forms.GroupBox();
+            this.txtAnioLectivo = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.cbEstado = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtIdAnioLectivo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.grpListadoBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.grpInformacionAdicional.SuspendLayout();
+            this.grpDatosPrincipales.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpListadoBusqueda
@@ -48,26 +67,30 @@
             this.grpListadoBusqueda.Controls.Add(this.txtBuscar);
             this.grpListadoBusqueda.Controls.Add(this.dgvUsuarios);
             this.grpListadoBusqueda.Controls.Add(this.label1);
-            this.grpListadoBusqueda.Location = new System.Drawing.Point(401, 36);
+            this.grpListadoBusqueda.Location = new System.Drawing.Point(578, 11);
+            this.grpListadoBusqueda.Margin = new System.Windows.Forms.Padding(2);
             this.grpListadoBusqueda.Name = "grpListadoBusqueda";
-            this.grpListadoBusqueda.Size = new System.Drawing.Size(615, 507);
+            this.grpListadoBusqueda.Padding = new System.Windows.Forms.Padding(2);
+            this.grpListadoBusqueda.Size = new System.Drawing.Size(549, 377);
             this.grpListadoBusqueda.TabIndex = 9;
             this.grpListadoBusqueda.TabStop = false;
             this.grpListadoBusqueda.Text = "LISTADO Y BÚSQUEDA";
             // 
             // cbBuscarColumna
             // 
-            this.cbBuscarColumna.Location = new System.Drawing.Point(70, 17);
+            this.cbBuscarColumna.Location = new System.Drawing.Point(52, 14);
+            this.cbBuscarColumna.Margin = new System.Windows.Forms.Padding(2);
             this.cbBuscarColumna.Name = "cbBuscarColumna";
-            this.cbBuscarColumna.Size = new System.Drawing.Size(140, 24);
+            this.cbBuscarColumna.Size = new System.Drawing.Size(106, 21);
             this.cbBuscarColumna.TabIndex = 1;
             this.cbBuscarColumna.SelectedIndexChanged += new System.EventHandler(this.cbBuscarColumna_SelectedIndexChanged);
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(247, 19);
+            this.txtBuscar.Location = new System.Drawing.Point(185, 15);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(230, 22);
+            this.txtBuscar.Size = new System.Drawing.Size(174, 20);
             this.txtBuscar.TabIndex = 2;
             // 
             // dgvUsuarios
@@ -76,76 +99,257 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUsuarios.ColumnHeadersHeight = 29;
-            this.dgvUsuarios.Location = new System.Drawing.Point(10, 45);
+            this.dgvUsuarios.Location = new System.Drawing.Point(8, 37);
+            this.dgvUsuarios.Margin = new System.Windows.Forms.Padding(2);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.RowHeadersWidth = 51;
-            this.dgvUsuarios.Size = new System.Drawing.Size(595, 452);
+            this.dgvUsuarios.Size = new System.Drawing.Size(534, 332);
             this.dgvUsuarios.TabIndex = 3;
             this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(10, 19);
+            this.label1.Location = new System.Drawing.Point(8, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 23);
+            this.label1.Size = new System.Drawing.Size(40, 19);
             this.label1.TabIndex = 4;
             this.label1.Text = "Buscar:";
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btLimpiarCampos);
             this.groupBox3.Controls.Add(this.btnEliminar);
             this.groupBox3.Controls.Add(this.btnModificar);
             this.groupBox3.Controls.Add(this.btnInsertar);
-            this.groupBox3.Location = new System.Drawing.Point(86, 149);
+            this.groupBox3.Location = new System.Drawing.Point(380, 48);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(242, 284);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Size = new System.Drawing.Size(182, 289);
             this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ACCIONES";
             // 
+            // btLimpiarCampos
+            // 
+            this.btLimpiarCampos.BackColor = System.Drawing.Color.Snow;
+            this.btLimpiarCampos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLimpiarCampos.ForeColor = System.Drawing.Color.Black;
+            this.btLimpiarCampos.Location = new System.Drawing.Point(23, 222);
+            this.btLimpiarCampos.Margin = new System.Windows.Forms.Padding(2);
+            this.btLimpiarCampos.Name = "btLimpiarCampos";
+            this.btLimpiarCampos.Size = new System.Drawing.Size(134, 37);
+            this.btLimpiarCampos.TabIndex = 51;
+            this.btLimpiarCampos.Text = "Limpiar campos";
+            this.btLimpiarCampos.UseVisualStyleBackColor = false;
+            // 
             // btnEliminar
             // 
+            this.btnEliminar.BackColor = System.Drawing.Color.Red;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(31, 205);
+            this.btnEliminar.Location = new System.Drawing.Point(23, 167);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(178, 43);
+            this.btnEliminar.Size = new System.Drawing.Size(134, 35);
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar año lectivo";
+            this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
+            this.btnModificar.BackColor = System.Drawing.Color.DarkTurquoise;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(31, 132);
+            this.btnModificar.Location = new System.Drawing.Point(23, 107);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(178, 43);
+            this.btnModificar.Size = new System.Drawing.Size(134, 35);
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar año lectivo";
+            this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnInsertar
             // 
+            this.btnInsertar.BackColor = System.Drawing.Color.SpringGreen;
             this.btnInsertar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInsertar.Location = new System.Drawing.Point(31, 53);
+            this.btnInsertar.Location = new System.Drawing.Point(23, 43);
+            this.btnInsertar.Margin = new System.Windows.Forms.Padding(2);
             this.btnInsertar.Name = "btnInsertar";
-            this.btnInsertar.Size = new System.Drawing.Size(178, 48);
+            this.btnInsertar.Size = new System.Drawing.Size(134, 39);
             this.btnInsertar.TabIndex = 0;
             this.btnInsertar.Text = "Registrar nuevo año lectivo";
+            this.btnInsertar.UseVisualStyleBackColor = false;
             this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.cbIdModificar);
+            this.groupBox1.Location = new System.Drawing.Point(57, 219);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(307, 46);
+            this.groupBox1.TabIndex = 60;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = " MODIFICAR";
+            // 
+            // label7
+            // 
+            this.label7.Location = new System.Drawing.Point(8, 16);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(106, 19);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Seleccione el ID:";
+            // 
+            // cbIdModificar
+            // 
+            this.cbIdModificar.Location = new System.Drawing.Point(118, 14);
+            this.cbIdModificar.Margin = new System.Windows.Forms.Padding(2);
+            this.cbIdModificar.Name = "cbIdModificar";
+            this.cbIdModificar.Size = new System.Drawing.Size(180, 21);
+            this.cbIdModificar.TabIndex = 1;
+            // 
+            // grpInformacionAdicional
+            // 
+            this.grpInformacionAdicional.Controls.Add(this.lblRol);
+            this.grpInformacionAdicional.Controls.Add(this.cbIdEliminar);
+            this.grpInformacionAdicional.Location = new System.Drawing.Point(57, 269);
+            this.grpInformacionAdicional.Margin = new System.Windows.Forms.Padding(2);
+            this.grpInformacionAdicional.Name = "grpInformacionAdicional";
+            this.grpInformacionAdicional.Padding = new System.Windows.Forms.Padding(2);
+            this.grpInformacionAdicional.Size = new System.Drawing.Size(307, 45);
+            this.grpInformacionAdicional.TabIndex = 59;
+            this.grpInformacionAdicional.TabStop = false;
+            this.grpInformacionAdicional.Text = "ELIMINAR";
+            // 
+            // lblRol
+            // 
+            this.lblRol.Location = new System.Drawing.Point(8, 16);
+            this.lblRol.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(106, 19);
+            this.lblRol.TabIndex = 0;
+            this.lblRol.Text = "Seleccione el ID:";
+            // 
+            // cbIdEliminar
+            // 
+            this.cbIdEliminar.Location = new System.Drawing.Point(118, 14);
+            this.cbIdEliminar.Margin = new System.Windows.Forms.Padding(2);
+            this.cbIdEliminar.Name = "cbIdEliminar";
+            this.cbIdEliminar.Size = new System.Drawing.Size(180, 21);
+            this.cbIdEliminar.TabIndex = 1;
+            // 
+            // grpDatosPrincipales
+            // 
+            this.grpDatosPrincipales.Controls.Add(this.txtAnioLectivo);
+            this.grpDatosPrincipales.Controls.Add(this.txtDescripcion);
+            this.grpDatosPrincipales.Controls.Add(this.cbEstado);
+            this.grpDatosPrincipales.Controls.Add(this.label4);
+            this.grpDatosPrincipales.Controls.Add(this.txtIdAnioLectivo);
+            this.grpDatosPrincipales.Controls.Add(this.label2);
+            this.grpDatosPrincipales.Controls.Add(this.label3);
+            this.grpDatosPrincipales.Controls.Add(this.label6);
+            this.grpDatosPrincipales.Location = new System.Drawing.Point(57, 57);
+            this.grpDatosPrincipales.Margin = new System.Windows.Forms.Padding(2);
+            this.grpDatosPrincipales.Name = "grpDatosPrincipales";
+            this.grpDatosPrincipales.Padding = new System.Windows.Forms.Padding(2);
+            this.grpDatosPrincipales.Size = new System.Drawing.Size(307, 133);
+            this.grpDatosPrincipales.TabIndex = 58;
+            this.grpDatosPrincipales.TabStop = false;
+            this.grpDatosPrincipales.Text = "DATOS PRINCIPALES";
+            // 
+            // txtAnioLectivo
+            // 
+            this.txtAnioLectivo.Location = new System.Drawing.Point(124, 47);
+            this.txtAnioLectivo.Name = "txtAnioLectivo";
+            this.txtAnioLectivo.Size = new System.Drawing.Size(174, 20);
+            this.txtAnioLectivo.TabIndex = 32;
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Location = new System.Drawing.Point(124, 73);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(174, 20);
+            this.txtDescripcion.TabIndex = 31;
+            // 
+            // cbEstado
+            // 
+            this.cbEstado.Location = new System.Drawing.Point(124, 102);
+            this.cbEstado.Margin = new System.Windows.Forms.Padding(2);
+            this.cbEstado.Name = "cbEstado";
+            this.cbEstado.Size = new System.Drawing.Size(174, 21);
+            this.cbEstado.TabIndex = 30;
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(17, 103);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(92, 19);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Estado:";
+            // 
+            // txtIdAnioLectivo
+            // 
+            this.txtIdAnioLectivo.Location = new System.Drawing.Point(124, 20);
+            this.txtIdAnioLectivo.Margin = new System.Windows.Forms.Padding(2);
+            this.txtIdAnioLectivo.Name = "txtIdAnioLectivo";
+            this.txtIdAnioLectivo.Size = new System.Drawing.Size(174, 20);
+            this.txtIdAnioLectivo.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(17, 23);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 19);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "ID Año Lectivo:";
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(16, 75);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 19);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Descripción:";
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(17, 50);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(102, 19);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Año:";
             // 
             // FrmAniosLectivos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1043, 566);
+            this.ClientSize = new System.Drawing.Size(1138, 401);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.grpInformacionAdicional);
+            this.Controls.Add(this.grpDatosPrincipales);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.grpListadoBusqueda);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmAniosLectivos";
             this.Text = "FrmAniosLectivos";
+            this.Load += new System.EventHandler(this.FrmAniosLectivos_Load_1);
             this.grpListadoBusqueda.ResumeLayout(false);
             this.grpListadoBusqueda.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.grpInformacionAdicional.ResumeLayout(false);
+            this.grpDatosPrincipales.ResumeLayout(false);
+            this.grpDatosPrincipales.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -161,5 +365,21 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnInsertar;
+        private System.Windows.Forms.Button btLimpiarCampos;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cbIdModificar;
+        private System.Windows.Forms.GroupBox grpInformacionAdicional;
+        private System.Windows.Forms.Label lblRol;
+        private System.Windows.Forms.ComboBox cbIdEliminar;
+        private System.Windows.Forms.GroupBox grpDatosPrincipales;
+        private System.Windows.Forms.TextBox txtIdAnioLectivo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.ComboBox cbEstado;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtAnioLectivo;
     }
 }

@@ -49,19 +49,16 @@ namespace ESTRES.vista
         {
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged; 
             apoderadoC controlador = new apoderadoC();
-
             dgvUsuarios.DataSource = null;
             cbBuscarColumna.DataSource = null;
             cbEstado.DataSource = null;
             cbIdModificar.DataSource = null;
             cbIdEliminar.DataSource = null;
-
             controlador.select(dgvUsuarios);
             controlador.select(cbBuscarColumna); 
             controlador.selectEstado(cbEstado); 
             controlador.selectIDModificar(cbIdModificar); 
             controlador.selectIDEliminar(cbIdEliminar); 
-
             cbIdModificar.SelectedIndex = -1;
             cbIdModificar.Text = "";
             cbBuscarColumna.SelectedIndex = -1; 
@@ -69,7 +66,6 @@ namespace ESTRES.vista
             txtBuscar.Clear(); 
             cbIdEliminar.SelectedIndex = -1;
             cbIdEliminar.Text = "";
-
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
         }
 
@@ -80,15 +76,8 @@ namespace ESTRES.vista
 
             try
             {
-                apoderadoN negocio = new apoderadoN();
-                negocio.insertar(
-                    txtIdApoderado.Text,
-                    txtNombres.Text,
-                    txtNombreUsuario.Text,
-                    txtApePater.Text,
-                    txtApeMater.Text,
-                    cbEstado.SelectedValue?.ToString() ?? ""
-                );
+                apoderadoN x = new apoderadoN();
+                x.insertar(txtIdApoderado.Text,txtNombres.Text,txtNombreUsuario.Text,txtApePater.Text, txtApeMater.Text,cbEstado.SelectedValue?.ToString() ?? "");
                 ActualizarCampos();
             }
             catch (Exception ex)
@@ -130,9 +119,8 @@ namespace ESTRES.vista
 
             try
             {
-                var idSeleccionado = cbIdEliminar.SelectedValue.ToString();
-                apoderadoN negocio = new apoderadoN();
-                negocio.eliminar(idSeleccionado);
+                apoderadoN x = new apoderadoN();
+                x.eliminar(cbIdEliminar.Text);
                 ActualizarCampos();
             }
             catch (Exception ex)

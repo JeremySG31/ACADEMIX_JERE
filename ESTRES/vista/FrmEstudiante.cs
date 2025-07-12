@@ -98,15 +98,8 @@ namespace ESTRES.vista
 
             try
             {
-                estudianteN negocio = new estudianteN(); 
-                negocio.insertar(
-                    txtIdEstudiante.Text, 
-                    txtNombres.Text,
-                    txtNombreUsuario.Text,
-                    txtApePater.Text,
-                    txtApeMater.Text,
-                    cbEstado.SelectedValue?.ToString() ?? ""
-                );
+                estudianteN x= new estudianteN(); 
+                x.insertar(txtIdEstudiante.Text, txtNombres.Text,txtNombreUsuario.Text,txtApePater.Text,txtApeMater.Text,cbEstado.SelectedValue?.ToString() ?? "" );
                 ActualizarCampos();
             }
             catch (Exception ex)
@@ -121,15 +114,8 @@ namespace ESTRES.vista
 
             try
             {
-                estudianteN negocio = new estudianteN();
-                negocio.modificar(
-                    txtIdEstudiante.Text, 
-                    txtNombres.Text,
-                    txtNombreUsuario.Text,
-                    txtApePater.Text,
-                    txtApeMater.Text,
-                    cbEstado.SelectedValue?.ToString() ?? ""
-                );
+                estudianteN x = new estudianteN();
+                x.modificar(txtIdEstudiante.Text, txtNombres.Text,txtNombreUsuario.Text,txtApePater.Text,txtApeMater.Text,cbEstado.SelectedValue?.ToString() ?? "");
                 ActualizarCampos();
             }
             catch (Exception ex)
@@ -148,9 +134,8 @@ namespace ESTRES.vista
 
             try
             {
-                var idSeleccionado = cbIdEliminar.SelectedValue.ToString();
-                estudianteN negocio = new estudianteN(); 
-                negocio.eliminar(idSeleccionado);
+                estudianteN x = new estudianteN(); 
+                x.eliminar(cbIdEliminar.Text);
                 ActualizarCampos();
             }
             catch (Exception ex)

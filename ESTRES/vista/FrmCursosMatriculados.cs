@@ -104,7 +104,6 @@ namespace Academix.vista
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvCursosMatriculados.Rows[e.RowIndex];
-
                 txtCursoMatriculado.Text = row.Cells["id"].Value?.ToString() ?? "";
                 cbIdMatricula.SelectedValue = row.Cells["id_matricula"].Value?.ToString();
                 cbCursos.SelectedValue = row.Cells["id_cursos"].Value?.ToString();
@@ -114,33 +113,25 @@ namespace Academix.vista
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            cursoMatriculadoN negocio = new cursoMatriculadoN();
-            string id = txtCursoMatriculado.Text;
-            string idMatricula = cbIdMatricula.SelectedValue.ToString();
-            string idCursos = cbCursos.SelectedValue.ToString();
-            string idEstudiante = cbEstudiantes.SelectedValue.ToString();
+            cursoMatriculadoN x = new cursoMatriculadoN();
 
-            negocio.insertar(id, idMatricula, idCursos, idEstudiante);
+            x.insertar(txtCursoMatriculado.Text,cbIdMatricula.Text,cbCursos.Text,cbEstudiantes.Text);
             ActualizarCampos();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
 
-            cursoMatriculadoN negocio = new cursoMatriculadoN();
-            string id = txtCursoMatriculado.Text;
-            string idMatricula = cbIdMatricula.SelectedValue.ToString();
-            string idCursos = cbCursos.SelectedValue.ToString();
-            string idEstudiante = cbEstudiantes.SelectedValue.ToString();
+            cursoMatriculadoN x = new cursoMatriculadoN();
 
-            negocio.modificar(id, idMatricula, idCursos, idEstudiante);
+            x.modificar(txtCursoMatriculado.Text,cbIdMatricula.Text,cbCursos.Text,cbEstudiantes.Text);
             ActualizarCampos();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            cursoMatriculadoN negocio = new cursoMatriculadoN();
-            negocio.eliminar(cbIdEliminar.Text);
+            cursoMatriculadoN x = new cursoMatriculadoN();
+            x.eliminar(cbIdEliminar.Text);
             ActualizarCampos();
         }
 

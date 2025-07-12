@@ -94,18 +94,11 @@ namespace Academix.vista
         {
             if (!ValidarLlenarCampos()) return;
 
-            estudianteApoderadoN negocio = new estudianteApoderadoN();
+            estudianteApoderadoN x = new estudianteApoderadoN();
             int prioridad = 0;
             int.TryParse(cbPrioridad.SelectedValue?.ToString(), out prioridad);
 
-            negocio.insertar(
-                txtVinculo.Text,
-                cbApoderado.SelectedValue?.ToString() ?? "",
-                cbEstudiante.SelectedValue?.ToString() ?? "",
-                txtParentesco.Text,
-                prioridad,
-                cbEstado.SelectedValue?.ToString() ?? ""
-            );
+            x.insertar(txtVinculo.Text,cbApoderado.SelectedValue?.ToString() ?? "",cbEstudiante.SelectedValue?.ToString() ?? "", txtParentesco.Text,prioridad, cbEstado.SelectedValue?.ToString() ?? "");
             MessageBox.Show("Registro insertado correctamente.");
             ActualizarCampos();
         }
@@ -116,16 +109,10 @@ namespace Academix.vista
 
             try
             {
-                estudianteApoderadoN negocio = new estudianteApoderadoN();
+                estudianteApoderadoN x = new estudianteApoderadoN();
                 int prioridad = Convert.ToInt32(cbPrioridad.SelectedValue);
 
-                negocio.modificar(
-                    txtVinculo.Text,
-                    cbApoderado.SelectedValue.ToString(),
-                    cbEstudiante.SelectedValue.ToString(),
-                    txtParentesco.Text,
-                    prioridad,
-                    cbEstado.SelectedValue.ToString()
+                x.modificar(txtVinculo.Text, cbApoderado.SelectedValue.ToString(),cbEstudiante.SelectedValue.ToString(),txtParentesco.Text,prioridad,cbEstado.SelectedValue.ToString()
                 );
 
                 MessageBox.Show("Registro modificado correctamente.",
@@ -153,10 +140,8 @@ namespace Academix.vista
                               MessageBoxIcon.Warning);
                 return;
             }
-
-            var idSeleccionado = cbIdEliminar.SelectedValue?.ToString() ?? "";
-            estudianteApoderadoN negocio = new estudianteApoderadoN();
-            negocio.eliminar(idSeleccionado, "", "", "", 0, "");
+            estudianteApoderadoN x = new estudianteApoderadoN();
+            x.eliminar(cbIdEliminar.Text, "", "", "", 0, "");
             MessageBox.Show("Registro eliminado correctamente.");
             ActualizarCampos();
         }

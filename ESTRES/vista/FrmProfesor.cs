@@ -47,19 +47,16 @@ namespace ESTRES.vista
         {
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
             profesorC controlador = new profesorC();
-
             dgvUsuarios.DataSource = null;
             cbBuscarColumna.DataSource = null;
             cbEstado.DataSource = null;
             cbIdModificar.DataSource = null;
             cbIdEliminar.DataSource = null;
-
             controlador.select(dgvUsuarios);
             controlador.select(cbBuscarColumna);
             controlador.selectEstado(cbEstado);
             controlador.selectIDModificar(cbIdModificar);
             controlador.selectIDEliminar(cbIdEliminar);
-
             cbIdModificar.SelectedIndex = -1;
             cbIdModificar.Text = "";
             cbBuscarColumna.SelectedIndex = -1;
@@ -98,15 +95,8 @@ namespace ESTRES.vista
 
             try
             {
-                profesorN negocio = new profesorN(); 
-                negocio.insertar(
-                    txtIdProfesor.Text, 
-                    txtNombres.Text,
-                    txtNombreUsuario.Text,
-                    txtApePater.Text,
-                    txtApeMater.Text,
-                    cbEstado.SelectedValue?.ToString() ?? ""
-                );
+                profesorN x= new profesorN(); 
+                x.insertar(txtIdProfesor.Text, txtNombres.Text,txtNombreUsuario.Text,txtApePater.Text,txtApeMater.Text,cbEstado.SelectedValue?.ToString() ?? "" );
                 ActualizarCampos();
             }
             catch (Exception ex)
@@ -121,15 +111,8 @@ namespace ESTRES.vista
 
             try
             {
-                profesorN negocio = new profesorN(); 
-                negocio.modificar(
-                    txtIdProfesor.Text, 
-                    txtNombres.Text,
-                    txtNombreUsuario.Text,
-                    txtApePater.Text,
-                    txtApeMater.Text,
-                    cbEstado.SelectedValue?.ToString() ?? ""
-                );
+                profesorN x = new profesorN(); 
+                x.modificar(txtIdProfesor.Text, txtNombres.Text, txtNombreUsuario.Text,txtApePater.Text,txtApeMater.Text,cbEstado.SelectedValue?.ToString() ?? "" );
                 ActualizarCampos();
             }
             catch (Exception ex)
@@ -148,9 +131,8 @@ namespace ESTRES.vista
 
             try
             {
-                var idSeleccionado = cbIdEliminar.SelectedValue.ToString();
-                profesorN negocio = new profesorN(); 
-                negocio.eliminar(idSeleccionado);
+                profesorN x = new profesorN(); 
+                x.eliminar(cbIdEliminar.Text);
                 ActualizarCampos();
             }
             catch (Exception ex)

@@ -121,12 +121,8 @@ namespace Academix.vista
 
             try
             {
-                seccionN negocio = new seccionN();
-                string idSeccion = txtIdSeccion.Text; 
-                string idEstudiante = cbEstudiantes.SelectedValue.ToString();
-                string nombreSeccion = cbSeccion.SelectedItem.ToString();
-
-                negocio.insertar(idSeccion, nombreSeccion, idEstudiante);
+                seccionN x = new seccionN();
+                x.insertar(txtIdSeccion.Text,cbEstudiantes.Text,cbSeccion.Text);
                 ActualizarCampos();
             }
             catch (Exception ex)
@@ -143,20 +139,16 @@ namespace Academix.vista
                 return;
             }
 
-                seccionN negocio = new seccionN();
-                string idSeccion = txtIdSeccion.Text; 
-                string idEstudiante = cbEstudiantes.SelectedValue.ToString();
-                string nombreSeccion = cbSeccion.SelectedItem.ToString();
-
-                negocio.modificar(idSeccion, nombreSeccion, idEstudiante);
+                seccionN x = new seccionN();
+                x.modificar(txtIdSeccion.Text,cbEstudiantes.Text,cbSeccion.Text);
                 ActualizarCampos();
    
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-                seccionN negocio = new seccionN();
-                negocio.eliminar(cbIdEliminar.SelectedValue.ToString());
+                seccionN x = new seccionN();
+                x.eliminar(cbIdEliminar.Text);
                 ActualizarCampos();
             }
 

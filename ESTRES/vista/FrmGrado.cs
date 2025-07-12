@@ -26,32 +26,22 @@ namespace Academix.vista
         {
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged -= cbBuscarColumna_SelectedIndexChanged;
-
             gradoC controlador = new gradoC();
-
             dgvUsuarios.DataSource = null;
             controlador.select(dgvUsuarios);
-
             cbEstudiantes.DataSource = null;
             controlador.selectEstudiantes(cbEstudiantes);
-
             cbGrados.DataSource = null;
             controlador.selectGrados(cbGrados);
-
             cbNiveles.DataSource = null;
             controlador.selectNiveles(cbNiveles);
-
             cbBuscarColumna.DataSource = null;
             controlador.selectBuscarColumna(cbBuscarColumna);
-
             cbIdModificar.DataSource = null;
             controlador.selectIDModificar(cbIdModificar);
-
             cbIdEliminar.DataSource = null;
             controlador.selectIDEliminar(cbIdEliminar);
-
             LimpiarCampos();
-
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
         }
@@ -60,7 +50,6 @@ namespace Academix.vista
         {
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged -= cbBuscarColumna_SelectedIndexChanged;
-
             txtIdGrado.Clear();
             cbEstudiantes.SelectedIndex = -1;
             cbEstudiantes.Text = "";
@@ -68,16 +57,13 @@ namespace Academix.vista
             cbGrados.Text = "";
             cbNiveles.SelectedIndex = -1;
             cbNiveles.Text = "";
-
             cbBuscarColumna.SelectedIndex = -1;
             cbBuscarColumna.Text = "";
             txtBuscar.Clear();
-
             cbIdModificar.SelectedIndex = -1;
             cbIdModificar.Text = "";
             cbIdEliminar.SelectedIndex = -1;
             cbIdEliminar.Text = "";
-
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
         }
@@ -106,7 +92,6 @@ namespace Academix.vista
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvUsuarios.Rows[e.RowIndex];
-
                 txtIdGrado.Text = row.Cells["id"].Value?.ToString() ?? "";
                 cbEstudiantes.SelectedValue = row.Cells["id_estudiante"].Value?.ToString() ?? "";
                 cbGrados.SelectedValue = row.Cells["nombres"].Value?.ToString() ?? "";
@@ -124,13 +109,9 @@ namespace Academix.vista
 
             try
             {
-                gradoN negocio = new gradoN();
-                string idGrado = txtIdGrado.Text;
-                string idEstudiante = cbEstudiantes.SelectedValue.ToString();
-                string nombreGrado = cbGrados.SelectedValue.ToString();
-                string nivelGrado = cbNiveles.SelectedValue.ToString();
+                gradoN x = new gradoN();
 
-                negocio.insertar(idGrado, nombreGrado, idEstudiante, nivelGrado);
+                x.insertar(txtIdGrado.Text,cbEstudiantes.Text,cbGrados.Text,cbNiveles.Text);
                 ActualizarCampos();
             }
             catch (Exception)
@@ -152,13 +133,8 @@ namespace Academix.vista
 
             try
             {
-                gradoN negocio = new gradoN();
-                string idGrado = txtIdGrado.Text;
-                string idEstudiante = cbEstudiantes.SelectedValue.ToString();
-                string nombreGrado = cbGrados.SelectedValue.ToString();
-                string nivelGrado = cbNiveles.SelectedValue.ToString();
-
-                negocio.modificar(idGrado, nombreGrado, idEstudiante, nivelGrado);
+                gradoN x = new gradoN();
+                x.modificar(txtIdGrado.Text, cbEstudiantes.Text,cbGrados.Text,cbNiveles.Text);
                 ActualizarCampos();
             }
             catch (Exception)
@@ -173,8 +149,8 @@ namespace Academix.vista
                 return;
             }
 
-            gradoN negocio = new gradoN();
-            negocio.eliminar(cbIdEliminar.SelectedValue.ToString());
+            gradoN x = new gradoN();
+            x.eliminar(cbIdEliminar.Text);
             ActualizarCampos();
         }
         private void btLimpiarCampos_Click_1(object sender, EventArgs e)

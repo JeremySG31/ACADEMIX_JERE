@@ -53,21 +53,15 @@ namespace ESTRES.vista
         private void ActualizarCampos()
         {
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
-
             cursoC controlador = new cursoC();
-
             dgvCursos.DataSource = null;
             controlador.select(dgvCursos);
-
             cbBuscarColumna.DataSource = null;
             controlador.select(cbBuscarColumna);
-
             cbIdModificar.DataSource = null;
             controlador.selectIDModificar(cbIdModificar);
-
             cbIdEliminar.DataSource = null;
             controlador.selectIDEliminar(cbIdEliminar);
-
             cbBuscarColumna.SelectedIndex = -1;
             cbBuscarColumna.Text = "";
             txtBuscar.Clear();
@@ -75,7 +69,6 @@ namespace ESTRES.vista
             cbIdModificar.Text = "";
             cbIdEliminar.SelectedIndex = -1;
             cbIdEliminar.Text = "";
-
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
             LimpiarCampos();
         }
@@ -83,11 +76,9 @@ namespace ESTRES.vista
         private void LimpiarCampos()
         {
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
-
             txtIdCurso.Clear();
             txtCurso.Clear();
             txtDescripcion.Clear();
-
             cbBuscarColumna.SelectedIndex = -1;
             cbBuscarColumna.Text = "";
             txtBuscar.Clear();
@@ -95,22 +86,21 @@ namespace ESTRES.vista
             cbIdModificar.Text = "";
             cbIdEliminar.SelectedIndex = -1;
             cbIdEliminar.Text = "";
-
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
         }
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-                cursoN negocio = new cursoN();
-                negocio.insertar(txtIdCurso.Text, txtCurso.Text, txtDescripcion.Text);
+                cursoN x = new cursoN();
+                x.insertar(txtIdCurso.Text, txtCurso.Text, txtDescripcion.Text);
                 ActualizarCampos();
         }
         
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-                cursoN negocio = new cursoN();
-                negocio.modificar(txtIdCurso.Text, txtCurso.Text, txtDescripcion.Text);
+                cursoN x = new cursoN();
+                x.modificar(txtIdCurso.Text, txtCurso.Text, txtDescripcion.Text);
                 ActualizarCampos();
         }
 
@@ -123,8 +113,8 @@ namespace ESTRES.vista
 
             try
             {
-                cursoN negocio = new cursoN();
-                negocio.eliminar(cbIdEliminar.SelectedValue.ToString(), "");
+                cursoN x= new cursoN();
+                x.eliminar(cbIdEliminar.SelectedValue.ToString(), "");
                 ActualizarCampos();
             }
             catch (Exception)

@@ -11,8 +11,6 @@ namespace ESTRES
         {
             InitializeComponent();
 
-
-
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)

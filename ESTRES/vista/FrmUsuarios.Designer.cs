@@ -51,7 +51,7 @@
             this.cbEstado = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtContrasenia = new System.Windows.Forms.TextBox();
+            this.txtContrasena = new System.Windows.Forms.TextBox();
             this.cbRol = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCorreo = new System.Windows.Forms.TextBox();
@@ -262,7 +262,7 @@
             this.grpDatosPrincipales.Controls.Add(this.cbEstado);
             this.grpDatosPrincipales.Controls.Add(this.label11);
             this.grpDatosPrincipales.Controls.Add(this.label10);
-            this.grpDatosPrincipales.Controls.Add(this.txtContrasenia);
+            this.grpDatosPrincipales.Controls.Add(this.txtContrasena);
             this.grpDatosPrincipales.Controls.Add(this.cbRol);
             this.grpDatosPrincipales.Controls.Add(this.label9);
             this.grpDatosPrincipales.Controls.Add(this.txtCorreo);
@@ -335,13 +335,13 @@
             this.label10.TabIndex = 40;
             this.label10.Text = "Contraseña:";
             // 
-            // txtContrasenia
+            // txtContrasena
             // 
-            this.txtContrasenia.Location = new System.Drawing.Point(165, 247);
-            this.txtContrasenia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtContrasenia.Name = "txtContrasenia";
-            this.txtContrasenia.Size = new System.Drawing.Size(231, 22);
-            this.txtContrasenia.TabIndex = 39;
+            this.txtContrasena.Location = new System.Drawing.Point(165, 247);
+            this.txtContrasena.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.Size = new System.Drawing.Size(231, 22);
+            this.txtContrasena.TabIndex = 39;
             // 
             // cbRol
             // 
@@ -521,7 +521,7 @@
         private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtContrasenia;
+        private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.ComboBox cbRol;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtCorreo;

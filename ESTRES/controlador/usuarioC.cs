@@ -8,13 +8,15 @@ namespace ESTRES.controlador
     internal class usuarioC
     {
         conexion x;
+
         public usuarioC()
         {
             x = new conexion();
         }
+
         public void insert(usuarioM dato)
         {
-            x.manipular("insert into usuarios values('"
+            x.manipular("INSERT INTO usuarios (id, nombre_usuario, nombres, ape_paterno, ape_materno, dni, correo, contrasena, rol, estado, telefono) VALUES('"
                 + dato.Id + "','"
                 + dato.NombreUsuario + "','"
                 + dato.Nombres + "','"
@@ -25,40 +27,52 @@ namespace ESTRES.controlador
                 + dato.Contrasena + "','"
                 + dato.Rol + "','"
                 + dato.Estado + "','"
-                + dato.Telefono + "','");
-
+                + dato.Telefono + "')");
         }
+
         public void update(usuarioM dato)
         {
-            x.manipular("update usuarios set nombre_usuario='" + dato.NombreUsuario + "' where id='" + dato.Id + "'");
+            x.manipular("UPDATE usuarios SET nombre_usuario='" + dato.NombreUsuario + "', nombres='" + dato.Nombres + "', ape_paterno='" + dato.ApePaterno + "', ape_materno='" + dato.ApeMaterno + "', dni='" + dato.Dni + "', correo='" + dato.Correo + "', contrasena='" + dato.Contrasena + "', rol='" + dato.Rol + "', estado='" + dato.Estado + "', telefono='" + dato.Telefono + "' WHERE id='" + dato.Id + "'");
         }
-        public void delete(usuarioM dato)
+
+        public void delete(string idUsuario)
         {
-            x.manipular("delete from usuarios where id='" + dato.Id + "'");
+            x.manipular("DELETE FROM usuarios WHERE id ='" + idUsuario + "'");
         }
-
-
-        public void select(ComboBox cbBuscarColumna)
-        {
-            DataTable dt = x.manipular("SELECT id, nombres FROM usuarios");
-            cbBuscarColumna.DataSource = dt;
-            cbBuscarColumna.DisplayMember = "nombres";
-            cbBuscarColumna.ValueMember = "id";
-            cbBuscarColumna.SelectedIndex = 0;
-        }
-
-
-
-
-
-
 
         public void select(DataGridView L)
         {
-            L.DataSource = x.manipular("SELECT * from usuarios");
+            // Se actualizan los nombres de las columnas en la consulta SELECT
+            L.DataSource = x.manipular("SELECT id, nombre_usuario, nombres, ape_paterno, ape_materno, dni, correo, rol, estado, telefono FROM usuarios");
+            L.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+        }
 
+        public void selectBuscarColumna(ComboBox cb)
+        {
+            DataTable dt = x.manipular("SELECT id, nombres FROM usuarios");
+            cb.DataSource = dt;
+            cb.DisplayMember = "nombres";
+            cb.ValueMember = "id";
+            cb.SelectedIndex = -1;
+        }
+
+        public void selectIDModificar(ComboBox combo)
+        {
+            // Se actualizan los nombres de las columnas en la consulta SELECT
+            DataTable dt = x.manipular("SELECT id, nombre_usuario, nombres, ape_paterno, ape_materno, dni, correo, contrasena, rol, estado, telefono FROM usuarios");
+            combo.DataSource = dt;
+            combo.DisplayMember = "id";
+            combo.ValueMember = "id";
+            combo.SelectedIndex = -1;
+        }
+
+        public void selectIDEliminar(ComboBox combo)
+        {
+            DataTable dt = x.manipular("SELECT id FROM usuarios");
+            combo.DataSource = dt;
+            combo.DisplayMember = "id";
+            combo.ValueMember = "id";
+            combo.SelectedIndex = -1;
         }
     }
-
-
 }

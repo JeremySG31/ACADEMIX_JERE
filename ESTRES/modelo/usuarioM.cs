@@ -2,30 +2,27 @@
 {
     internal class usuarioM
     {
-        public usuarioM(string id, string nombres)
+        // Constructor actualizado para incluir todos los campos
+        public usuarioM(string id, string nombreUsuario, string nombres, string apePaterno, string apeMaterno, string dni, string correo, string contrasena, string rol, string estado, string telefono)
         {
             Id = id;
+            NombreUsuario = nombreUsuario;
             Nombres = nombres;
+            ApePaterno = apePaterno;
+            ApeMaterno = apeMaterno;
+            Dni = dni;
+            Correo = correo;
+            Contrasena = contrasena;
+            Rol = rol;
+            Estado = estado;
+            Telefono = telefono;
         }
 
-        /* public usuarioM(string id, string nombreUsuario, string nombres,
-             string apePaterno, string apeMaterno, string dni, string correo,
-             string contrasena, string rol, string estado, string telefono)
-         {
-             Id = id;
-             Nombres = nombres;
-             NombreUsuario = nombreUsuario;
-             ApePaterno = apePaterno;
-             ApeMaterno = apeMaterno;
-             Dni = dni;
-             Correo = correo;
-             Contrasena = contrasena;
-             Rol = rol;
-             Estado = estado;
-             Telefono = telefono;
-         }
-        */
-
+        // Constructor para casos donde solo se necesita el ID (por ejemplo, para eliminar)
+        public usuarioM(string id)
+        {
+            Id = id;
+        }
 
         public string Id { get; set; }
         public string NombreUsuario { get; set; }

@@ -11,12 +11,9 @@ namespace Academix.negocio
     internal class AsistenciaMatriculadosN
     {
         AsistenciaMatriculadosC _asistenciaControlador;
-        // Se elimina _allGradosDt y las listas hardcodeadas de grados
-
         public AsistenciaMatriculadosN()
         {
             _asistenciaControlador = new AsistenciaMatriculadosC();
-            // Ya no se carga _allGradosDt al inicio
         }
 
         public string insertar(string idMatricula, DateTime fecha, string estado)
@@ -74,7 +71,6 @@ namespace Academix.negocio
             _asistenciaControlador.selectNiveles(combo);
         }
 
-        // *** NUEVO MÉTODO: Obtener ID de Grado del DB a partir de su nombre y nivel ***
         public string obtenerIdGrado(string nombreGrado, string nivel)
         {
             if (string.IsNullOrWhiteSpace(nombreGrado) || string.IsNullOrWhiteSpace(nivel))
@@ -83,8 +79,6 @@ namespace Academix.negocio
             }
             return _asistenciaControlador.getGradoId(nombreGrado, nivel);
         }
-
-        // *** NUEVO MÉTODO: Obtener ID de Sección del DB a partir de su nombre ***
         public string obtenerIdSeccion(string nombreSeccion)
         {
             if (string.IsNullOrWhiteSpace(nombreSeccion))
@@ -93,8 +87,6 @@ namespace Academix.negocio
             }
             return _asistenciaControlador.getSeccionId(nombreSeccion);
         }
-
-        // Se elimina obtenerGradosFiltradosPorNivel
 
         public void cargarMatriculadosConAsistencia(DataGridView dgv, string idGrado, string idSeccion, DateTime fechaAsistencia)
         {

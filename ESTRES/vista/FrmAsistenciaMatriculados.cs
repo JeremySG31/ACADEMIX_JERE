@@ -13,18 +13,14 @@ namespace Academix.vista
         {
             InitializeComponent();
             _asistenciaNegocio = new AsistenciaMatriculadosN();
-
             this.Load += FrmAsistenciaMatriculados_Load;
-
             this.cbNivel.SelectedIndexChanged += cbNivel_SelectedIndexChanged;
             this.cbGrado.SelectedIndexChanged += cbGrado_SelectedIndexChanged;
             this.cbSeccion.SelectedIndexChanged += cbSeccion_SelectedIndexChanged;
             this.dtpFecha.ValueChanged += dtpFecha_ValueChanged;
-
             this.chkA.Click += chkA_Click;
             this.chkT.Click += chkT_Click;
             this.chkF.Click += chkF_Click;
-
             this.dgvAsistencia.CellValueChanged += dgvAsistencia_CellValueChanged;
             this.dgvAsistencia.CurrentCellDirtyStateChanged += dgvAsistencia_CurrentCellDirtyStateChanged;
         }
@@ -33,16 +29,11 @@ namespace Academix.vista
         {
             CargarCombosIniciales();
             ConfigurarDataGridView();
-            // La carga del DGV ahora depende de que Grado y Sección estén seleccionados, y la fecha
         }
 
         private void CargarCombosIniciales()
         {
-            // Solo se carga el ComboBox de Nivel desde la DB
             _asistenciaNegocio.seleccionarNiveles(cbNivel);
-
-            // Los ComboBox de Grado y Sección DEBEN ser llenados manualmente en el Diseñador
-            // Opcional: podrías limpiar la selección inicial si no hay elementos por defecto en el diseño
             cbGrado.SelectedIndex = -1;
             cbSeccion.SelectedIndex = -1;
         }
@@ -74,14 +65,11 @@ namespace Academix.vista
             cmbEstado.HeaderText = "Estado";
             cmbEstado.Name = "estado_asistencia";
             cmbEstado.DataPropertyName = "estado_asistencia";
-
             DataTable dtEstados = _asistenciaNegocio.obtenerEstadosAsistenciaParaDGV();
             cmbEstado.DataSource = dtEstados;
             cmbEstado.DisplayMember = "estado";
             cmbEstado.ValueMember = "id";
-
             cmbEstado.DisplayStyleForCurrentCellOnly = true;
-
             dgvAsistencia.Columns.Add(cmbEstado);
 
             dgvAsistencia.Columns.Add(new DataGridViewTextBoxColumn()
@@ -95,8 +83,6 @@ namespace Academix.vista
 
         private void cbNivel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Cuando cambia el nivel, solo se limpia la selección de Grado y Sección
-            // y se espera que el usuario seleccione manualmente los nuevos valores
             cbGrado.SelectedIndex = -1;
             cbSeccion.SelectedIndex = -1;
             dgvAsistencia.DataSource = null;
@@ -104,7 +90,6 @@ namespace Academix.vista
 
         private void cbGrado_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Solo cargar si Grado y Sección están seleccionados (y fecha)
             if (cbGrado.SelectedItem != null && cbSeccion.SelectedItem != null)
             {
                 CargarMatriculadosYAsistenciasEnDGV();
@@ -117,7 +102,6 @@ namespace Academix.vista
 
         private void cbSeccion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Solo cargar si Grado y Sección están seleccionados (y fecha)
             if (cbGrado.SelectedItem != null && cbSeccion.SelectedItem != null)
             {
                 CargarMatriculadosYAsistenciasEnDGV();
@@ -126,7 +110,6 @@ namespace Academix.vista
 
         private void dtpFecha_ValueChanged(object sender, EventArgs e)
         {
-            // Solo cargar si Grado y Sección están seleccionados (y fecha)
             if (cbGrado.SelectedItem != null && cbSeccion.SelectedItem != null)
             {
                 CargarMatriculadosYAsistenciasEnDGV();
@@ -135,7 +118,6 @@ namespace Academix.vista
 
         private void CargarMatriculadosYAsistenciasEnDGV()
         {
-            // Asegurarse de que todos los filtros necesarios estén seleccionados
             if (cbNivel.SelectedValue == null || cbGrado.SelectedItem == null || cbSeccion.SelectedItem == null)
             {
                 dgvAsistencia.DataSource = null;
@@ -146,8 +128,6 @@ namespace Academix.vista
             string nombreGradoSeleccionado = cbGrado.SelectedItem.ToString();
             string nombreSeccionSeleccionada = cbSeccion.SelectedItem.ToString();
             DateTime fechaSeleccionada = dtpFecha.Value.Date;
-
-            // Obtener los IDs reales de la base de datos para el grado y la sección seleccionados manualmente
             string idGrado = _asistenciaNegocio.obtenerIdGrado(nombreGradoSeleccionado, nivelSeleccionado);
             string idSeccion = _asistenciaNegocio.obtenerIdSeccion(nombreSeccionSeleccionada);
 

@@ -25,7 +25,7 @@ namespace ESTRES.controlador
                 + dato.Dni + "','"
                 + dato.Correo + "','"
                 + dato.Contrasena + "','"
-                + dato.Rol + "','" // Aquí se espera el ID del rol
+                + dato.Rol + "','" 
                 + dato.Estado + "','"
                 + dato.Telefono + "')");
         }
@@ -73,15 +73,13 @@ namespace ESTRES.controlador
             combo.SelectedIndex = -1;
         }
 
-        // --- MÉTODO REINCLUIDO PARA ROLES ---
         public void selectRoles(ComboBox cb)
         {
-            // Asume una tabla 'roles' con columnas 'id' y 'nombre_rol'
-            DataTable dt = x.manipular("SELECT id, nombre_rol FROM roles ORDER BY nombre_rol");
+            DataTable dt = x.manipular("SELECT id, nombre_rol FROM roles");
             cb.DataSource = dt;
-            cb.DisplayMember = "nombre_rol"; // Columna a mostrar en el ComboBox
-            cb.ValueMember = "id";           // Columna cuyo valor se usará (el ID del rol)
-            cb.SelectedIndex = -1; // Ningún elemento seleccionado por defecto
+            cb.DisplayMember = "nombre_rol"; 
+            cb.ValueMember = "id";         
+            cb.SelectedIndex = -1; 
         }
     }
 }

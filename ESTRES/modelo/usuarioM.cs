@@ -2,7 +2,6 @@
 {
     internal class usuarioM
     {
-        // Constructor actualizado para incluir todos los campos
         public usuarioM(string id, string nombreUsuario, string nombres, string apePaterno, string apeMaterno, string dni, string correo, string contrasena, string rol, string estado, string telefono)
         {
             Id = id;
@@ -18,7 +17,6 @@
             Telefono = telefono;
         }
 
-        // Constructor para casos donde solo se necesita el ID (por ejemplo, para eliminar)
         public usuarioM(string id)
         {
             Id = id;

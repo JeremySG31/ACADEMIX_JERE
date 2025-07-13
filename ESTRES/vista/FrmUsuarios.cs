@@ -28,40 +28,30 @@ namespace ESTRES.vista
 
         private void ActualizarCampos()
         {
-            // Desuscribir eventos para evitar que se disparen al cargar los datos
             cbBuscarColumna.SelectedIndexChanged -= cbBuscarColumna_SelectedIndexChanged;
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
 
             usuarioC controlador = new usuarioC();
-
-            // Limpiar DataSources antes de asignar nuevos datos
             dgvUsuarios.DataSource = null;
             cbBuscarColumna.DataSource = null;
             cbIdModificar.DataSource = null;
             cbIdEliminar.DataSource = null;
             cbRol.DataSource = null;
-
             controlador.select(dgvUsuarios);
             controlador.selectBuscarColumna(cbBuscarColumna);
             controlador.selectIDModificar(cbIdModificar);
             controlador.selectIDEliminar(cbIdEliminar);
-
-            // Cargar ComboBox de Roles desde la base de datos
             controlador.selectRoles(cbRol);
 
             LimpiarCampos();
-
-            // Volver a suscribir eventos
             cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
         }
 
         private void LimpiarCampos()
         {
-            // Desuscribir para evitar disparos al limpiar
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged -= cbBuscarColumna_SelectedIndexChanged;
-
             txtIdUsuario.Text = "";
             txtNombreUsuario.Text = "";
             txtNombres.Text = "";
@@ -71,12 +61,10 @@ namespace ESTRES.vista
             txtCorreo.Text = "";
             txtContrasena.Text = "";
             txtTelefono.Text = "";
-
             if (cbRol.Items.Count > 0) cbRol.SelectedIndex = -1;
             cbRol.Text = "";
             if (cbEstado.Items.Count > 0) cbEstado.SelectedIndex = -1;
             cbEstado.Text = "";
-
             cbBuscarColumna.SelectedIndex = -1;
             cbBuscarColumna.Text = "";
             txtBuscar.Clear();
@@ -84,8 +72,6 @@ namespace ESTRES.vista
             cbIdModificar.Text = "";
             cbIdEliminar.SelectedIndex = -1;
             cbIdEliminar.Text = "";
-
-            // Volver a suscribir
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
         }

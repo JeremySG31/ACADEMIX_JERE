@@ -85,7 +85,7 @@
             this.grpListadoBusqueda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpListadoBusqueda.Name = "grpListadoBusqueda";
             this.grpListadoBusqueda.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpListadoBusqueda.Size = new System.Drawing.Size(896, 514);
+            this.grpListadoBusqueda.Size = new System.Drawing.Size(576, 514);
             this.grpListadoBusqueda.TabIndex = 5;
             this.grpListadoBusqueda.TabStop = false;
             this.grpListadoBusqueda.Text = "LISTADO Y BÚSQUEDA";
@@ -117,7 +117,7 @@
             this.dgvUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.RowHeadersWidth = 51;
-            this.dgvUsuarios.Size = new System.Drawing.Size(848, 460);
+            this.dgvUsuarios.Size = new System.Drawing.Size(528, 460);
             this.dgvUsuarios.TabIndex = 3;
             // 
             // label1
@@ -475,7 +475,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1736, 563);
+            this.ClientSize = new System.Drawing.Size(1377, 563);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpInformacionAdicional);
             this.Controls.Add(this.grpDatosPrincipales);

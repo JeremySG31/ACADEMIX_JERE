@@ -41,8 +41,6 @@ namespace ESTRES.vista
             cbIdEliminar.DataSource = null;
             cbRol.DataSource = null;
 
-            // cbEstado NO se carga aquí, sus ítems están en el diseñador (o se añaden una vez en el constructor/Load)
-
             controlador.select(dgvUsuarios);
             controlador.selectBuscarColumna(cbBuscarColumna);
             controlador.selectIDModificar(cbIdModificar);
@@ -71,7 +69,7 @@ namespace ESTRES.vista
             txtApeMaterno.Text = "";
             txtDni.Text = "";
             txtCorreo.Text = "";
-            txtContrasena.Text = ""; // Limpiar también la contraseña
+            txtContrasena.Text = "";
             txtTelefono.Text = "";
 
             if (cbRol.Items.Count > 0) cbRol.SelectedIndex = -1;
@@ -107,7 +105,6 @@ namespace ESTRES.vista
                 txtContrasena.Text = row.Cells["contrasena"].Value?.ToString() ?? "";
                 txtTelefono.Text = row.Cells["telefono"].Value?.ToString() ?? "";
 
-                // Cargar ComboBox para Rol: Asumiendo que 'rol' en usuarios guarda el ID del rol
                 if (row.Cells["rol"].Value != DBNull.Value)
                 {
                     string rolIdFromUser = row.Cells["rol"].Value?.ToString() ?? "";
@@ -137,7 +134,6 @@ namespace ESTRES.vista
                     cbRol.Text = "";
                 }
 
-                // Cargar ComboBox para Estado: Ítems fijos en diseñador
                 if (row.Cells["estado"].Value != DBNull.Value)
                 {
                     string estadoValue = row.Cells["estado"].Value?.ToString() ?? "";
@@ -183,10 +179,9 @@ namespace ESTRES.vista
                 txtApeMaterno.Text = fila["ape_materno"]?.ToString() ?? "";
                 txtDni.Text = fila["dni"]?.ToString() ?? "";
                 txtCorreo.Text = fila["correo"]?.ToString() ?? "";
-                txtContrasena.Text = fila["contrasena"]?.ToString() ?? "";  // <-- LÍNEA AÑADIDA
+                txtContrasena.Text = fila["contrasena"]?.ToString() ?? "";
                 txtTelefono.Text = fila["telefono"]?.ToString() ?? "";
 
-                // Cargar ComboBox para Rol (desde BD)
                 if (fila["rol"] != DBNull.Value)
                 {
                     string rolIdFromUser = fila["rol"]?.ToString() ?? "";
@@ -216,7 +211,6 @@ namespace ESTRES.vista
                     cbRol.Text = "";
                 }
 
-                // Cargar ComboBox para Estado (ítems fijos en diseñador)
                 if (fila["estado"] != DBNull.Value)
                 {
                     string estadoValue = fila["estado"]?.ToString() ?? "";
@@ -245,7 +239,6 @@ namespace ESTRES.vista
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            // Validaciones
             if (string.IsNullOrWhiteSpace(txtIdUsuario.Text) ||
                 string.IsNullOrWhiteSpace(txtNombreUsuario.Text) ||
                 string.IsNullOrWhiteSpace(txtNombres.Text) ||
@@ -257,24 +250,14 @@ namespace ESTRES.vista
                 cbRol.SelectedValue == null ||
                 cbEstado.SelectedItem == null)
             {
-                MessageBox.Show("Por favor, complete todos los campos obligatorios (ID, Nombre de Usuario, Nombres, Apellidos, DNI, Correo, Contraseña, Rol, Estado) para insertar.", "Campos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return; 
             }
 
             try
             {
-                usuarioN negocio = new usuarioN();
-                negocio.insertar(txtIdUsuario.Text,
-                                 txtNombreUsuario.Text,
-                                 txtNombres.Text,
-                                 txtApePaterno.Text,
-                                 txtApeMaterno.Text,
-                                 txtDni.Text,
-                                 txtCorreo.Text,
-                                 txtContrasena.Text,
-                                 cbRol.SelectedValue.ToString(),
-                                 cbEstado.SelectedItem.ToString(),
-                                 txtTelefono.Text);
+                usuarioN x = new usuarioN();
+                x.insertar(txtIdUsuario.Text,txtNombreUsuario.Text, txtNombres.Text, txtApePaterno.Text,txtApeMaterno.Text,txtDni.Text,txtCorreo.Text,txtContrasena.Text, cbRol.SelectedValue.ToString(), cbEstado.SelectedItem.ToString(),txtTelefono.Text);
+
                 ActualizarCampos();
                 MessageBox.Show("Usuario insertado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -286,7 +269,6 @@ namespace ESTRES.vista
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            // Validaciones
             if (string.IsNullOrWhiteSpace(txtIdUsuario.Text) ||
                 string.IsNullOrWhiteSpace(txtNombreUsuario.Text) ||
                 string.IsNullOrWhiteSpace(txtNombres.Text) ||
@@ -298,30 +280,19 @@ namespace ESTRES.vista
                 cbRol.SelectedValue == null ||
                 cbEstado.SelectedItem == null)
             {
-                MessageBox.Show("Por favor, complete todos los campos obligatorios (ID, Nombre de Usuario, Nombres, Apellidos, DNI, Correo, Contraseña, Rol, Estado) para modificar.", "Campos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return; 
             }
             if (cbIdModificar.SelectedValue == null || string.IsNullOrWhiteSpace(cbIdModificar.SelectedValue.ToString()))
             {
-                MessageBox.Show("Debe seleccionar un ID de usuario a modificar.", "Selección Incompleta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return; 
             }
 
             try
             {
-                usuarioN negocio = new usuarioN();
-                negocio.modificar(txtIdUsuario.Text,
-                                 txtNombreUsuario.Text,
-                                 txtNombres.Text,
-                                 txtApePaterno.Text,
-                                 txtApeMaterno.Text,
-                                 txtDni.Text,
-                                 txtCorreo.Text,
-                                 txtContrasena.Text,
-                                 cbRol.SelectedValue.ToString(),
-                                 cbEstado.SelectedItem.ToString(),
-                                 txtTelefono.Text);
-                ActualizarCampos();
+                usuarioN x = new usuarioN();
+                x.modificar(txtIdUsuario.Text,txtNombreUsuario.Text,txtNombres.Text,  txtApePaterno.Text, txtApeMaterno.Text, txtDni.Text, txtCorreo.Text,txtContrasena.Text, cbRol.SelectedValue.ToString(), cbEstado.SelectedItem.ToString(), txtTelefono.Text);
+
+                ActualizarCampos(); 
                 MessageBox.Show("Usuario modificado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -332,17 +303,18 @@ namespace ESTRES.vista
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+
             if (cbIdEliminar.SelectedValue == null || string.IsNullOrWhiteSpace(cbIdEliminar.SelectedValue.ToString()))
             {
-                MessageBox.Show("Debe seleccionar un ID de usuario para eliminar.", "Selección Incompleta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
-                usuarioN negocio = new usuarioN();
-                negocio.eliminar(cbIdEliminar.SelectedValue.ToString());
-                ActualizarCampos();
+                usuarioN x = new usuarioN();
+                x.eliminar(cbIdEliminar.SelectedValue.ToString());
+
+                ActualizarCampos(); 
                 MessageBox.Show("Usuario eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)

@@ -1,5 +1,6 @@
 ﻿using Academix.controlador;
 using Academix.modelo;
+using System;
 using System.Windows.Forms;
 
 namespace Academix.negocio
@@ -15,6 +16,10 @@ namespace Academix.negocio
 
         public void insertar(string id, string nombreRol)
         {
+            if (!id.StartsWith("R", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new Exception("El ID del rol debe comenzar con la letra 'R'.");
+            }
             x.insert(new rolesM(id, nombreRol));
         }
 

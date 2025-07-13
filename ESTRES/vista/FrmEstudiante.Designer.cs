@@ -326,7 +326,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(136, 23);
             this.label6.TabIndex = 19;
-            this.label6.Text = "ID Profesor:";
+            this.label6.Text = "ID Estudiante:";
             // 
             // txtIdEstudiante
             // 

@@ -1,6 +1,7 @@
 ﻿using Academix.negocio;
 using System;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Academix.vista
@@ -8,34 +9,31 @@ namespace Academix.vista
     public partial class FrmAsistenciaMatriculados : Form
     {
         private AsistenciaMatriculadosN _asistenciaNegocio;
+        private DataTable _originalDataSource;
 
         public FrmAsistenciaMatriculados()
         {
             InitializeComponent();
             _asistenciaNegocio = new AsistenciaMatriculadosN();
-            this.Load += FrmAsistenciaMatriculados_Load;
-            this.cbNivel.SelectedIndexChanged += cbNivel_SelectedIndexChanged;
-            this.cbGrado.SelectedIndexChanged += cbGrado_SelectedIndexChanged;
-            this.cbSeccion.SelectedIndexChanged += cbSeccion_SelectedIndexChanged;
-            this.dtpFecha.ValueChanged += dtpFecha_ValueChanged;
-            this.chkA.Click += chkA_Click;
-            this.chkT.Click += chkT_Click;
-            this.chkF.Click += chkF_Click;
-            this.dgvAsistencia.CellValueChanged += dgvAsistencia_CellValueChanged;
-            this.dgvAsistencia.CurrentCellDirtyStateChanged += dgvAsistencia_CurrentCellDirtyStateChanged;
+            ConfigurarEventos();
         }
 
         private void FrmAsistenciaMatriculados_Load(object sender, EventArgs e)
         {
-            CargarCombosIniciales();
             ConfigurarDataGridView();
+            dtpFecha.Value = DateTime.Today;
+            CargarTodosMatriculadosYAsistenciasInicialmente();
+            CargarCombosFiltrado();
         }
 
-        private void CargarCombosIniciales()
+        private void ConfigurarEventos()
         {
-            _asistenciaNegocio.seleccionarNiveles(cbNivel);
-            cbGrado.SelectedIndex = -1;
-            cbSeccion.SelectedIndex = -1;
+            dtpFecha.ValueChanged += dtpFecha_ValueChanged;
+            cbNivel.SelectedIndexChanged += cbNivel_SelectedIndexChanged;
+            cbGrado.SelectedIndexChanged += cbGrado_SelectedIndexChanged;
+            cbSeccion.SelectedIndexChanged += cbSeccion_SelectedIndexChanged;
+            dgvAsistencia.CurrentCellDirtyStateChanged += dgvAsistencia_CurrentCellDirtyStateChanged;
+            dgvAsistencia.CellValueChanged += dgvAsistencia_CellValueChanged;
         }
 
         private void ConfigurarDataGridView()
@@ -61,6 +59,31 @@ namespace Academix.vista
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             });
 
+            dgvAsistencia.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "nivel_nombre",
+                HeaderText = "Nivel",
+                DataPropertyName = "nivel_nombre",
+                ReadOnly = true,
+                Visible = true
+            });
+            dgvAsistencia.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "grado_nombre",
+                HeaderText = "Grado",
+                DataPropertyName = "grado_nombre",
+                ReadOnly = true,
+                Visible = true
+            });
+            dgvAsistencia.Columns.Add(new DataGridViewTextBoxColumn()
+            {
+                Name = "seccion_nombre",
+                HeaderText = "Sección",
+                DataPropertyName = "seccion_nombre",
+                ReadOnly = true,
+                Visible = true
+            });
+
             DataGridViewComboBoxColumn cmbEstado = new DataGridViewComboBoxColumn();
             cmbEstado.HeaderText = "Estado";
             cmbEstado.Name = "estado_asistencia";
@@ -81,110 +104,42 @@ namespace Academix.vista
             });
         }
 
-        private void cbNivel_SelectedIndexChanged(object sender, EventArgs e)
+        private void CargarTodosMatriculadosYAsistenciasInicialmente()
         {
-            cbGrado.SelectedIndex = -1;
-            cbSeccion.SelectedIndex = -1;
-            dgvAsistencia.DataSource = null;
-        }
-
-        private void cbGrado_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbGrado.SelectedItem != null && cbSeccion.SelectedItem != null)
+            try
             {
-                CargarMatriculadosYAsistenciasEnDGV();
+                _originalDataSource = _asistenciaNegocio.cargarTodosMatriculadosConAsistencia(dtpFecha.Value.Date);
+                dgvAsistencia.DataSource = _originalDataSource;
             }
-            else
+            catch (Exception ex)
             {
-                dgvAsistencia.DataSource = null;
-            }
-        }
-
-        private void cbSeccion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbGrado.SelectedItem != null && cbSeccion.SelectedItem != null)
-            {
-                CargarMatriculadosYAsistenciasEnDGV();
+                MessageBox.Show("Error al cargar los datos iniciales de estudiantes: " + ex.Message, "Error de Carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _originalDataSource = new DataTable();
             }
         }
 
         private void dtpFecha_ValueChanged(object sender, EventArgs e)
         {
-            if (cbGrado.SelectedItem != null && cbSeccion.SelectedItem != null)
-            {
-                CargarMatriculadosYAsistenciasEnDGV();
-            }
+            CargarTodosMatriculadosYAsistenciasInicialmente();
+            CargarCombosFiltrado();
         }
 
-        private void CargarMatriculadosYAsistenciasEnDGV()
+        private void CargarCombosFiltrado()
         {
-            if (cbNivel.SelectedValue == null || cbGrado.SelectedItem == null || cbSeccion.SelectedItem == null)
-            {
-                dgvAsistencia.DataSource = null;
-                return;
-            }
+            var niveles = _originalDataSource.AsEnumerable().Select(row => row.Field<string>("nivel_nombre")).Distinct().ToList();
+            niveles.Insert(0, "Todos");
+            cbNivel.DataSource = niveles;
+            cbNivel.SelectedIndex = 0;
 
-            string nivelSeleccionado = cbNivel.SelectedValue.ToString();
-            string nombreGradoSeleccionado = cbGrado.SelectedItem.ToString();
-            string nombreSeccionSeleccionada = cbSeccion.SelectedItem.ToString();
-            DateTime fechaSeleccionada = dtpFecha.Value.Date;
-            string idGrado = _asistenciaNegocio.obtenerIdGrado(nombreGradoSeleccionado, nivelSeleccionado);
-            string idSeccion = _asistenciaNegocio.obtenerIdSeccion(nombreSeccionSeleccionada);
+            var grados = _originalDataSource.AsEnumerable().Select(row => row.Field<string>("grado_nombre")).Distinct().ToList();
+            grados.Insert(0, "Todos");
+            cbGrado.DataSource = grados;
+            cbGrado.SelectedIndex = 0;
 
-            if (string.IsNullOrEmpty(idGrado))
-            {
-                MessageBox.Show($"No se encontró el ID para el grado '{nombreGradoSeleccionado}' en el nivel '{nivelSeleccionado}'. Asegúrate de que existe en la DB y el nombre coincide.", "Error de Grado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dgvAsistencia.DataSource = null;
-                return;
-            }
-            if (string.IsNullOrEmpty(idSeccion))
-            {
-                MessageBox.Show($"No se encontró el ID para la sección '{nombreSeccionSeleccionada}'. Asegúrate de que existe en la DB y el nombre coincide.", "Error de Sección", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dgvAsistencia.DataSource = null;
-                return;
-
-            }
-
-            _asistenciaNegocio.cargarMatriculadosConAsistencia(dgvAsistencia, idGrado, idSeccion, fechaSeleccionada);
-        }
-
-        private void chkA_Click(object sender, EventArgs e)
-        {
-            AplicarEstadoMasivo("A");
-            DesmarcarOtrosCheckboxes(chkA);
-        }
-
-        private void chkT_Click(object sender, EventArgs e)
-        {
-            AplicarEstadoMasivo("T");
-            DesmarcarOtrosCheckboxes(chkT);
-        }
-
-        private void chkF_Click(object sender, EventArgs e)
-        {
-            AplicarEstadoMasivo("F");
-            DesmarcarOtrosCheckboxes(chkF);
-        }
-
-        private void DesmarcarOtrosCheckboxes(CheckBox currentCheckbox)
-        {
-            if (currentCheckbox != chkA) chkA.Checked = false;
-            if (currentCheckbox != chkT) chkT.Checked = false;
-            if (currentCheckbox != chkF) chkF.Checked = false;
-        }
-
-        private void AplicarEstadoMasivo(string estado)
-        {
-            if (dgvAsistencia.DataSource == null) return;
-            dgvAsistencia.EndEdit();
-
-            foreach (DataGridViewRow row in dgvAsistencia.Rows)
-            {
-                if (row.Cells["estado_asistencia"] is DataGridViewComboBoxCell cell)
-                {
-                    cell.Value = estado;
-                }
-            }
+            var secciones = _originalDataSource.AsEnumerable().Select(row => row.Field<string>("seccion_nombre")).Distinct().ToList();
+            secciones.Insert(0, "Todos");
+            cbSeccion.DataSource = secciones;
+            cbSeccion.SelectedIndex = 0;
         }
 
         private void dgvAsistencia_CurrentCellDirtyStateChanged(object sender, EventArgs e)
@@ -199,38 +154,90 @@ namespace Academix.vista
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == dgvAsistencia.Columns["estado_asistencia"].Index)
             {
-                DataGridViewRow row = dgvAsistencia.Rows[e.RowIndex];
+                var row = dgvAsistencia.Rows[e.RowIndex];
+                var drv = row.DataBoundItem as DataRowView;
 
                 string idMatricula = row.Cells["id_matricula"].Value?.ToString();
-                string estado = row.Cells["estado_asistencia"].Value?.ToString();
-                string idAsistenciaExistente = row.Cells["id_asistencia_existente"].Value?.ToString();
-                DateTime fechaAsistencia = dtpFecha.Value.Date;
+                string nuevoEstado = row.Cells["estado_asistencia"].Value?.ToString();
+                string idAsistencia = drv?["id_asistencia_existente"]?.ToString();
+                DateTime fecha = dtpFecha.Value.Date;
 
                 try
                 {
-                    if (string.IsNullOrEmpty(idMatricula) || string.IsNullOrEmpty(estado))
+                    if (!string.IsNullOrEmpty(idMatricula))
                     {
-                        return;
+                        if (string.IsNullOrEmpty(nuevoEstado))
+                        {
+                            if (!string.IsNullOrEmpty(idAsistencia))
+                            {
+                                _asistenciaNegocio.eliminar(idAsistencia);
+                                drv["id_asistencia_existente"] = DBNull.Value;
+                                drv["estado_asistencia"] = ""; // No usar DBNull si la columna no acepta NULL
+                            }
+                        }
+                        else
+                        {
+                            if (string.IsNullOrEmpty(idAsistencia))
+                            {
+                                string nuevoId = _asistenciaNegocio.insertar(idMatricula, fecha, nuevoEstado);
+                                drv["id_asistencia_existente"] = nuevoId;
+                                drv["estado_asistencia"] = nuevoEstado;
+                            }
+                            else
+                            {
+                                _asistenciaNegocio.modificar(idAsistencia, idMatricula, fecha, nuevoEstado);
+                                drv["estado_asistencia"] = nuevoEstado;
+                            }
+                        }
                     }
-
-                    if (string.IsNullOrEmpty(idAsistenciaExistente) || idAsistenciaExistente == DBNull.Value.ToString())
-                    {
-                        string newId = _asistenciaNegocio.insertar(idMatricula, fechaAsistencia, estado);
-                        row.Cells["id_asistencia_existente"].Value = newId;
-                    }
-                    else
-                    {
-                        _asistenciaNegocio.modificar(idAsistenciaExistente, idMatricula, fechaAsistencia, estado);
-                    }
-                }
-                catch (ArgumentException ex)
-                {
-                    MessageBox.Show($"Error de validación: {ex.Message}", "Datos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error al guardar asistencia para el estudiante {row.Cells["nombre_completo_estudiante"].Value?.ToString()}: {ex.Message}", "Error en Guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al guardar asistencia: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void cbNivel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AplicarFiltro();
+        }
+
+        private void cbGrado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AplicarFiltro();
+        }
+
+        private void cbSeccion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AplicarFiltro();
+        }
+
+        private void AplicarFiltro()
+        {
+            string nivel = cbNivel.SelectedItem?.ToString();
+            string grado = cbGrado.SelectedItem?.ToString();
+            string seccion = cbSeccion.SelectedItem?.ToString();
+
+            string filtro = "";
+
+            if (!string.IsNullOrEmpty(nivel) && nivel != "Todos")
+                filtro += $"nivel_nombre = '{nivel}'";
+
+            if (!string.IsNullOrEmpty(grado) && grado != "Todos")
+                filtro += (filtro != "" ? " AND " : "") + $"grado_nombre = '{grado}'";
+
+            if (!string.IsNullOrEmpty(seccion) && seccion != "Todos")
+                filtro += (filtro != "" ? " AND " : "") + $"seccion_nombre = '{seccion}'";
+
+            try
+            {
+                _originalDataSource.DefaultView.RowFilter = filtro;
+                dgvAsistencia.DataSource = _originalDataSource.DefaultView;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al aplicar filtro: " + ex.Message);
             }
         }
     }

@@ -1,8 +1,7 @@
 ﻿using Academix.modelo;
-using ESTRES.dao; 
-using System.Data;
-using System.Windows.Forms;
+using ESTRES.dao;
 using System;
+using System.Data;
 
 namespace Academix.controlador
 {
@@ -17,27 +16,30 @@ namespace Academix.controlador
 
         public void insert(AsistenciaMatriculadosM dato)
         {
-            string fechaFormatoDB = dato.Fecha.ToString("yyyy-MM-dd");
-            x.manipular("INSERT INTO asistencias_matriculados (id, id_matricula, fecha, estado) VALUES ('" + dato.Id + "', '" + dato.IdMatricula + "', CONVERT(DATETIME, '" + fechaFormatoDB + "', 120), '" + dato.Estado + "')");
+            string fechaFormatoDB = dato.Fecha.ToString("s");
+            string query = "INSERT INTO asistencias_matriculados (id, id_matricula, fecha, estado) VALUES ('" + dato.Id + "', '" + dato.IdMatricula + "', '" + fechaFormatoDB + "', '" + dato.Estado + "')";
+            x.manipular(query);
         }
 
         public void update(AsistenciaMatriculadosM dato)
         {
-            string fechaFormatoDB = dato.Fecha.ToString("yyyy-MM-dd");
-            x.manipular("UPDATE asistencias_matriculados SET id_matricula='" + dato.IdMatricula + "', fecha=CONVERT(DATETIME, '" + fechaFormatoDB + "', 120), estado='" + dato.Estado + "' WHERE id='" + dato.Id + "'");
+            string fechaFormatoDB = dato.Fecha.ToString("s");
+            string query = "UPDATE asistencias_matriculados SET id_matricula='" + dato.IdMatricula + "', fecha='" + fechaFormatoDB + "', estado='" + dato.Estado + "' WHERE id='" + dato.Id + "'";
+            x.manipular(query);
         }
 
         public void delete(string idAsistenciaMatriculado)
         {
-            x.manipular("DELETE FROM asistencias_matriculados WHERE id ='" + idAsistenciaMatriculado + "'");
+            string query = "DELETE FROM asistencias_matriculados WHERE id = '" + idAsistenciaMatriculado + "'";
+            x.manipular(query);
         }
 
         public void deleteAsistenciasByFilters(string idGrado, string idSeccion, DateTime fecha)
         {
             string fechaFormatoDB = fecha.ToString("yyyy-MM-dd");
-            x.manipular("DELETE FROM asistencias_matriculados WHERE id_matricula IN (SELECT id FROM matriculas WHERE id_grado = '" + idGrado + "' AND id_seccion = '" + idSeccion + "') AND CONVERT(DATE, fecha) = CONVERT(DATE, '" + fechaFormatoDB + "', 120)");
+            string query = "DELETE FROM asistencias_matriculados WHERE id_matricula IN (SELECT id FROM matriculas WHERE id_grado = '" + idGrado + "' AND id_seccion = '" + idSeccion + "') AND CAST(fecha AS DATE) = CAST('" + fechaFormatoDB + "' AS DATE)";
+            x.manipular(query);
         }
-
 
         public DataTable obtenerEstadosAsistenciaDataTable()
         {
@@ -50,39 +52,10 @@ namespace Academix.controlador
             return dt;
         }
 
-        public void selectNiveles(ComboBox combo)
-        {
-            DataTable dt = x.manipular("SELECT DISTINCT nivel FROM grados ORDER BY nivel");
-            combo.DataSource = dt;
-            combo.DisplayMember = "nivel";
-            combo.ValueMember = "nivel";
-            combo.SelectedIndex = -1;
-        }
-
-        public string getGradoId(string nombreGrado, string nivel)
-        {
-            DataTable dt = x.manipular("SELECT id FROM grados WHERE nombres = '" + nombreGrado + "' AND nivel = '" + nivel + "'");
-            if (dt != null && dt.Rows.Count > 0)
-            {
-                return dt.Rows[0]["id"].ToString();
-            }
-            return null;
-        }
-
-        public string getSeccionId(string nombreSeccion)
-        {
-            DataTable dt = x.manipular("SELECT id FROM secciones WHERE nombre = '" + nombreSeccion + "'");
-            if (dt != null && dt.Rows.Count > 0)
-            {
-                return dt.Rows[0]["id"].ToString();
-            }
-            return null; 
-        }
-
-        public void selectMatriculadosConAsistenciaParaDGV(DataGridView dgv, string idGrado, string idSeccion, DateTime fechaAsistencia)
+        public DataTable cargarTodosMatriculadosConAsistencia(DateTime fechaAsistencia)
         {
             string fechaSql = fechaAsistencia.ToString("yyyy-MM-dd");
-            dgv.DataSource = x.manipular("SELECT m.id AS id_matricula, u.nombres + ' ' + u.ape_paterno + ' ' + u.ape_materno AS nombre_completo_estudiante, am.id AS id_asistencia_existente, ISNULL(am.estado, '') AS estado_asistencia FROM matriculas m JOIN estudiantes e ON m.id_estudiante = e.id JOIN usuarios u ON e.id_usuario = u.id LEFT JOIN asistencias_matriculados am ON m.id = am.id_matricula AND CONVERT(DATE, am.fecha) = CONVERT(DATE, '" + fechaSql + "', 120) WHERE m.id_grado = '" + idGrado + "' AND m.id_seccion = '" + idSeccion + "'");
+            return x.manipular("SELECT m.id AS id_matricula, u.nombres + ' ' + u.ape_paterno + ' ' + u.ape_materno AS nombre_completo_estudiante, g.nombres AS grado_nombre, s.nombre AS seccion_nombre, g.nivel AS nivel_nombre, am.id AS id_asistencia_existente, ISNULL(am.estado, '') AS estado_asistencia FROM matriculas m JOIN estudiantes e ON m.id_estudiante = e.id JOIN usuarios u ON e.id_usuario = u.id JOIN grados g ON m.id_grado = g.id JOIN secciones s ON m.id_seccion = s.id LEFT JOIN asistencias_matriculados am ON m.id = am.id_matricula AND (am.fecha IS NULL OR CAST(am.fecha AS DATE) = CAST('" + fechaSql + "' AS DATE))");
         }
     }
 }

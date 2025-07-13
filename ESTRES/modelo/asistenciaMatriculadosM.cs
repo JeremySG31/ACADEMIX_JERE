@@ -2,22 +2,24 @@
 
 namespace Academix.modelo
 {
-    internal class asistenciaMatriculadosM
+    internal class AsistenciaMatriculadosM
     {
-        public asistenciaMatriculadosM(string id, string id_matricula, DateTime fecha_matricula, string estado)
-        {
-            Id = id;
-            this.IdMatricula = id_matricula;
-            this.FechaMatricula = fecha_matricula;
-            this.Estado = estado;
-        }
-
         public string Id { get; set; }
         public string IdMatricula { get; set; }
-        public DateTime FechaMatricula { get; set; }
+        public DateTime Fecha { get; set; }
         public string Estado { get; set; }
 
+        public AsistenciaMatriculadosM()
+        {
 
+        }
 
+        public AsistenciaMatriculadosM(string id, string idMatricula, DateTime fecha, string estado)
+        {
+            Id = id;
+            IdMatricula = idMatricula;
+            Fecha = fecha;
+            Estado = estado;
+        }
     }
 }

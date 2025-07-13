@@ -1,32 +1,109 @@
 ﻿using Academix.controlador;
 using Academix.modelo;
 using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Academix.negocio
 {
-    internal class asistenciaMatriculadosN
+    internal class AsistenciaMatriculadosN
     {
-        asistenciaMatriculadosC x;
-        public asistenciaMatriculadosN()
+        AsistenciaMatriculadosC _asistenciaControlador;
+        // Se elimina _allGradosDt y las listas hardcodeadas de grados
+
+        public AsistenciaMatriculadosN()
         {
-            x = new asistenciaMatriculadosC();
+            _asistenciaControlador = new AsistenciaMatriculadosC();
+            // Ya no se carga _allGradosDt al inicio
         }
-        public void insertar(string Id, string IdMatricula, DateTime fecha_matricula, string estado)
+
+        public string insertar(string idMatricula, DateTime fecha, string estado)
         {
-            x.insert(new asistenciaMatriculadosM(Id, IdMatricula, fecha_matricula, estado));
+            if (string.IsNullOrWhiteSpace(idMatricula))
+            {
+                throw new ArgumentException("El ID de matrícula no puede estar vacío.", nameof(idMatricula));
+            }
+            if (string.IsNullOrWhiteSpace(estado))
+            {
+                throw new ArgumentException("El estado de asistencia no puede estar vacío.", nameof(estado));
+            }
+
+            string newIdAsistencia = Guid.NewGuid().ToString();
+
+            _asistenciaControlador.insert(new AsistenciaMatriculadosM(newIdAsistencia, idMatricula, fecha, estado));
+
+            return newIdAsistencia;
         }
-        public void modificar(string Id, string IdMatricula, DateTime fecha_matricula, string estado)
+
+        public void modificar(string idAsistencia, string idMatricula, DateTime fecha, string estado)
         {
-            x.update(new asistenciaMatriculadosM(Id, IdMatricula, fecha_matricula, estado));
+            if (string.IsNullOrWhiteSpace(idAsistencia))
+            {
+                throw new ArgumentException("El ID de asistencia no puede estar vacío para modificar.", nameof(idAsistencia));
+            }
+            if (string.IsNullOrWhiteSpace(idMatricula))
+            {
+                throw new ArgumentException("El ID de matrícula no puede estar vacío.", nameof(idMatricula));
+            }
+            if (string.IsNullOrWhiteSpace(estado))
+            {
+                throw new ArgumentException("El estado de asistencia no puede estar vacío.", nameof(estado));
+            }
+
+            _asistenciaControlador.update(new AsistenciaMatriculadosM(idAsistencia, idMatricula, fecha, estado));
         }
-        public void eliminar(string Id, string IdMatricula, DateTime fecha_matricula, string estado)
+
+        public void eliminar(string idAsistenciaMatriculado)
         {
-            x.delete(new asistenciaMatriculadosM(Id, IdMatricula, fecha_matricula, estado));
+            if (string.IsNullOrWhiteSpace(idAsistenciaMatriculado))
+            {
+                throw new ArgumentException("El ID de asistencia no puede estar vacío para eliminar.", nameof(idAsistenciaMatriculado));
+            }
+            _asistenciaControlador.delete(idAsistenciaMatriculado);
         }
-        public void seleccionar(DataGridView L)
+
+        public DataTable obtenerEstadosAsistenciaParaDGV()
         {
-            x.select(L);
+            return _asistenciaControlador.obtenerEstadosAsistenciaDataTable();
+        }
+
+        public void seleccionarNiveles(ComboBox combo)
+        {
+            _asistenciaControlador.selectNiveles(combo);
+        }
+
+        // *** NUEVO MÉTODO: Obtener ID de Grado del DB a partir de su nombre y nivel ***
+        public string obtenerIdGrado(string nombreGrado, string nivel)
+        {
+            if (string.IsNullOrWhiteSpace(nombreGrado) || string.IsNullOrWhiteSpace(nivel))
+            {
+                return null;
+            }
+            return _asistenciaControlador.getGradoId(nombreGrado, nivel);
+        }
+
+        // *** NUEVO MÉTODO: Obtener ID de Sección del DB a partir de su nombre ***
+        public string obtenerIdSeccion(string nombreSeccion)
+        {
+            if (string.IsNullOrWhiteSpace(nombreSeccion))
+            {
+                return null;
+            }
+            return _asistenciaControlador.getSeccionId(nombreSeccion);
+        }
+
+        // Se elimina obtenerGradosFiltradosPorNivel
+
+        public void cargarMatriculadosConAsistencia(DataGridView dgv, string idGrado, string idSeccion, DateTime fechaAsistencia)
+        {
+            if (string.IsNullOrWhiteSpace(idGrado) || string.IsNullOrWhiteSpace(idSeccion))
+            {
+                dgv.DataSource = null;
+                return;
+            }
+            _asistenciaControlador.selectMatriculadosConAsistenciaParaDGV(dgv, idGrado, idSeccion, fechaAsistencia);
         }
     }
 }

@@ -28,225 +28,217 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabTomar = new System.Windows.Forms.TabPage();
-            this.groupBoxFiltros = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.lblNivel = new System.Windows.Forms.Label();
-            this.chkA = new System.Windows.Forms.CheckBox();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             this.cbNivel = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbGrado = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbSeccion = new System.Windows.Forms.ComboBox();
+            this.dgvAsistencia = new System.Windows.Forms.DataGridView();
+            this.chkA = new System.Windows.Forms.CheckBox();
             this.chkT = new System.Windows.Forms.CheckBox();
             this.chkF = new System.Windows.Forms.CheckBox();
-            this.cbGrado = new System.Windows.Forms.ComboBox();
-            this.cbSeccion = new System.Windows.Forms.ComboBox();
-            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.dgvAsistencia = new System.Windows.Forms.DataGridView();
-            this.tabControl.SuspendLayout();
-            this.tabTomar.SuspendLayout();
-            this.groupBoxFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsistencia)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tabControl
-            // 
-            this.tabControl.Controls.Add(this.tabTomar);
-            this.tabControl.Location = new System.Drawing.Point(33, 30);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1067, 517);
-            this.tabControl.TabIndex = 8;
-            // 
-            // tabTomar
-            // 
-            this.tabTomar.Controls.Add(this.groupBoxFiltros);
-            this.tabTomar.Controls.Add(this.dgvAsistencia);
-            this.tabTomar.Location = new System.Drawing.Point(4, 25);
-            this.tabTomar.Name = "tabTomar";
-            this.tabTomar.Size = new System.Drawing.Size(1059, 488);
-            this.tabTomar.TabIndex = 0;
-            this.tabTomar.Text = "Tomar Asistencia";
-            this.tabTomar.UseVisualStyleBackColor = true;
-            // 
-            // groupBoxFiltros
-            // 
-            this.groupBoxFiltros.Controls.Add(this.label2);
-            this.groupBoxFiltros.Controls.Add(this.label1);
-            this.groupBoxFiltros.Controls.Add(this.lblNombre);
-            this.groupBoxFiltros.Controls.Add(this.lblNivel);
-            this.groupBoxFiltros.Controls.Add(this.chkA);
-            this.groupBoxFiltros.Controls.Add(this.cbNivel);
-            this.groupBoxFiltros.Controls.Add(this.chkT);
-            this.groupBoxFiltros.Controls.Add(this.chkF);
-            this.groupBoxFiltros.Controls.Add(this.cbGrado);
-            this.groupBoxFiltros.Controls.Add(this.cbSeccion);
-            this.groupBoxFiltros.Controls.Add(this.dtpFecha);
-            this.groupBoxFiltros.Location = new System.Drawing.Point(20, 20);
-            this.groupBoxFiltros.Name = "groupBoxFiltros";
-            this.groupBoxFiltros.Size = new System.Drawing.Size(1022, 120);
-            this.groupBoxFiltros.TabIndex = 11;
-            this.groupBoxFiltros.TabStop = false;
-            this.groupBoxFiltros.Text = "Filtros de Asistencia";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(787, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(168, 16);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "FECHA DE REGISTRO:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(607, 30);
+            this.label1.Location = new System.Drawing.Point(31, 36);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 16);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "SECCIÓN:";
+            this.label1.Size = new System.Drawing.Size(48, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Fecha:";
             // 
-            // lblNombre
+            // dtpFecha
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(414, 30);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(69, 16);
-            this.lblNombre.TabIndex = 7;
-            this.lblNombre.Text = " GRADO:";
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha.Location = new System.Drawing.Point(93, 32);
+            this.dtpFecha.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(132, 22);
+            this.dtpFecha.TabIndex = 1;
             // 
-            // lblNivel
+            // label2
             // 
-            this.lblNivel.AutoSize = true;
-            this.lblNivel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNivel.Location = new System.Drawing.Point(220, 30);
-            this.lblNivel.Name = "lblNivel";
-            this.lblNivel.Size = new System.Drawing.Size(54, 16);
-            this.lblNivel.TabIndex = 12;
-            this.lblNivel.Text = "NIVEL:";
-            // 
-            // chkA
-            // 
-            this.chkA.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkA.Location = new System.Drawing.Point(20, 30);
-            this.chkA.Name = "chkA";
-            this.chkA.Size = new System.Drawing.Size(40, 40);
-            this.chkA.TabIndex = 1;
-            this.chkA.Text = "A";
-            this.chkA.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkA.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(31, 76);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 16);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Nivel:";
             // 
             // cbNivel
             // 
             this.cbNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNivel.FormattingEnabled = true;
-            this.cbNivel.Location = new System.Drawing.Point(223, 53);
+            this.cbNivel.Location = new System.Drawing.Point(93, 73);
+            this.cbNivel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbNivel.Name = "cbNivel";
-            this.cbNivel.Size = new System.Drawing.Size(150, 24);
-            this.cbNivel.TabIndex = 11;
-            this.cbNivel.SelectedIndexChanged += new System.EventHandler(this.cbNivel_SelectedIndexChanged);
+            this.cbNivel.Size = new System.Drawing.Size(160, 24);
+            this.cbNivel.TabIndex = 3;
             // 
-            // chkT
+            // label3
             // 
-            this.chkT.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkT.Location = new System.Drawing.Point(70, 30);
-            this.chkT.Name = "chkT";
-            this.chkT.Size = new System.Drawing.Size(40, 40);
-            this.chkT.TabIndex = 2;
-            this.chkT.Text = "T";
-            this.chkT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkT.UseVisualStyleBackColor = true;
-            // 
-            // chkF
-            // 
-            this.chkF.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chkF.Location = new System.Drawing.Point(120, 30);
-            this.chkF.Name = "chkF";
-            this.chkF.Size = new System.Drawing.Size(40, 40);
-            this.chkF.TabIndex = 3;
-            this.chkF.Text = "F";
-            this.chkF.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkF.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(276, 76);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 16);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Grado:";
             // 
             // cbGrado
             // 
             this.cbGrado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGrado.FormattingEnabled = true;
-            this.cbGrado.Location = new System.Drawing.Point(417, 53);
+            this.cbGrado.Items.AddRange(new object[] {
+            "Primero",
+            "Segundo",
+            "Tercero",
+            "Cuarto",
+            "Quinto",
+            "Sexto"});
+            this.cbGrado.Location = new System.Drawing.Point(339, 73);
+            this.cbGrado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbGrado.Name = "cbGrado";
-            this.cbGrado.Size = new System.Drawing.Size(150, 24);
-            this.cbGrado.TabIndex = 4;
-            this.cbGrado.SelectedIndexChanged += new System.EventHandler(this.cbGrado_SelectedIndexChanged);
+            this.cbGrado.Size = new System.Drawing.Size(160, 24);
+            this.cbGrado.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(521, 76);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 16);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Sección:";
             // 
             // cbSeccion
             // 
             this.cbSeccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSeccion.FormattingEnabled = true;
-            this.cbSeccion.Location = new System.Drawing.Point(610, 53);
+            this.cbSeccion.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z"});
+            this.cbSeccion.Location = new System.Drawing.Point(597, 73);
+            this.cbSeccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbSeccion.Name = "cbSeccion";
-            this.cbSeccion.Size = new System.Drawing.Size(150, 24);
-            this.cbSeccion.TabIndex = 5;
-            this.cbSeccion.SelectedIndexChanged += new System.EventHandler(this.cbSeccion_SelectedIndexChanged);
-            // 
-            // dtpFecha
-            // 
-            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecha.Location = new System.Drawing.Point(790, 55);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(200, 22);
-            this.dtpFecha.TabIndex = 6;
+            this.cbSeccion.Size = new System.Drawing.Size(160, 24);
+            this.cbSeccion.TabIndex = 7;
             // 
             // dgvAsistencia
             // 
             this.dgvAsistencia.AllowUserToAddRows = false;
-            this.dgvAsistencia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAsistencia.AllowUserToDeleteRows = false;
             this.dgvAsistencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAsistencia.Location = new System.Drawing.Point(20, 150);
+            this.dgvAsistencia.Location = new System.Drawing.Point(35, 160);
+            this.dgvAsistencia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvAsistencia.Name = "dgvAsistencia";
             this.dgvAsistencia.RowHeadersWidth = 51;
-            this.dgvAsistencia.Size = new System.Drawing.Size(1022, 329);
-            this.dgvAsistencia.TabIndex = 0;
+            this.dgvAsistencia.Size = new System.Drawing.Size(724, 357);
+            this.dgvAsistencia.TabIndex = 8;
             // 
-            // FrmAsistencia
+            // chkA
+            // 
+            this.chkA.AutoSize = true;
+            this.chkA.Location = new System.Drawing.Point(35, 122);
+            this.chkA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkA.Name = "chkA";
+            this.chkA.Size = new System.Drawing.Size(69, 20);
+            this.chkA.TabIndex = 9;
+            this.chkA.Text = "Asistió";
+            this.chkA.UseVisualStyleBackColor = true;
+            // 
+            // chkT
+            // 
+            this.chkT.AutoSize = true;
+            this.chkT.Location = new System.Drawing.Point(120, 122);
+            this.chkT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkT.Name = "chkT";
+            this.chkT.Size = new System.Drawing.Size(87, 20);
+            this.chkT.TabIndex = 10;
+            this.chkT.Text = "Tardanza";
+            this.chkT.UseVisualStyleBackColor = true;
+            // 
+            // chkF
+            // 
+            this.chkF.AutoSize = true;
+            this.chkF.Location = new System.Drawing.Point(215, 122);
+            this.chkF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkF.Name = "chkF";
+            this.chkF.Size = new System.Drawing.Size(59, 20);
+            this.chkF.TabIndex = 11;
+            this.chkF.Text = "Falta";
+            this.chkF.UseVisualStyleBackColor = true;
+            // 
+            // FrmAsistenciaMatriculados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 585);
-            this.Controls.Add(this.tabControl);
+            this.ClientSize = new System.Drawing.Size(800, 554);
+            this.Controls.Add(this.chkF);
+            this.Controls.Add(this.chkT);
+            this.Controls.Add(this.chkA);
+            this.Controls.Add(this.dgvAsistencia);
+            this.Controls.Add(this.cbSeccion);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cbGrado);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cbNivel);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.dtpFecha);
+            this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmAsistenciaMatriculados";
             this.Text = "FrmAsistenciaMatriculados";
-            this.tabControl.ResumeLayout(false);
-            this.tabTomar.ResumeLayout(false);
-            this.groupBoxFiltros.ResumeLayout(false);
-            this.groupBoxFiltros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsistencia)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage tabTomar;
-        private System.Windows.Forms.GroupBox groupBoxFiltros;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Label lblNivel;
-        private System.Windows.Forms.CheckBox chkA;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbNivel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbGrado;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbSeccion;
+        private System.Windows.Forms.DataGridView dgvAsistencia;
+        private System.Windows.Forms.CheckBox chkA;
         private System.Windows.Forms.CheckBox chkT;
         private System.Windows.Forms.CheckBox chkF;
-        private System.Windows.Forms.ComboBox cbGrado;
-        private System.Windows.Forms.ComboBox cbSeccion;
-        private System.Windows.Forms.DateTimePicker dtpFecha;
-        private System.Windows.Forms.DataGridView dgvAsistencia;
     }
 }

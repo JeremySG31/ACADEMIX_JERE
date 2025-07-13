@@ -1,7 +1,7 @@
-﻿using Academix.controlador; // Asegúrate de que esta referencia sea correcta
-using System.Data;
+﻿using Academix.controlador;
+using System.Data; 
 using System;
-using System.Windows.Forms; // Necesario para DataGridView
+using System.Windows.Forms; 
 
 namespace Academix.negocio
 {
@@ -13,18 +13,16 @@ namespace Academix.negocio
         {
             _consultarAsistenciaControlador = new ConsultarAsistenciaC();
         }
-
         public void CargarHistorialAsistenciasEnDGV(DataGridView dgv, DateTime fecha)
         {
             try
             {
-                DataTable dt = _consultarAsistenciaControlador.ConsultarHistorialAsistenciasPorFecha(fecha);
-                dgv.DataSource = dt;
+                _consultarAsistenciaControlador.ConsultarHistorialAsistenciasPorFecha(dgv, fecha);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar historial de asistencias: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dgv.DataSource = null; // Limpiar el DGV en caso de error
+                dgv.DataSource = null; 
             }
         }
     }

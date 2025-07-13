@@ -9,11 +9,6 @@ namespace Academix.modelo
         public DateTime Fecha { get; set; }
         public string Estado { get; set; }
 
-        public AsistenciaMatriculadosM()
-        {
-
-        }
-
         public AsistenciaMatriculadosM(string id, string idMatricula, DateTime fecha, string estado)
         {
             Id = id;

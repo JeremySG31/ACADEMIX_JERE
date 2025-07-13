@@ -25,30 +25,30 @@ namespace ESTRES.controlador
                 + dato.Dni + "','"
                 + dato.Correo + "','"
                 + dato.Contrasena + "','"
-                + dato.Rol + "','" 
+                + dato.Rol + "','"
                 + dato.Estado + "','"
                 + dato.Telefono + "')");
         }
 
         public void update(usuarioM dato)
         {
-            x.manipular("UPDATE usuarios SET nombre_usuario='" + dato.NombreUsuario + "', nombres='" + dato.Nombres + "', ape_paterno='" + dato.ApePaterno + "', ape_materno='" + dato.ApeMaterno + "', dni='" + dato.Dni + "', correo='" + dato.Correo + "', contrasena='" + dato.Contrasena + "', rol='" + dato.Rol + "', estado='" + dato.Estado + "', telefono='" + dato.Telefono + "' WHERE id='" + dato.Id + "'");
+            x.manipular("UPDATE usuarios SET nombre_usuario='" + dato.NombreUsuario + "', nombres='" + dato.Nombres + "', ape_paterno='" + dato.ApePaterno + "', ape_materno='" + dato.ApeMaterno + "', dni='" + dato.Dni + "', correo='" + dato.Correo + "', contrasena='" + dato.Contrasena + "', rol='" + dato.Rol + "', estado='" + dato.Estado + "', telefono='" + dato.Telefono + "' WHERE id='" + dato.Id + "' AND id LIKE 'U%'");
         }
 
         public void delete(string idUsuario)
         {
-            x.manipular("DELETE FROM usuarios WHERE id ='" + idUsuario + "'");
+            x.manipular("DELETE FROM usuarios WHERE id ='" + idUsuario + "' AND id LIKE 'U%'");
         }
 
         public void select(DataGridView L)
         {
-            L.DataSource = x.manipular("SELECT id, nombre_usuario, nombres, ape_paterno, ape_materno, contrasena, dni, correo, rol, estado, telefono FROM usuarios");
+            L.DataSource = x.manipular("SELECT id, nombre_usuario, nombres, ape_paterno, ape_materno, contrasena, dni, correo, rol, estado, telefono FROM usuarios WHERE id LIKE 'U%'");
             L.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
         public void selectBuscarColumna(ComboBox cb)
         {
-            DataTable dt = x.manipular("SELECT id, nombres FROM usuarios");
+            DataTable dt = x.manipular("SELECT id, nombres FROM usuarios WHERE id LIKE 'U%'");
             cb.DataSource = dt;
             cb.DisplayMember = "nombres";
             cb.ValueMember = "id";
@@ -57,7 +57,7 @@ namespace ESTRES.controlador
 
         public void selectIDModificar(ComboBox combo)
         {
-            DataTable dt = x.manipular("SELECT id, nombre_usuario, nombres, ape_paterno, ape_materno, contrasena, dni, correo, contrasena, rol, estado, telefono FROM usuarios");
+            DataTable dt = x.manipular("SELECT id, nombre_usuario, nombres, ape_paterno, ape_materno, contrasena, dni, correo, contrasena, rol, estado, telefono FROM usuarios WHERE id LIKE 'U%'");
             combo.DataSource = dt;
             combo.DisplayMember = "id";
             combo.ValueMember = "id";
@@ -66,7 +66,7 @@ namespace ESTRES.controlador
 
         public void selectIDEliminar(ComboBox combo)
         {
-            DataTable dt = x.manipular("SELECT id FROM usuarios");
+            DataTable dt = x.manipular("SELECT id FROM usuarios WHERE id LIKE 'U%'");
             combo.DataSource = dt;
             combo.DisplayMember = "id";
             combo.ValueMember = "id";
@@ -77,9 +77,9 @@ namespace ESTRES.controlador
         {
             DataTable dt = x.manipular("SELECT id, nombre_rol FROM roles");
             cb.DataSource = dt;
-            cb.DisplayMember = "nombre_rol"; 
-            cb.ValueMember = "id";         
-            cb.SelectedIndex = -1; 
+            cb.DisplayMember = "nombre_rol";
+            cb.ValueMember = "id";
+            cb.SelectedIndex = -1;
         }
     }
 }

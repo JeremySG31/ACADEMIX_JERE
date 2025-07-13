@@ -46,27 +46,19 @@ namespace ESTRES.vista
 
         private void ActualizarCampos()
         {
-            // Desuscribe eventos para evitar disparadores múltiples durante la actualización de DataSource
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged -= cbBuscarColumna_SelectedIndexChanged;
-
             apoderadoC controlador = new apoderadoC();
-
-            // Limpia DataSources antes de asignar nuevos datos
             dgvUsuarios.DataSource = null;
             cbBuscarColumna.DataSource = null;
             cbEstado.DataSource = null;
             cbIdModificar.DataSource = null;
             cbIdEliminar.DataSource = null;
-
-            // Carga los datos
             controlador.select(dgvUsuarios);
             controlador.select(cbBuscarColumna);
             controlador.selectEstado(cbEstado);
             controlador.selectIDModificar(cbIdModificar);
             controlador.selectIDEliminar(cbIdEliminar);
-
-            // Restablece la selección de ComboBox
             cbIdModificar.SelectedIndex = -1;
             cbIdModificar.Text = "";
             cbBuscarColumna.SelectedIndex = -1;
@@ -74,8 +66,6 @@ namespace ESTRES.vista
             txtBuscar.Clear();
             cbIdEliminar.SelectedIndex = -1;
             cbIdEliminar.Text = "";
-
-            // Vuelve a suscribir eventos
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
 
@@ -84,10 +74,8 @@ namespace ESTRES.vista
 
         private void LimpiarCampos()
         {
-            // Desuscribe eventos temporalmente para evitar que se disparen al limpiar
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged -= cbBuscarColumna_SelectedIndexChanged;
-
             txtIdApoderado.Clear();
             txtNombres.Clear();
             txtNombreUsuario.Clear();
@@ -102,8 +90,6 @@ namespace ESTRES.vista
             cbBuscarColumna.SelectedIndex = -1;
             cbBuscarColumna.Text = "";
             txtBuscar.Clear();
-
-            // Vuelve a suscribir eventos
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
         }
@@ -128,7 +114,6 @@ namespace ESTRES.vista
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if (!ValidarLlenarCampos()) return;
-            // Valida que se haya seleccionado un ID para modificar
             if (cbIdModificar.SelectedValue == null || string.IsNullOrEmpty(cbIdModificar.SelectedValue.ToString()))
             {
                 MessageBox.Show("Por favor, seleccione un ID de apoderado para modificar.", "Selección Requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -166,7 +151,7 @@ namespace ESTRES.vista
             try
             {
                 apoderadoN x = new apoderadoN();
-                x.eliminar(cbIdEliminar.SelectedValue.ToString()); // Usar SelectedValue para obtener el ID real
+                x.eliminar(cbIdEliminar.SelectedValue.ToString());
                 ActualizarCampos();
                 MessageBox.Show("Apoderado eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

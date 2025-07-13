@@ -37,7 +37,6 @@ namespace Academix.vista
             cbIdMatricula.DataSource = null;
             cbIdModificar.DataSource = null;
             cbIdEliminar.DataSource = null;
-
             controlador.select(dgvCursosMatriculados);
             controlador.selectBuscarColumna(cbBuscarColumna);
             controlador.selectEstudiantes(cbEstudiantes);
@@ -45,9 +44,7 @@ namespace Academix.vista
             controlador.selectMatriculas(cbIdMatricula);
             controlador.selectIDModificar(cbIdModificar);
             controlador.selectIDEliminar(cbIdEliminar);
-
             LimpiarCampos();
-
             cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
         }
@@ -56,7 +53,6 @@ namespace Academix.vista
         {
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged -= cbBuscarColumna_SelectedIndexChanged;
-
             txtCursoMatriculado.Text = "";
             cbEstudiantes.SelectedIndex = -1;
             cbEstudiantes.Text = "";
@@ -71,7 +67,6 @@ namespace Academix.vista
             cbIdModificar.Text = "";
             cbIdEliminar.SelectedIndex = -1;
             cbIdEliminar.Text = "";
-
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
         }

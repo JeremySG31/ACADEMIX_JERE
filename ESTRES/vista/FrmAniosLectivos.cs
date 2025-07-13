@@ -97,7 +97,7 @@ namespace Academix.vista
         {
             if (cbBuscarColumna.SelectedItem is DataRowView row && row["nombre"] != DBNull.Value)
             {
-                txtBuscar.Text = row["nombre"].ToString(); // Muestra el 'nombre' (el año lectivo)
+                txtBuscar.Text = row["nombre"].ToString(); 
             }
             else
             {
@@ -110,10 +110,8 @@ namespace Academix.vista
             if (cbIdModificar.SelectedItem is DataRowView fila)
             {
                 txtIdAnioLectivo.Text = fila["id"].ToString();
-                txtAnioLectivo.Text = fila["nombre"].ToString(); // Usar 'nombre'
+                txtAnioLectivo.Text = fila["nombre"].ToString();
                 txtDescripcion.Text = fila["descripcion"].ToString();
-
-                // Cargar estado
                 string estado = fila["estado"].ToString();
                 if (cbEstado.Items.Count > 0 && (cbEstado.DataSource as DataTable).Select($"Estado = '{estado}'").Length > 0)
                 {
@@ -134,7 +132,7 @@ namespace Academix.vista
         private void btnInsertar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtIdAnioLectivo.Text) ||
-                string.IsNullOrWhiteSpace(txtAnioLectivo.Text) || // Validar 'nombre'
+                string.IsNullOrWhiteSpace(txtAnioLectivo.Text) || 
                 string.IsNullOrWhiteSpace(txtDescripcion.Text) ||
                 cbEstado.SelectedValue == null)
             {
@@ -146,7 +144,7 @@ namespace Academix.vista
             {
                 aniosLectivosN negocio = new aniosLectivosN();
                 negocio.insertar(txtIdAnioLectivo.Text,
-                                 txtAnioLectivo.Text, // Pasar 'nombre'
+                                 txtAnioLectivo.Text, 
                                  txtDescripcion.Text,
                                  cbEstado.SelectedValue.ToString());
                 ActualizarCampos();

@@ -35,7 +35,6 @@ namespace ESTRES.vista
         {
             cbBuscarColumna.SelectedIndexChanged -= cbBuscarColumna_SelectedIndexChanged;
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
-
             dgvUsuarios.DataSource = null;
             cbBuscarColumna.DataSource = null;
             cbEstudiantes.DataSource = null;
@@ -47,7 +46,6 @@ namespace ESTRES.vista
             cbEstado.DataSource = null;
             cbIdModificar.DataSource = null;
             cbIdEliminar.DataSource = null;
-
             _matriculaNegocio.seleccionar(dgvUsuarios);
             _matriculaNegocio.selectBuscarColumna(cbBuscarColumna);
             _matriculaNegocio.selectIDsEstudiantes(cbEstudiantes);
@@ -59,9 +57,7 @@ namespace ESTRES.vista
             _matriculaNegocio.selectIDsEstados(cbEstado);
             _matriculaNegocio.selectIDModificar(cbIdModificar);
             _matriculaNegocio.selectIDEliminar(cbIdEliminar);
-
             LimpiarCampos();
-
             cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
         }
@@ -70,7 +66,6 @@ namespace ESTRES.vista
         {
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged -= cbBuscarColumna_SelectedIndexChanged;
-
             txtIdMatricula.Text = "";
             cbEstudiantes.SelectedIndex = -1;
             cbGrados.SelectedIndex = -1;

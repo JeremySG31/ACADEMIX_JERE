@@ -24,22 +24,16 @@ namespace Academix.vista
 
         private void ActualizarCampos()
         {
-            // Desuscribe eventos para evitar disparadores múltiples durante la actualización de DataSource
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged -= cbBuscarColumna_SelectedIndexChanged;
-
             gradoC controlador = new gradoC();
-
-            // Limpia DataSources antes de asignar nuevos datos
-            dgvUsuarios.DataSource = null; // Asumo que dgvUsuarios es el DataGridView para Grados
+            dgvUsuarios.DataSource = null; 
             cbEstudiantes.DataSource = null;
             cbGrados.DataSource = null;
             cbNiveles.DataSource = null;
             cbBuscarColumna.DataSource = null;
             cbIdModificar.DataSource = null;
             cbIdEliminar.DataSource = null;
-
-            // Carga los datos
             controlador.select(dgvUsuarios);
             controlador.selectEstudiantes(cbEstudiantes);
             controlador.selectGrados(cbGrados);
@@ -48,19 +42,15 @@ namespace Academix.vista
             controlador.selectIDModificar(cbIdModificar);
             controlador.selectIDEliminar(cbIdEliminar);
 
-            LimpiarCampos(); // Llama a limpiar campos después de cargar los datos de los ComboBox
-
-            // Vuelve a suscribir eventos
+            LimpiarCampos(); 
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
         }
 
         private void LimpiarCampos()
         {
-            // Desuscribe eventos temporalmente para evitar que se disparen al limpiar
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged -= cbBuscarColumna_SelectedIndexChanged;
-
             txtIdGrado.Clear();
             cbEstudiantes.SelectedIndex = -1;
             cbEstudiantes.Text = "";
@@ -75,8 +65,6 @@ namespace Academix.vista
             cbIdModificar.Text = "";
             cbIdEliminar.SelectedIndex = -1;
             cbIdEliminar.Text = "";
-
-            // Vuelve a suscribir eventos
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
         }
@@ -94,8 +82,6 @@ namespace Academix.vista
             if (cbIdModificar.SelectedItem is DataRowView fila)
             {
                 txtIdGrado.Text = fila["id"].ToString();
-
-                // Asegúrate de que SelectedValue se usa con el ValueMember correcto (ID del estudiante)
                 if (cbEstudiantes.DataSource is DataTable dtEstudiantes)
                 {
                     DataRow[] foundRows = dtEstudiantes.Select($"id = '{fila["id_estudiante"]}'");
@@ -105,12 +91,10 @@ namespace Academix.vista
                     }
                     else
                     {
-                        cbEstudiantes.SelectedIndex = -1; // No se encontró el estudiante, deseleccionar
+                        cbEstudiantes.SelectedIndex = -1; 
                         cbEstudiantes.Text = "";
                     }
                 }
-
-                // Para Grados y Niveles, si DisplayMember y ValueMember son el mismo (el nombre), usar SelectedValue = nombre es correcto
                 if (cbGrados.DataSource is DataTable dtGrados)
                 {
                     DataRow[] foundRows = dtGrados.Select($"nombre_grado = '{fila["nombres"]}'");
@@ -147,8 +131,6 @@ namespace Academix.vista
             {
                 DataGridViewRow row = dgvUsuarios.Rows[e.RowIndex];
                 txtIdGrado.Text = row.Cells["id"].Value?.ToString() ?? "";
-
-                // Establece el SelectedValue para los ComboBox según los datos de la fila
                 if (row.Cells["id_estudiante"].Value != null)
                 {
                     cbEstudiantes.SelectedValue = row.Cells["id_estudiante"].Value.ToString();
@@ -183,7 +165,6 @@ namespace Academix.vista
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            // Valida que los ComboBox tengan un valor seleccionado
             if (string.IsNullOrEmpty(txtIdGrado.Text) || cbEstudiantes.SelectedValue == null ||
                 cbGrados.SelectedValue == null || cbNiveles.SelectedValue == null)
             {
@@ -194,7 +175,6 @@ namespace Academix.vista
             try
             {
                 gradoN x = new gradoN();
-                // Usar SelectedValue para el ID del estudiante, y Text para los nombres/niveles (ya que DisplayMember y ValueMember son los mismos para esos CBs)
                 x.insertar(txtIdGrado.Text, cbGrados.Text, cbEstudiantes.SelectedValue.ToString(), cbNiveles.Text);
                 ActualizarCampos();
                 MessageBox.Show("Grado insertado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -207,7 +187,6 @@ namespace Academix.vista
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            // Valida que los ComboBox tengan un valor seleccionado
             if (string.IsNullOrEmpty(txtIdGrado.Text) || cbEstudiantes.SelectedValue == null ||
                 cbGrados.SelectedValue == null || cbNiveles.SelectedValue == null)
             {
@@ -223,7 +202,6 @@ namespace Academix.vista
             try
             {
                 gradoN x = new gradoN();
-                // Usar SelectedValue para el ID del estudiante, y Text para los nombres/niveles
                 x.modificar(txtIdGrado.Text, cbGrados.Text, cbEstudiantes.SelectedValue.ToString(), cbNiveles.Text);
                 ActualizarCampos();
                 MessageBox.Show("Grado modificado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -245,7 +223,7 @@ namespace Academix.vista
             try
             {
                 gradoN x = new gradoN();
-                x.eliminar(cbIdEliminar.SelectedValue.ToString()); // Usar SelectedValue para el ID
+                x.eliminar(cbIdEliminar.SelectedValue.ToString()); 
                 ActualizarCampos();
                 MessageBox.Show("Grado eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

@@ -52,25 +52,17 @@ namespace ESTRES.vista
 
         private void ActualizarCampos()
         {
-            // Desuscribe eventos para evitar disparadores múltiples durante la actualización de DataSource
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged -= cbBuscarColumna_SelectedIndexChanged;
-
             cursoC controlador = new cursoC();
-
-            // Limpia DataSources antes de asignar nuevos datos
             dgvCursos.DataSource = null;
             cbBuscarColumna.DataSource = null;
             cbIdModificar.DataSource = null;
             cbIdEliminar.DataSource = null;
-
-            // Carga los datos
             controlador.select(dgvCursos);
             controlador.select(cbBuscarColumna);
             controlador.selectIDModificar(cbIdModificar);
             controlador.selectIDEliminar(cbIdEliminar);
-
-            // Restablece la selección de ComboBox
             cbBuscarColumna.SelectedIndex = -1;
             cbBuscarColumna.Text = "";
             txtBuscar.Clear();
@@ -78,20 +70,15 @@ namespace ESTRES.vista
             cbIdModificar.Text = "";
             cbIdEliminar.SelectedIndex = -1;
             cbIdEliminar.Text = "";
-
-            // Vuelve a suscribir eventos
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
-
             LimpiarCampos();
         }
 
         private void LimpiarCampos()
         {
-            // Desuscribe eventos temporalmente para evitar que se disparen al limpiar
             cbIdModificar.SelectedIndexChanged -= cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged -= cbBuscarColumna_SelectedIndexChanged;
-
             txtIdCurso.Clear();
             txtCurso.Clear();
             txtDescripcion.Clear();
@@ -102,13 +89,9 @@ namespace ESTRES.vista
             cbIdModificar.Text = "";
             cbIdEliminar.SelectedIndex = -1;
             cbIdEliminar.Text = "";
-
-            // Vuelve a suscribir eventos
             cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
             cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
         }
-
-        // Nueva función de validación para los campos del curso
         private bool ValidarLlenarCampos()
         {
             if (string.IsNullOrEmpty(txtIdCurso.Text) ||
@@ -123,7 +106,7 @@ namespace ESTRES.vista
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            if (!ValidarLlenarCampos()) return; // Agrega validación
+            if (!ValidarLlenarCampos()) return; 
 
             try
             {
@@ -140,8 +123,7 @@ namespace ESTRES.vista
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (!ValidarLlenarCampos()) return; // Agrega validación
-            // Valida que se haya seleccionado un ID para modificar
+            if (!ValidarLlenarCampos()) return; 
             if (cbIdModificar.SelectedValue == null || string.IsNullOrEmpty(cbIdModificar.SelectedValue.ToString()))
             {
                 MessageBox.Show("Por favor, seleccione un ID de curso para modificar.", "Selección Requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -172,11 +154,11 @@ namespace ESTRES.vista
             try
             {
                 cursoN x = new cursoN();
-                x.eliminar(cbIdEliminar.SelectedValue.ToString()); // Usa SelectedValue para obtener el ID real
+                x.eliminar(cbIdEliminar.SelectedValue.ToString()); 
                 ActualizarCampos();
                 MessageBox.Show("Curso eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex) // Captura la excepción para mostrar el mensaje de error
+            catch (Exception ex) 
             {
                 MessageBox.Show("Error al eliminar el registro: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

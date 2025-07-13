@@ -17,28 +17,24 @@ namespace Academix.controlador
         public void insert(AsistenciaMatriculadosM dato)
         {
             string fechaFormatoDB = dato.Fecha.ToString("s");
-            string query = "INSERT INTO asistencias_matriculados (id, id_matricula, fecha, estado) VALUES ('" + dato.Id + "', '" + dato.IdMatricula + "', '" + fechaFormatoDB + "', '" + dato.Estado + "')";
-            x.manipular(query);
+            x.manipular("INSERT INTO asistencias_matriculados (id, id_matricula, fecha, estado) VALUES ('" + dato.Id + "', '" + dato.IdMatricula + "', '" + fechaFormatoDB + "', '" + dato.Estado + "')");
         }
 
         public void update(AsistenciaMatriculadosM dato)
         {
             string fechaFormatoDB = dato.Fecha.ToString("s");
-            string query = "UPDATE asistencias_matriculados SET id_matricula='" + dato.IdMatricula + "', fecha='" + fechaFormatoDB + "', estado='" + dato.Estado + "' WHERE id='" + dato.Id + "'";
-            x.manipular(query);
+            x.manipular("UPDATE asistencias_matriculados SET id_matricula='" + dato.IdMatricula + "', fecha='" + fechaFormatoDB + "', estado='" + dato.Estado + "' WHERE id='" + dato.Id + "'");
         }
 
         public void delete(string idAsistenciaMatriculado)
         {
-            string query = "DELETE FROM asistencias_matriculados WHERE id = '" + idAsistenciaMatriculado + "'";
-            x.manipular(query);
+            x.manipular("DELETE FROM asistencias_matriculados WHERE id = '" + idAsistenciaMatriculado + "'");
         }
 
         public void deleteAsistenciasByFilters(string idGrado, string idSeccion, DateTime fecha)
         {
             string fechaFormatoDB = fecha.ToString("yyyy-MM-dd");
-            string query = "DELETE FROM asistencias_matriculados WHERE id_matricula IN (SELECT id FROM matriculas WHERE id_grado = '" + idGrado + "' AND id_seccion = '" + idSeccion + "') AND CAST(fecha AS DATE) = CAST('" + fechaFormatoDB + "' AS DATE)";
-            x.manipular(query);
+            x.manipular("DELETE FROM asistencias_matriculados WHERE id_matricula IN (SELECT id FROM matriculas WHERE id_grado = '" + idGrado + "' AND id_seccion = '" + idSeccion + "') AND CAST(fecha AS DATE) = CAST('" + fechaFormatoDB + "' AS DATE)");
         }
 
         public DataTable obtenerEstadosAsistenciaDataTable()

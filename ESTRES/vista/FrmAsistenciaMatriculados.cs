@@ -172,7 +172,7 @@ namespace Academix.vista
                             {
                                 _asistenciaNegocio.eliminar(idAsistencia);
                                 drv["id_asistencia_existente"] = DBNull.Value;
-                                drv["estado_asistencia"] = ""; // No usar DBNull si la columna no acepta NULL
+                                drv["estado_asistencia"] = ""; 
                             }
                         }
                         else

@@ -24,7 +24,6 @@ namespace ESTRES.controlador
             x.manipular("UPDATE cursos SET nombre='" + dato.Nombre + "', descripcion='" + dato.Descripcion + "' WHERE id='" + dato.Id + "'");
         }
 
-        // Modificado para aceptar solo el ID para la eliminación
         public void delete(string idCurso)
         {
             x.manipular("DELETE FROM cursos WHERE id ='" + idCurso + "'");

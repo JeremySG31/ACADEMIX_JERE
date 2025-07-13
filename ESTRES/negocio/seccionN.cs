@@ -21,8 +21,6 @@ namespace Academix.negocio
         {
             x.update(new seccionM(id, nombre, id_estudiante));
         }
-
-        // --- CORRECCIÓN: Modificado para eliminar solo por ID ---
         public void eliminar(string id)
         {
             x.delete(id);

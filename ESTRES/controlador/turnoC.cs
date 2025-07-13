@@ -34,13 +34,13 @@ namespace ESTRES.controlador
             DataTable dt = x.manipular("SELECT id, nombre FROM turnos");
             cb.DataSource = dt;
             cb.DisplayMember = "id";
-            cb.ValueMember = "nombre"; // Ahora el ValueMember es 'nombre'
+            cb.ValueMember = "nombre";
             cb.SelectedIndex = -1;
         }
 
         public void select(DataGridView L)
         {
-            string consulta = "SELECT t.id, t.nombre, t.id_estudiante " + // Eliminado 'e.id AS id_estudiante_nombre'
+            string consulta = "SELECT t.id, t.nombre, t.id_estudiante " +
                               "FROM turnos t " +
                               "LEFT JOIN estudiantes e ON t.id_estudiante = e.id";
 

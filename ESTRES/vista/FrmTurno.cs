@@ -123,7 +123,7 @@ namespace ESTRES.vista
         {
             if (cbBuscarColumna.SelectedItem is DataRowView row && row["nombre"] != DBNull.Value)
             {
-                txtBuscar.Text = row["nombre"].ToString(); // Muestra el 'nombre'
+                txtBuscar.Text = row["nombre"].ToString(); 
             }
             else
             {

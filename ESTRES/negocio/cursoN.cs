@@ -19,7 +19,6 @@ namespace ESTRES.negocio
         {
             x.update(new cursoM(id, nombre, descripcion));
         }
-        // Modificado para eliminar solo por ID
         public void eliminar(string id)
         {
             x.delete(id);

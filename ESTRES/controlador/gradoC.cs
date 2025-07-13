@@ -1,8 +1,8 @@
 ﻿using ESTRES.dao;
-using Academix.modelo; // Asegúrate de que este namespace es correcto si el modelo está en Academix.modelo
+using Academix.modelo; 
 using System.Data;
 using System.Windows.Forms;
-using System.Linq; // No es estrictamente necesario si no usas LINQ en esta clase
+using System.Linq;
 
 namespace Academix.controlador
 {
@@ -25,7 +25,6 @@ namespace Academix.controlador
             x.manipular("UPDATE grados SET nombres='" + dato.Nombres + "', id_estudiante='" + dato.IdEstudiante + "', nivel='" + dato.Nivel + "' WHERE id='" + dato.Id + "'");
         }
 
-        // --- CORRECCIÓN: Modificado para aceptar solo el ID para la eliminación ---
         public void delete(string idGrado)
         {
             x.manipular("DELETE FROM grados WHERE id ='" + idGrado + "'");
@@ -40,7 +39,6 @@ namespace Academix.controlador
 
         public void selectEstudiantes(ComboBox cb)
         {
-            // Se asume que la tabla estudiantes tiene una columna 'id'
             DataTable dt = x.manipular("SELECT id FROM estudiantes");
 
             cb.DataSource = dt;
@@ -63,7 +61,7 @@ namespace Academix.controlador
 
             cb.DataSource = dt;
             cb.DisplayMember = "nombre_grado";
-            cb.ValueMember = "nombre_grado"; // El valor también es el nombre para este ComboBox
+            cb.ValueMember = "nombre_grado"; 
             cb.SelectedIndex = -1;
         }
 
@@ -72,7 +70,7 @@ namespace Academix.controlador
             DataTable dt = x.manipular("SELECT DISTINCT nivel as nombre_nivel FROM grados");
             cb.DataSource = dt;
             cb.DisplayMember = "nombre_nivel";
-            cb.ValueMember = "nombre_nivel"; // El valor también es el nombre del nivel
+            cb.ValueMember = "nombre_nivel"; 
             cb.SelectedIndex = -1;
         }
 

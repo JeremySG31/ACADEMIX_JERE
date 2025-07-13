@@ -23,7 +23,6 @@ namespace Academix.negocio
             x.update(new gradoM(id, nombresGrado, idEstudiante, nivelGrado));
         }
 
-        // --- CORRECCIÓN: Modificado para eliminar solo por ID ---
         public void eliminar(string id)
         {
             x.delete(id);

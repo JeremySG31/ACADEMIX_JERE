@@ -1,4 +1,4 @@
-﻿using ESTRES.dao; // Asumo que ESTRES.dao contiene la clase 'conexion'
+﻿using ESTRES.dao;
 using Academix.modelo;
 using System;
 using System.Data;
@@ -25,7 +25,6 @@ namespace Academix.controlador
             x.manipular("UPDATE secciones SET nombre='" + dato.Nombre + "', id_estudiante='" + dato.IdEstudiante + "' WHERE id='" + dato.Id + "'");
         }
 
-        // --- CORRECCIÓN: Modificado para aceptar solo el ID para la eliminación ---
         public void delete(string idSeccion)
         {
             x.manipular("DELETE FROM secciones WHERE id ='" + idSeccion + "'");
@@ -78,8 +77,6 @@ namespace Academix.controlador
             cb.ValueMember = "id";
             cb.SelectedIndex = -1;
         }
-
-        // --- NUEVO MÉTODO: Para cargar las secciones (A, B, C, etc.) ---
         public void selectSeccionesABC(ComboBox cb)
         {
             string[] secciones = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"}; 

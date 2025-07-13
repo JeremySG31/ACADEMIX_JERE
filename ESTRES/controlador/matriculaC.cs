@@ -33,7 +33,7 @@ namespace ESTRES.controlador
         {
             DataTable dt = x.manipular("SELECT id, id_estudiante, fecha_matricula FROM matriculas");
             cbBuscarColumna.DataSource = dt;
-            cbBuscarColumna.DisplayMember = "id_estudiante"; // Muestra el ID del estudiante de la tabla matriculas
+            cbBuscarColumna.DisplayMember = "id_estudiante"; 
             cbBuscarColumna.ValueMember = "id";
             cbBuscarColumna.SelectedIndex = -1;
         }
@@ -64,7 +64,7 @@ namespace ESTRES.controlador
 
         public void selectIDsEstudiantes(ComboBox combo)
         {
-            DataTable dt = x.manipular("SELECT id FROM estudiantes"); // Selecciona 'id' de la tabla 'estudiantes'
+            DataTable dt = x.manipular("SELECT id FROM estudiantes");
             combo.DataSource = dt;
             combo.DisplayMember = "id";
             combo.ValueMember = "id";
@@ -73,7 +73,7 @@ namespace ESTRES.controlador
 
         public void selectIDsGrados(ComboBox combo)
         {
-            DataTable dt = x.manipular("SELECT id FROM grados"); // Selecciona 'id' de la tabla 'grados'
+            DataTable dt = x.manipular("SELECT id FROM grados"); 
             combo.DataSource = dt;
             combo.DisplayMember = "id";
             combo.ValueMember = "id";
@@ -82,7 +82,7 @@ namespace ESTRES.controlador
 
         public void selectIDsApoderados(ComboBox combo)
         {
-            DataTable dt = x.manipular("SELECT id FROM apoderados"); // Selecciona 'id' de la tabla 'apoderados'
+            DataTable dt = x.manipular("SELECT id FROM apoderados"); 
             combo.DataSource = dt;
             combo.DisplayMember = "id";
             combo.ValueMember = "id";
@@ -91,7 +91,7 @@ namespace ESTRES.controlador
 
         public void selectIDsSecciones(ComboBox combo)
         {
-            DataTable dt = x.manipular("SELECT id FROM secciones"); // Selecciona 'id' de la tabla 'secciones'
+            DataTable dt = x.manipular("SELECT id FROM secciones"); 
             combo.DataSource = dt;
             combo.DisplayMember = "id";
             combo.ValueMember = "id";
@@ -100,7 +100,7 @@ namespace ESTRES.controlador
 
         public void selectIDsTurnos(ComboBox combo)
         {
-            DataTable dt = x.manipular("SELECT id FROM turnos"); // Selecciona 'id' de la tabla 'turnos'
+            DataTable dt = x.manipular("SELECT id FROM turnos"); 
             combo.DataSource = dt;
             combo.DisplayMember = "id";
             combo.ValueMember = "id";
@@ -109,7 +109,7 @@ namespace ESTRES.controlador
 
         public void selectIDsAniosLectivos(ComboBox combo)
         {
-            DataTable dt = x.manipular("SELECT id FROM aniosLectivos"); // Selecciona 'id' de la tabla 'anios_lectivos'
+            DataTable dt = x.manipular("SELECT id FROM aniosLectivos"); 
             combo.DataSource = dt;
             combo.DisplayMember = "id";
             combo.ValueMember = "id";
@@ -119,7 +119,7 @@ namespace ESTRES.controlador
         public void selectEstados(ComboBox combo)
         {
 
-            DataTable dt = x.manipular("SELECT estado FROM matriculas"); 
+            DataTable dt = x.manipular("SELECT DISTINCT estado FROM matriculas"); 
             combo.DataSource = dt;
             combo.DisplayMember = "estado"; 
             combo.ValueMember = "estado";

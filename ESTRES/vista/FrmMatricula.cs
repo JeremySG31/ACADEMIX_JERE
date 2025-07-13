@@ -150,7 +150,6 @@ namespace ESTRES.vista
                 cbTurno.SelectedValue == null || cbAñoLectivo.SelectedValue == null ||
                 cbEstado.SelectedValue == null)
             {
-                MessageBox.Show("Todos los campos son obligatorios para la inserción.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -184,7 +183,6 @@ namespace ESTRES.vista
                 cbTurno.SelectedValue == null || cbAñoLectivo.SelectedValue == null ||
                 cbEstado.SelectedValue == null || cbIdModificar.SelectedValue == null)
             {
-                MessageBox.Show("Todos los campos y la selección de ID para modificar son obligatorios.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -214,7 +212,6 @@ namespace ESTRES.vista
         {
             if (cbIdEliminar.SelectedValue == null || string.IsNullOrWhiteSpace(cbIdEliminar.SelectedValue.ToString()))
             {
-                MessageBox.Show("Debe seleccionar un ID de matrícula para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -233,10 +230,6 @@ namespace ESTRES.vista
         private void btLimpiarCampos_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
-        }
-
-        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
         }
     }
 }

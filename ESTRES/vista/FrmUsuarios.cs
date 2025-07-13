@@ -12,7 +12,6 @@ namespace ESTRES.vista
         {
             InitializeComponent();
             this.Load += FrmUsuarios_Load;
-            // Suscribir eventos para replicar la lógica de FrmTurno
             this.cbBuscarColumna.SelectedIndexChanged += cbBuscarColumna_SelectedIndexChanged;
             this.cbIdModificar.SelectedIndexChanged += cbIdModificar_SelectedIndexChanged;
             this.dgvUsuarios.CellClick += dgvUsuarios_CellClick;
@@ -40,15 +39,17 @@ namespace ESTRES.vista
             cbBuscarColumna.DataSource = null;
             cbIdModificar.DataSource = null;
             cbIdEliminar.DataSource = null;
-            // Asegúrate de que cbRol y cbEstado existan y se llenen si es necesario.
-            // Por ejemplo, si tienes una tabla 'Roles' y 'Estados' en tu BD:
-            // controlador.selectRoles(cbRol); // Necesitarías crear este método en usuarioC
-            // controlador.selectEstados(cbEstado); // Necesitarías crear este método en usuarioC
+            cbRol.DataSource = null;
+
+            // cbEstado NO se carga aquí, sus ítems están en el diseñador (o se añaden una vez en el constructor/Load)
 
             controlador.select(dgvUsuarios);
             controlador.selectBuscarColumna(cbBuscarColumna);
             controlador.selectIDModificar(cbIdModificar);
             controlador.selectIDEliminar(cbIdEliminar);
+
+            // Cargar ComboBox de Roles desde la base de datos
+            controlador.selectRoles(cbRol);
 
             LimpiarCampos();
 
@@ -70,11 +71,12 @@ namespace ESTRES.vista
             txtApeMaterno.Text = "";
             txtDni.Text = "";
             txtCorreo.Text = "";
-            txtContrasena.Text = "";
+            txtContrasena.Text = ""; // Limpiar también la contraseña
             txtTelefono.Text = "";
-            cbRol.SelectedIndex = -1; // Asumiendo un ComboBox para el rol
+
+            if (cbRol.Items.Count > 0) cbRol.SelectedIndex = -1;
             cbRol.Text = "";
-            cbEstado.SelectedIndex = -1; // Asumiendo un ComboBox para el estado
+            if (cbEstado.Items.Count > 0) cbEstado.SelectedIndex = -1;
             cbEstado.Text = "";
 
             cbBuscarColumna.SelectedIndex = -1;
@@ -95,31 +97,38 @@ namespace ESTRES.vista
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgvUsuarios.Rows[e.RowIndex];
-                // Acceso a los valores de las celdas del DataGridView
                 txtIdUsuario.Text = row.Cells["id"].Value?.ToString() ?? "";
                 txtNombreUsuario.Text = row.Cells["nombre_usuario"].Value?.ToString() ?? "";
                 txtNombres.Text = row.Cells["nombres"].Value?.ToString() ?? "";
-                txtApePaterno.Text = row.Cells["ape_paterno"].Value?.ToString() ?? ""; // Usar ape_paterno
-                txtApeMaterno.Text = row.Cells["ape_materno"].Value?.ToString() ?? ""; // Usar ape_materno
+                txtApePaterno.Text = row.Cells["ape_paterno"].Value?.ToString() ?? "";
+                txtApeMaterno.Text = row.Cells["ape_materno"].Value?.ToString() ?? "";
                 txtDni.Text = row.Cells["dni"].Value?.ToString() ?? "";
                 txtCorreo.Text = row.Cells["correo"].Value?.ToString() ?? "";
-                // La contraseña no debe cargarse directamente por seguridad
-                // txtContrasena.Text = row.Cells["contrasena"].Value?.ToString() ?? "";
+                txtContrasena.Text = row.Cells["contrasena"].Value?.ToString() ?? "";
                 txtTelefono.Text = row.Cells["telefono"].Value?.ToString() ?? "";
 
-                // Cargar ComboBox para Rol (asegúrate de que cbRol tenga su DataSource asignado previamente)
+                // Cargar ComboBox para Rol: Asumiendo que 'rol' en usuarios guarda el ID del rol
                 if (row.Cells["rol"].Value != DBNull.Value)
                 {
-                    string rolValue = row.Cells["rol"].Value.ToString();
-                    // Verificar que cbRol.DataSource sea un DataTable antes de usar Select
-                    if (cbRol.Items.Count > 0 && (cbRol.DataSource is DataTable dtRol) && dtRol.Select($"rol = '{rolValue}'").Length > 0)
+                    string rolIdFromUser = row.Cells["rol"].Value?.ToString() ?? "";
+
+                    if (cbRol.DataSource is DataTable dtRol)
                     {
-                        cbRol.SelectedValue = rolValue;
+                        DataRow[] foundRows = dtRol.Select($"id = '{rolIdFromUser}'");
+                        if (foundRows.Length > 0)
+                        {
+                            cbRol.SelectedValue = rolIdFromUser;
+                        }
+                        else
+                        {
+                            cbRol.SelectedIndex = -1;
+                            cbRol.Text = rolIdFromUser;
+                        }
                     }
                     else
                     {
                         cbRol.SelectedIndex = -1;
-                        cbRol.Text = rolValue;
+                        cbRol.Text = rolIdFromUser;
                     }
                 }
                 else
@@ -128,14 +137,14 @@ namespace ESTRES.vista
                     cbRol.Text = "";
                 }
 
-                // Cargar ComboBox para Estado (asegúrate de que cbEstado tenga su DataSource asignado previamente)
+                // Cargar ComboBox para Estado: Ítems fijos en diseñador
                 if (row.Cells["estado"].Value != DBNull.Value)
                 {
-                    string estadoValue = row.Cells["estado"].Value.ToString();
-                    // Verificar que cbEstado.DataSource sea un DataTable antes de usar Select
-                    if (cbEstado.Items.Count > 0 && (cbEstado.DataSource is DataTable dtEstado) && dtEstado.Select($"estado = '{estadoValue}'").Length > 0)
+                    string estadoValue = row.Cells["estado"].Value?.ToString() ?? "";
+                    int index = cbEstado.FindStringExact(estadoValue);
+                    if (index != -1)
                     {
-                        cbEstado.SelectedValue = estadoValue;
+                        cbEstado.SelectedIndex = index;
                     }
                     else
                     {
@@ -153,7 +162,6 @@ namespace ESTRES.vista
 
         private void cbBuscarColumna_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Castear SelectedItem a DataRowView para acceder a las columnas
             if (cbBuscarColumna.SelectedItem is DataRowView rowView && rowView["id"] != DBNull.Value)
             {
                 txtBuscar.Text = rowView["id"].ToString();
@@ -166,32 +174,40 @@ namespace ESTRES.vista
 
         private void cbIdModificar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Castear SelectedItem a DataRowView para acceder a las columnas
             if (cbIdModificar.SelectedItem is DataRowView fila)
             {
                 txtIdUsuario.Text = fila["id"]?.ToString() ?? "";
                 txtNombreUsuario.Text = fila["nombre_usuario"]?.ToString() ?? "";
                 txtNombres.Text = fila["nombres"]?.ToString() ?? "";
-                txtApePaterno.Text = fila["ape_paterno"]?.ToString() ?? ""; // Usar ape_paterno
-                txtApeMaterno.Text = fila["ape_materno"]?.ToString() ?? ""; // Usar ape_materno
+                txtApePaterno.Text = fila["ape_paterno"]?.ToString() ?? "";
+                txtApeMaterno.Text = fila["ape_materno"]?.ToString() ?? "";
                 txtDni.Text = fila["dni"]?.ToString() ?? "";
                 txtCorreo.Text = fila["correo"]?.ToString() ?? "";
-                // La contraseña no debe cargarse directamente por seguridad
-                // txtContrasena.Text = fila["contrasena"]?.ToString() ?? "";
+                txtContrasena.Text = fila["contrasena"]?.ToString() ?? "";  // <-- LÍNEA AÑADIDA
                 txtTelefono.Text = fila["telefono"]?.ToString() ?? "";
 
-                // Cargar ComboBox para Rol
+                // Cargar ComboBox para Rol (desde BD)
                 if (fila["rol"] != DBNull.Value)
                 {
-                    string rolValue = fila["rol"].ToString();
-                    if (cbRol.Items.Count > 0 && (cbRol.DataSource is DataTable dtRol) && dtRol.Select($"rol = '{rolValue}'").Length > 0)
+                    string rolIdFromUser = fila["rol"]?.ToString() ?? "";
+
+                    if (cbRol.DataSource is DataTable dtRol)
                     {
-                        cbRol.SelectedValue = rolValue;
+                        DataRow[] foundRows = dtRol.Select($"id = '{rolIdFromUser}'");
+                        if (foundRows.Length > 0)
+                        {
+                            cbRol.SelectedValue = rolIdFromUser;
+                        }
+                        else
+                        {
+                            cbRol.SelectedIndex = -1;
+                            cbRol.Text = rolIdFromUser;
+                        }
                     }
                     else
                     {
                         cbRol.SelectedIndex = -1;
-                        cbRol.Text = rolValue;
+                        cbRol.Text = rolIdFromUser;
                     }
                 }
                 else
@@ -200,13 +216,14 @@ namespace ESTRES.vista
                     cbRol.Text = "";
                 }
 
-                // Cargar ComboBox para Estado
+                // Cargar ComboBox para Estado (ítems fijos en diseñador)
                 if (fila["estado"] != DBNull.Value)
                 {
-                    string estadoValue = fila["estado"].ToString();
-                    if (cbEstado.Items.Count > 0 && (cbEstado.DataSource is DataTable dtEstado) && dtEstado.Select($"estado = '{estadoValue}'").Length > 0)
+                    string estadoValue = fila["estado"]?.ToString() ?? "";
+                    int index = cbEstado.FindStringExact(estadoValue);
+                    if (index != -1)
                     {
-                        cbEstado.SelectedValue = estadoValue;
+                        cbEstado.SelectedIndex = index;
                     }
                     else
                     {
@@ -228,7 +245,7 @@ namespace ESTRES.vista
 
         private void btnInsertar_Click(object sender, EventArgs e)
         {
-            // Validación de campos obligatorios
+            // Validaciones
             if (string.IsNullOrWhiteSpace(txtIdUsuario.Text) ||
                 string.IsNullOrWhiteSpace(txtNombreUsuario.Text) ||
                 string.IsNullOrWhiteSpace(txtNombres.Text) ||
@@ -237,10 +254,10 @@ namespace ESTRES.vista
                 string.IsNullOrWhiteSpace(txtDni.Text) ||
                 string.IsNullOrWhiteSpace(txtCorreo.Text) ||
                 string.IsNullOrWhiteSpace(txtContrasena.Text) ||
-                cbRol.SelectedValue == null || // Usar SelectedValue para ComboBox
-                cbEstado.SelectedValue == null) // Usar SelectedValue para ComboBox
+                cbRol.SelectedValue == null ||
+                cbEstado.SelectedItem == null)
             {
-                MessageBox.Show("Por favor, complete todos los campos (ID, Nombre de Usuario, Nombres, Apellidos, DNI, Correo, Contraseña, Rol, Estado) para insertar.", "Campos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, complete todos los campos obligatorios (ID, Nombre de Usuario, Nombres, Apellidos, DNI, Correo, Contraseña, Rol, Estado) para insertar.", "Campos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -250,13 +267,13 @@ namespace ESTRES.vista
                 negocio.insertar(txtIdUsuario.Text,
                                  txtNombreUsuario.Text,
                                  txtNombres.Text,
-                                 txtApePaterno.Text, // Envía el texto directo
-                                 txtApeMaterno.Text, // Envía el texto directo
+                                 txtApePaterno.Text,
+                                 txtApeMaterno.Text,
                                  txtDni.Text,
                                  txtCorreo.Text,
                                  txtContrasena.Text,
-                                 cbRol.SelectedValue.ToString(), // Obtiene el valor del ComboBox
-                                 cbEstado.SelectedValue.ToString(), // Obtiene el valor del ComboBox
+                                 cbRol.SelectedValue.ToString(),
+                                 cbEstado.SelectedItem.ToString(),
                                  txtTelefono.Text);
                 ActualizarCampos();
                 MessageBox.Show("Usuario insertado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -269,7 +286,7 @@ namespace ESTRES.vista
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            // Validación de campos obligatorios
+            // Validaciones
             if (string.IsNullOrWhiteSpace(txtIdUsuario.Text) ||
                 string.IsNullOrWhiteSpace(txtNombreUsuario.Text) ||
                 string.IsNullOrWhiteSpace(txtNombres.Text) ||
@@ -278,13 +295,12 @@ namespace ESTRES.vista
                 string.IsNullOrWhiteSpace(txtDni.Text) ||
                 string.IsNullOrWhiteSpace(txtCorreo.Text) ||
                 string.IsNullOrWhiteSpace(txtContrasena.Text) ||
-                cbRol.SelectedValue == null || // Usar SelectedValue para ComboBox
-                cbEstado.SelectedValue == null) // Usar SelectedValue para ComboBox
+                cbRol.SelectedValue == null ||
+                cbEstado.SelectedItem == null)
             {
-                MessageBox.Show("Por favor, complete todos los campos (ID, Nombre de Usuario, Nombres, Apellidos, DNI, Correo, Contraseña, Rol, Estado) para modificar.", "Campos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, complete todos los campos obligatorios (ID, Nombre de Usuario, Nombres, Apellidos, DNI, Correo, Contraseña, Rol, Estado) para modificar.", "Campos Incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            // Asegúrate de que un usuario para modificar esté seleccionado
             if (cbIdModificar.SelectedValue == null || string.IsNullOrWhiteSpace(cbIdModificar.SelectedValue.ToString()))
             {
                 MessageBox.Show("Debe seleccionar un ID de usuario a modificar.", "Selección Incompleta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -297,13 +313,13 @@ namespace ESTRES.vista
                 negocio.modificar(txtIdUsuario.Text,
                                  txtNombreUsuario.Text,
                                  txtNombres.Text,
-                                 txtApePaterno.Text, // Envía el texto directo
-                                 txtApeMaterno.Text, // Envía el texto directo
+                                 txtApePaterno.Text,
+                                 txtApeMaterno.Text,
                                  txtDni.Text,
                                  txtCorreo.Text,
                                  txtContrasena.Text,
-                                 cbRol.SelectedValue.ToString(), // Obtiene el valor del ComboBox
-                                 cbEstado.SelectedValue.ToString(), // Obtiene el valor del ComboBox
+                                 cbRol.SelectedValue.ToString(),
+                                 cbEstado.SelectedItem.ToString(),
                                  txtTelefono.Text);
                 ActualizarCampos();
                 MessageBox.Show("Usuario modificado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -316,7 +332,6 @@ namespace ESTRES.vista
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            // Asegúrate de que un usuario para eliminar esté seleccionado
             if (cbIdEliminar.SelectedValue == null || string.IsNullOrWhiteSpace(cbIdEliminar.SelectedValue.ToString()))
             {
                 MessageBox.Show("Debe seleccionar un ID de usuario para eliminar.", "Selección Incompleta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -326,7 +341,7 @@ namespace ESTRES.vista
             try
             {
                 usuarioN negocio = new usuarioN();
-                negocio.eliminar(cbIdEliminar.SelectedValue.ToString()); // Obtiene el valor del ComboBox
+                negocio.eliminar(cbIdEliminar.SelectedValue.ToString());
                 ActualizarCampos();
                 MessageBox.Show("Usuario eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

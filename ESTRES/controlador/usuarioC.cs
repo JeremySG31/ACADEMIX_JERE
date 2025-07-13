@@ -25,7 +25,7 @@ namespace ESTRES.controlador
                 + dato.Dni + "','"
                 + dato.Correo + "','"
                 + dato.Contrasena + "','"
-                + dato.Rol + "','"
+                + dato.Rol + "','" // Aquí se espera el ID del rol
                 + dato.Estado + "','"
                 + dato.Telefono + "')");
         }
@@ -42,8 +42,7 @@ namespace ESTRES.controlador
 
         public void select(DataGridView L)
         {
-            // Se actualizan los nombres de las columnas en la consulta SELECT
-            L.DataSource = x.manipular("SELECT id, nombre_usuario, nombres, ape_paterno, ape_materno, dni, correo, rol, estado, telefono FROM usuarios");
+            L.DataSource = x.manipular("SELECT id, nombre_usuario, nombres, ape_paterno, ape_materno, contrasena, dni, correo, rol, estado, telefono FROM usuarios");
             L.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
@@ -58,8 +57,7 @@ namespace ESTRES.controlador
 
         public void selectIDModificar(ComboBox combo)
         {
-            // Se actualizan los nombres de las columnas en la consulta SELECT
-            DataTable dt = x.manipular("SELECT id, nombre_usuario, nombres, ape_paterno, ape_materno, dni, correo, contrasena, rol, estado, telefono FROM usuarios");
+            DataTable dt = x.manipular("SELECT id, nombre_usuario, nombres, ape_paterno, ape_materno, contrasena, dni, correo, contrasena, rol, estado, telefono FROM usuarios");
             combo.DataSource = dt;
             combo.DisplayMember = "id";
             combo.ValueMember = "id";
@@ -73,6 +71,17 @@ namespace ESTRES.controlador
             combo.DisplayMember = "id";
             combo.ValueMember = "id";
             combo.SelectedIndex = -1;
+        }
+
+        // --- MÉTODO REINCLUIDO PARA ROLES ---
+        public void selectRoles(ComboBox cb)
+        {
+            // Asume una tabla 'roles' con columnas 'id' y 'nombre_rol'
+            DataTable dt = x.manipular("SELECT id, nombre_rol FROM roles ORDER BY nombre_rol");
+            cb.DataSource = dt;
+            cb.DisplayMember = "nombre_rol"; // Columna a mostrar en el ComboBox
+            cb.ValueMember = "id";           // Columna cuyo valor se usará (el ID del rol)
+            cb.SelectedIndex = -1; // Ningún elemento seleccionado por defecto
         }
     }
 }

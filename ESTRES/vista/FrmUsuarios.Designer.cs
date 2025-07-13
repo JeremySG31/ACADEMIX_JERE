@@ -81,11 +81,11 @@
             this.grpListadoBusqueda.Controls.Add(this.txtBuscar);
             this.grpListadoBusqueda.Controls.Add(this.dgvUsuarios);
             this.grpListadoBusqueda.Controls.Add(this.label1);
-            this.grpListadoBusqueda.Location = new System.Drawing.Point(791, 27);
+            this.grpListadoBusqueda.Location = new System.Drawing.Point(779, 27);
             this.grpListadoBusqueda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpListadoBusqueda.Name = "grpListadoBusqueda";
             this.grpListadoBusqueda.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.grpListadoBusqueda.Size = new System.Drawing.Size(870, 514);
+            this.grpListadoBusqueda.Size = new System.Drawing.Size(896, 514);
             this.grpListadoBusqueda.TabIndex = 5;
             this.grpListadoBusqueda.TabStop = false;
             this.grpListadoBusqueda.Text = "LISTADO Y BÚSQUEDA";
@@ -117,7 +117,7 @@
             this.dgvUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.RowHeadersWidth = 51;
-            this.dgvUsuarios.Size = new System.Drawing.Size(839, 460);
+            this.dgvUsuarios.Size = new System.Drawing.Size(848, 460);
             this.dgvUsuarios.TabIndex = 3;
             // 
             // label1
@@ -313,6 +313,9 @@
             // 
             // cbEstado
             // 
+            this.cbEstado.Items.AddRange(new object[] {
+            "activo\t",
+            "inactivo"});
             this.cbEstado.Location = new System.Drawing.Point(165, 337);
             this.cbEstado.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbEstado.Name = "cbEstado";
@@ -345,6 +348,11 @@
             // 
             // cbRol
             // 
+            this.cbRol.Items.AddRange(new object[] {
+            "Estudiante",
+            "Profesor",
+            "Apoderado",
+            "Administrador"});
             this.cbRol.Location = new System.Drawing.Point(165, 306);
             this.cbRol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbRol.Name = "cbRol";
@@ -467,7 +475,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1667, 563);
+            this.ClientSize = new System.Drawing.Size(1736, 563);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpInformacionAdicional);
             this.Controls.Add(this.grpDatosPrincipales);

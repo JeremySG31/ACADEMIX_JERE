@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Academix.vista;
+using System;
 using System.Windows.Forms;
 
 namespace ESTRES
@@ -13,7 +14,7 @@ namespace ESTRES
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMenu());
+            Application.Run(new FrmLogin());
         }
     }
 }

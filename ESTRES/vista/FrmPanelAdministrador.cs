@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace ESTRES
 {
-    public partial class FrmMenu : Form
+    public partial class FrmPanelAdministrador : Form
     {
-        public FrmMenu()
+        public FrmPanelAdministrador()
         {
             InitializeComponent();
 
@@ -109,6 +109,13 @@ namespace ESTRES
         {
             FrmVincularApoderado frmVincularApoderado = new FrmVincularApoderado();
             frmVincularApoderado.Show();
+        }
+
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide(); 
+            FrmLogin login = new FrmLogin();
+            this.Close();
         }
     }
 

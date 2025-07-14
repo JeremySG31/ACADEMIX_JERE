@@ -172,6 +172,7 @@
     <Compile Include="controlador\estudianteApoderadoC.cs" />
     <Compile Include="controlador\estudianteC.cs" />
     <Compile Include="controlador\gradoC.cs" />
+    <Compile Include="controlador\loginC.cs" />
     <Compile Include="controlador\matriculaC.cs" />
     <Compile Include="controlador\profesorC.cs" />
     <Compile Include="controlador\rolesC.cs" />
@@ -188,6 +189,7 @@
     <Compile Include="modelo\estudianteApoderadoM.cs" />
     <Compile Include="modelo\estudianteM.cs" />
     <Compile Include="modelo\gradoM.cs" />
+    <Compile Include="modelo\loginM.cs" />
     <Compile Include="modelo\matriculaM.cs" />
     <Compile Include="modelo\profesorM.cs" />
     <Compile Include="modelo\rolesM.cs" />
@@ -203,6 +205,7 @@
     <Compile Include="negocio\estudianteApoderadoN.cs" />
     <Compile Include="negocio\estudianteN.cs" />
     <Compile Include="negocio\gradoN.cs" />
+    <Compile Include="negocio\loginN.cs" />
     <Compile Include="negocio\matriculaN.cs" />
     <Compile Include="negocio\profesorN.cs" />
     <Compile Include="negocio\rolesN.cs" />
@@ -239,11 +242,17 @@
     <Compile Include="vista\FrmGrado.Designer.cs">
       <DependentUpon>FrmGrado.cs</DependentUpon>
     </Compile>
-    <Compile Include="vista\FrmMenu.cs">
+    <Compile Include="vista\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="vista\FrmMenu.Designer.cs">
-      <DependentUpon>FrmMenu.cs</DependentUpon>
+    <Compile Include="vista\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vista\FrmPanelAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vista\FrmPanelAdministrador.Designer.cs">
+      <DependentUpon>FrmPanelAdministrador.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -270,6 +279,24 @@
     </Compile>
     <Compile Include="vista\FrmMatricula.Designer.cs">
       <DependentUpon>FrmMatricula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vista\FrmPanelApoderado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vista\FrmPanelApoderado.Designer.cs">
+      <DependentUpon>FrmPanelApoderado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vista\FrmPanelEstudiante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vista\FrmPanelEstudiante.Designer.cs">
+      <DependentUpon>FrmPanelEstudiante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vista\FrmPanelProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vista\FrmPanelProfesor.Designer.cs">
+      <DependentUpon>FrmPanelProfesor.cs</DependentUpon>
     </Compile>
     <Compile Include="vista\FrmPerfil.cs">
       <SubType>Form</SubType>
@@ -338,8 +365,11 @@
     <EmbeddedResource Include="vista\FrmGrado.resx">
       <DependentUpon>FrmGrado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="vista\FrmMenu.resx">
-      <DependentUpon>FrmMenu.cs</DependentUpon>
+    <EmbeddedResource Include="vista\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vista\FrmPanelAdministrador.resx">
+      <DependentUpon>FrmPanelAdministrador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vista\FrmApoderado.resx">
       <DependentUpon>FrmApoderado.cs</DependentUpon>
@@ -352,6 +382,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="vista\FrmMatricula.resx">
       <DependentUpon>FrmMatricula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vista\FrmPanelApoderado.resx">
+      <DependentUpon>FrmPanelApoderado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vista\FrmPanelEstudiante.resx">
+      <DependentUpon>FrmPanelEstudiante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vista\FrmPanelProfesor.resx">
+      <DependentUpon>FrmPanelProfesor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vista\FrmPerfil.resx">
       <DependentUpon>FrmPerfil.cs</DependentUpon>

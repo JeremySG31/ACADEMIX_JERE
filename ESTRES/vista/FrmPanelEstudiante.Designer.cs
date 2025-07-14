@@ -61,6 +61,7 @@
             // 
             // perfilToolStripMenuItem
             // 
+            this.perfilToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("perfilToolStripMenuItem.Image")));
             this.perfilToolStripMenuItem.Name = "perfilToolStripMenuItem";
             this.perfilToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.perfilToolStripMenuItem.Text = "Perfil";
@@ -83,8 +84,9 @@
             // 
             // historialAsistenciasToolStripMenuItem
             // 
+            this.historialAsistenciasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("historialAsistenciasToolStripMenuItem.Image")));
             this.historialAsistenciasToolStripMenuItem.Name = "historialAsistenciasToolStripMenuItem";
-            this.historialAsistenciasToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
+            this.historialAsistenciasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.historialAsistenciasToolStripMenuItem.Text = "Historial asistencias";
             this.historialAsistenciasToolStripMenuItem.Click += new System.EventHandler(this.historialAsistenciasToolStripMenuItem_Click);
             // 
@@ -95,6 +97,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(869, 516);
             this.Controls.Add(this.menuStrip1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(887, 563);
+            this.MinimumSize = new System.Drawing.Size(887, 563);
             this.Name = "FrmPanelEstudiante";
             this.Text = "FrmPanelEstudiante";
             this.menuStrip1.ResumeLayout(false);

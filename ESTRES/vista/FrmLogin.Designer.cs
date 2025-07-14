@@ -126,7 +126,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(835, 247);
+            this.ClientSize = new System.Drawing.Size(890, 290);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(890, 290);
+            this.MinimumSize = new System.Drawing.Size(890, 290);
             this.Controls.Add(this.checkBoxMostrar);
             this.Controls.Add(this.campo_usuario);
             this.Controls.Add(this.campo_contrasenia);

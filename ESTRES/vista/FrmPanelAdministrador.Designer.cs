@@ -87,6 +87,7 @@ namespace ESTRES
             // 
             // perfilToolStripMenuItem
             // 
+            this.perfilToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("perfilToolStripMenuItem.Image")));
             this.perfilToolStripMenuItem.Name = "perfilToolStripMenuItem";
             this.perfilToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.perfilToolStripMenuItem.Text = "Perfil";
@@ -212,7 +213,7 @@ namespace ESTRES
             // 
             this.usuariosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("usuariosToolStripMenuItem.Image")));
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
@@ -220,7 +221,7 @@ namespace ESTRES
             // 
             this.rolesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("rolesToolStripMenuItem.Image")));
             this.rolesToolStripMenuItem.Name = "rolesToolStripMenuItem";
-            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
             this.rolesToolStripMenuItem.Text = "Roles";
             this.rolesToolStripMenuItem.Click += new System.EventHandler(this.rolesToolStripMenuItem_Click);
             // 
@@ -282,7 +283,7 @@ namespace ESTRES
             // 
             this.historialAsistenciasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("historialAsistenciasToolStripMenuItem.Image")));
             this.historialAsistenciasToolStripMenuItem.Name = "historialAsistenciasToolStripMenuItem";
-            this.historialAsistenciasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.historialAsistenciasToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
             this.historialAsistenciasToolStripMenuItem.Text = "Historial asistencias";
             this.historialAsistenciasToolStripMenuItem.Click += new System.EventHandler(this.historialAsistenciasToolStripMenuItem_Click);
             // 

@@ -119,6 +119,7 @@ namespace ESTRES
             // 
             // aToolStripMenuItem
             // 
+            this.aToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("aToolStripMenuItem.Image")));
             this.aToolStripMenuItem.Name = "aToolStripMenuItem";
             this.aToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.aToolStripMenuItem.Text = "Apoderados";
@@ -126,6 +127,7 @@ namespace ESTRES
             // 
             // profesoresToolStripMenuItem
             // 
+            this.profesoresToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("profesoresToolStripMenuItem.Image")));
             this.profesoresToolStripMenuItem.Name = "profesoresToolStripMenuItem";
             this.profesoresToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.profesoresToolStripMenuItem.Text = "Profesores";
@@ -133,6 +135,7 @@ namespace ESTRES
             // 
             // estudianteToolStripMenuItem
             // 
+            this.estudianteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("estudianteToolStripMenuItem.Image")));
             this.estudianteToolStripMenuItem.Name = "estudianteToolStripMenuItem";
             this.estudianteToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.estudianteToolStripMenuItem.Text = "Estudiantes";
@@ -145,6 +148,7 @@ namespace ESTRES
             // 
             // cursosToolStripMenuItem
             // 
+            this.cursosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cursosToolStripMenuItem.Image")));
             this.cursosToolStripMenuItem.Name = "cursosToolStripMenuItem";
             this.cursosToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.cursosToolStripMenuItem.Text = "Cursos";
@@ -152,6 +156,7 @@ namespace ESTRES
             // 
             // gradosToolStripMenuItem
             // 
+            this.gradosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("gradosToolStripMenuItem.Image")));
             this.gradosToolStripMenuItem.Name = "gradosToolStripMenuItem";
             this.gradosToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.gradosToolStripMenuItem.Text = "Grados";
@@ -159,6 +164,7 @@ namespace ESTRES
             // 
             // seccionesToolStripMenuItem1
             // 
+            this.seccionesToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("seccionesToolStripMenuItem1.Image")));
             this.seccionesToolStripMenuItem1.Name = "seccionesToolStripMenuItem1";
             this.seccionesToolStripMenuItem1.Size = new System.Drawing.Size(225, 26);
             this.seccionesToolStripMenuItem1.Text = "Secciones";
@@ -171,6 +177,7 @@ namespace ESTRES
             // 
             // cursosMatriculadosToolStripMenuItem
             // 
+            this.cursosMatriculadosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cursosMatriculadosToolStripMenuItem.Image")));
             this.cursosMatriculadosToolStripMenuItem.Name = "cursosMatriculadosToolStripMenuItem";
             this.cursosMatriculadosToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.cursosMatriculadosToolStripMenuItem.Text = "Cursos Matriculados";
@@ -178,6 +185,7 @@ namespace ESTRES
             // 
             // turnosToolStripMenuItem1
             // 
+            this.turnosToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("turnosToolStripMenuItem1.Image")));
             this.turnosToolStripMenuItem1.Name = "turnosToolStripMenuItem1";
             this.turnosToolStripMenuItem1.Size = new System.Drawing.Size(225, 26);
             this.turnosToolStripMenuItem1.Text = "Turnos";
@@ -185,6 +193,7 @@ namespace ESTRES
             // 
             // añosLectivosToolStripMenuItem1
             // 
+            this.añosLectivosToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("añosLectivosToolStripMenuItem1.Image")));
             this.añosLectivosToolStripMenuItem1.Name = "añosLectivosToolStripMenuItem1";
             this.añosLectivosToolStripMenuItem1.Size = new System.Drawing.Size(225, 26);
             this.añosLectivosToolStripMenuItem1.Text = "Años Lectivos";
@@ -201,15 +210,17 @@ namespace ESTRES
             // 
             // usuariosToolStripMenuItem
             // 
+            this.usuariosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("usuariosToolStripMenuItem.Image")));
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // rolesToolStripMenuItem
             // 
+            this.rolesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("rolesToolStripMenuItem.Image")));
             this.rolesToolStripMenuItem.Name = "rolesToolStripMenuItem";
-            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(148, 26);
+            this.rolesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.rolesToolStripMenuItem.Text = "Roles";
             this.rolesToolStripMenuItem.Click += new System.EventHandler(this.rolesToolStripMenuItem_Click);
             // 
@@ -227,6 +238,7 @@ namespace ESTRES
             // 
             // matriculasToolStripMenuItem
             // 
+            this.matriculasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("matriculasToolStripMenuItem.Image")));
             this.matriculasToolStripMenuItem.Name = "matriculasToolStripMenuItem";
             this.matriculasToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.matriculasToolStripMenuItem.Text = "Matriculas";
@@ -239,6 +251,7 @@ namespace ESTRES
             // 
             // asociarApoderadoToolStripMenuItem
             // 
+            this.asociarApoderadoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("asociarApoderadoToolStripMenuItem.Image")));
             this.asociarApoderadoToolStripMenuItem.Name = "asociarApoderadoToolStripMenuItem";
             this.asociarApoderadoToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.asociarApoderadoToolStripMenuItem.Text = "Vincular Apoderado";
@@ -251,6 +264,7 @@ namespace ESTRES
             // 
             // asistenciaToolStripMenuItem
             // 
+            this.asistenciaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("asistenciaToolStripMenuItem.Image")));
             this.asistenciaToolStripMenuItem.Name = "asistenciaToolStripMenuItem";
             this.asistenciaToolStripMenuItem.Size = new System.Drawing.Size(225, 26);
             this.asistenciaToolStripMenuItem.Text = "Asistencia";
@@ -266,8 +280,9 @@ namespace ESTRES
             // 
             // historialAsistenciasToolStripMenuItem
             // 
+            this.historialAsistenciasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("historialAsistenciasToolStripMenuItem.Image")));
             this.historialAsistenciasToolStripMenuItem.Name = "historialAsistenciasToolStripMenuItem";
-            this.historialAsistenciasToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
+            this.historialAsistenciasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.historialAsistenciasToolStripMenuItem.Text = "Historial asistencias";
             this.historialAsistenciasToolStripMenuItem.Click += new System.EventHandler(this.historialAsistenciasToolStripMenuItem_Click);
             // 

@@ -295,7 +295,9 @@
             // 
             // txtIdGrado
             // 
+            this.txtIdGrado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtIdGrado.Location = new System.Drawing.Point(165, 60);
+            this.txtIdGrado.MaxLength = 5;
             this.txtIdGrado.Name = "txtIdGrado";
             this.txtIdGrado.Size = new System.Drawing.Size(231, 22);
             this.txtIdGrado.TabIndex = 1;

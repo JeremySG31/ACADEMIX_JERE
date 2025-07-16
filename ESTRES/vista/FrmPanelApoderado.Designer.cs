@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPanelApoderado));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.iNICIOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.perfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historialAsistenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,19 +52,10 @@
             // iNICIOToolStripMenuItem
             // 
             this.iNICIOToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.perfilToolStripMenuItem,
             this.cerrarSesionToolStripMenuItem});
             this.iNICIOToolStripMenuItem.Name = "iNICIOToolStripMenuItem";
             this.iNICIOToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
             this.iNICIOToolStripMenuItem.Text = "Inicio";
-            // 
-            // perfilToolStripMenuItem
-            // 
-            this.perfilToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("perfilToolStripMenuItem.Image")));
-            this.perfilToolStripMenuItem.Name = "perfilToolStripMenuItem";
-            this.perfilToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.perfilToolStripMenuItem.Text = "Perfil";
-            this.perfilToolStripMenuItem.Click += new System.EventHandler(this.perfilToolStripMenuItem_Click);
             // 
             // cerrarSesionToolStripMenuItem
             // 
@@ -86,7 +76,7 @@
             // 
             this.historialAsistenciasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("historialAsistenciasToolStripMenuItem.Image")));
             this.historialAsistenciasToolStripMenuItem.Name = "historialAsistenciasToolStripMenuItem";
-            this.historialAsistenciasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.historialAsistenciasToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
             this.historialAsistenciasToolStripMenuItem.Text = "Historial asistencias";
             this.historialAsistenciasToolStripMenuItem.Click += new System.EventHandler(this.historialAsistenciasToolStripMenuItem_Click);
             // 
@@ -114,7 +104,6 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem iNICIOToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem perfilToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historialAsistenciasToolStripMenuItem;

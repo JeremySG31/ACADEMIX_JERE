@@ -298,12 +298,6 @@
     <Compile Include="vista\FrmPanelProfesor.Designer.cs">
       <DependentUpon>FrmPanelProfesor.cs</DependentUpon>
     </Compile>
-    <Compile Include="vista\FrmPerfil.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="vista\FrmPerfil.Designer.cs">
-      <DependentUpon>FrmPerfil.cs</DependentUpon>
-    </Compile>
     <Compile Include="vista\FrmProfesor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -391,9 +385,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="vista\FrmPanelProfesor.resx">
       <DependentUpon>FrmPanelProfesor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="vista\FrmPerfil.resx">
-      <DependentUpon>FrmPerfil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="vista\FrmProfesor.resx">
       <DependentUpon>FrmProfesor.cs</DependentUpon>

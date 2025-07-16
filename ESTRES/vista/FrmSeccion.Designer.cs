@@ -65,30 +65,30 @@
             this.grpListadoBusqueda.Controls.Add(this.txtBuscar);
             this.grpListadoBusqueda.Controls.Add(this.dgvUsuarios);
             this.grpListadoBusqueda.Controls.Add(this.label1);
-            this.grpListadoBusqueda.Location = new System.Drawing.Point(581, 21);
-            this.grpListadoBusqueda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpListadoBusqueda.Location = new System.Drawing.Point(775, 26);
+            this.grpListadoBusqueda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpListadoBusqueda.Name = "grpListadoBusqueda";
-            this.grpListadoBusqueda.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.grpListadoBusqueda.Size = new System.Drawing.Size(532, 349);
+            this.grpListadoBusqueda.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpListadoBusqueda.Size = new System.Drawing.Size(709, 430);
             this.grpListadoBusqueda.TabIndex = 8;
             this.grpListadoBusqueda.TabStop = false;
             this.grpListadoBusqueda.Text = "LISTADO Y BÚSQUEDA";
             // 
             // cbBuscarColumna
             // 
-            this.cbBuscarColumna.Location = new System.Drawing.Point(52, 14);
-            this.cbBuscarColumna.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbBuscarColumna.Location = new System.Drawing.Point(69, 17);
+            this.cbBuscarColumna.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbBuscarColumna.Name = "cbBuscarColumna";
-            this.cbBuscarColumna.Size = new System.Drawing.Size(106, 21);
+            this.cbBuscarColumna.Size = new System.Drawing.Size(140, 24);
             this.cbBuscarColumna.TabIndex = 1;
             this.cbBuscarColumna.SelectedIndexChanged += new System.EventHandler(this.cbBuscarColumna_SelectedIndexChanged);
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(185, 15);
-            this.txtBuscar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBuscar.Location = new System.Drawing.Point(247, 18);
+            this.txtBuscar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(174, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(231, 22);
             this.txtBuscar.TabIndex = 2;
             // 
             // dgvUsuarios
@@ -97,19 +97,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvUsuarios.ColumnHeadersHeight = 29;
-            this.dgvUsuarios.Location = new System.Drawing.Point(8, 37);
-            this.dgvUsuarios.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvUsuarios.Location = new System.Drawing.Point(11, 46);
+            this.dgvUsuarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.RowHeadersWidth = 51;
-            this.dgvUsuarios.Size = new System.Drawing.Size(517, 304);
+            this.dgvUsuarios.Size = new System.Drawing.Size(689, 374);
             this.dgvUsuarios.TabIndex = 3;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(8, 15);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(11, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 19);
+            this.label1.Size = new System.Drawing.Size(53, 23);
             this.label1.TabIndex = 4;
             this.label1.Text = "Buscar:";
             // 
@@ -119,11 +118,11 @@
             this.groupBox3.Controls.Add(this.btnEliminar);
             this.groupBox3.Controls.Add(this.btnModificar);
             this.groupBox3.Controls.Add(this.btnInsertar);
-            this.groupBox3.Location = new System.Drawing.Point(388, 50);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Location = new System.Drawing.Point(517, 62);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox3.Size = new System.Drawing.Size(182, 283);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Size = new System.Drawing.Size(243, 348);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ACCIONES";
@@ -133,10 +132,10 @@
             this.btLimpiarCampos.BackColor = System.Drawing.Color.Snow;
             this.btLimpiarCampos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLimpiarCampos.ForeColor = System.Drawing.Color.Black;
-            this.btLimpiarCampos.Location = new System.Drawing.Point(23, 224);
-            this.btLimpiarCampos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btLimpiarCampos.Location = new System.Drawing.Point(31, 276);
+            this.btLimpiarCampos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btLimpiarCampos.Name = "btLimpiarCampos";
-            this.btLimpiarCampos.Size = new System.Drawing.Size(134, 37);
+            this.btLimpiarCampos.Size = new System.Drawing.Size(179, 46);
             this.btLimpiarCampos.TabIndex = 50;
             this.btLimpiarCampos.Text = "Limpiar campos";
             this.btLimpiarCampos.UseVisualStyleBackColor = false;
@@ -146,10 +145,10 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Red;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(23, 167);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEliminar.Location = new System.Drawing.Point(31, 206);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(134, 35);
+            this.btnEliminar.Size = new System.Drawing.Size(179, 43);
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar sección";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -159,10 +158,10 @@
             // 
             this.btnModificar.BackColor = System.Drawing.Color.DarkTurquoise;
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(23, 107);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModificar.Location = new System.Drawing.Point(31, 132);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(134, 35);
+            this.btnModificar.Size = new System.Drawing.Size(179, 43);
             this.btnModificar.TabIndex = 1;
             this.btnModificar.Text = "Modificar sección";
             this.btnModificar.UseVisualStyleBackColor = false;
@@ -172,10 +171,10 @@
             // 
             this.btnInsertar.BackColor = System.Drawing.Color.SpringGreen;
             this.btnInsertar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInsertar.Location = new System.Drawing.Point(23, 43);
-            this.btnInsertar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnInsertar.Location = new System.Drawing.Point(31, 53);
+            this.btnInsertar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnInsertar.Name = "btnInsertar";
-            this.btnInsertar.Size = new System.Drawing.Size(134, 39);
+            this.btnInsertar.Size = new System.Drawing.Size(179, 48);
             this.btnInsertar.TabIndex = 0;
             this.btnInsertar.Text = "Registrar nueva sección";
             this.btnInsertar.UseVisualStyleBackColor = false;
@@ -185,60 +184,58 @@
             // 
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.cbIdModificar);
-            this.groupBox1.Location = new System.Drawing.Point(54, 192);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(72, 236);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(307, 46);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(409, 57);
             this.groupBox1.TabIndex = 57;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = " MODIFICAR";
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(8, 16);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(11, 20);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(106, 19);
+            this.label7.Size = new System.Drawing.Size(141, 23);
             this.label7.TabIndex = 0;
             this.label7.Text = "Seleccione el ID:";
             // 
             // cbIdModificar
             // 
-            this.cbIdModificar.Location = new System.Drawing.Point(118, 14);
-            this.cbIdModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbIdModificar.Location = new System.Drawing.Point(157, 17);
+            this.cbIdModificar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbIdModificar.Name = "cbIdModificar";
-            this.cbIdModificar.Size = new System.Drawing.Size(180, 21);
+            this.cbIdModificar.Size = new System.Drawing.Size(239, 24);
             this.cbIdModificar.TabIndex = 1;
             // 
             // grpInformacionAdicional
             // 
             this.grpInformacionAdicional.Controls.Add(this.lblRol);
             this.grpInformacionAdicional.Controls.Add(this.cbIdEliminar);
-            this.grpInformacionAdicional.Location = new System.Drawing.Point(54, 267);
-            this.grpInformacionAdicional.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpInformacionAdicional.Location = new System.Drawing.Point(72, 329);
+            this.grpInformacionAdicional.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpInformacionAdicional.Name = "grpInformacionAdicional";
-            this.grpInformacionAdicional.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.grpInformacionAdicional.Size = new System.Drawing.Size(307, 45);
+            this.grpInformacionAdicional.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpInformacionAdicional.Size = new System.Drawing.Size(409, 55);
             this.grpInformacionAdicional.TabIndex = 56;
             this.grpInformacionAdicional.TabStop = false;
             this.grpInformacionAdicional.Text = "ELIMINAR";
             // 
             // lblRol
             // 
-            this.lblRol.Location = new System.Drawing.Point(8, 16);
-            this.lblRol.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblRol.Location = new System.Drawing.Point(11, 20);
             this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(106, 19);
+            this.lblRol.Size = new System.Drawing.Size(141, 23);
             this.lblRol.TabIndex = 0;
             this.lblRol.Text = "Seleccione el ID:";
             // 
             // cbIdEliminar
             // 
-            this.cbIdEliminar.Location = new System.Drawing.Point(118, 14);
-            this.cbIdEliminar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbIdEliminar.Location = new System.Drawing.Point(157, 17);
+            this.cbIdEliminar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbIdEliminar.Name = "cbIdEliminar";
-            this.cbIdEliminar.Size = new System.Drawing.Size(180, 21);
+            this.cbIdEliminar.Size = new System.Drawing.Size(239, 24);
             this.cbIdEliminar.TabIndex = 1;
             // 
             // grpDatosPrincipales
@@ -249,21 +246,23 @@
             this.grpDatosPrincipales.Controls.Add(this.cbEstudiantes);
             this.grpDatosPrincipales.Controls.Add(this.label3);
             this.grpDatosPrincipales.Controls.Add(this.label6);
-            this.grpDatosPrincipales.Location = new System.Drawing.Point(54, 55);
-            this.grpDatosPrincipales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpDatosPrincipales.Location = new System.Drawing.Point(72, 68);
+            this.grpDatosPrincipales.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grpDatosPrincipales.Name = "grpDatosPrincipales";
-            this.grpDatosPrincipales.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.grpDatosPrincipales.Size = new System.Drawing.Size(307, 111);
+            this.grpDatosPrincipales.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpDatosPrincipales.Size = new System.Drawing.Size(409, 137);
             this.grpDatosPrincipales.TabIndex = 55;
             this.grpDatosPrincipales.TabStop = false;
             this.grpDatosPrincipales.Text = "DATOS PRINCIPALES";
             // 
             // txtIdSeccion
             // 
-            this.txtIdSeccion.Location = new System.Drawing.Point(124, 20);
-            this.txtIdSeccion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtIdSeccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtIdSeccion.Location = new System.Drawing.Point(165, 25);
+            this.txtIdSeccion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtIdSeccion.MaxLength = 5;
             this.txtIdSeccion.Name = "txtIdSeccion";
-            this.txtIdSeccion.Size = new System.Drawing.Size(174, 20);
+            this.txtIdSeccion.Size = new System.Drawing.Size(231, 22);
             this.txtIdSeccion.TabIndex = 5;
             // 
             // cbSeccion
@@ -295,58 +294,55 @@
             "X",
             "Y",
             "Z"});
-            this.cbSeccion.Location = new System.Drawing.Point(124, 72);
-            this.cbSeccion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbSeccion.Location = new System.Drawing.Point(165, 89);
+            this.cbSeccion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbSeccion.Name = "cbSeccion";
-            this.cbSeccion.Size = new System.Drawing.Size(174, 21);
+            this.cbSeccion.Size = new System.Drawing.Size(231, 24);
             this.cbSeccion.TabIndex = 28;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(17, 23);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(23, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 19);
+            this.label2.Size = new System.Drawing.Size(136, 23);
             this.label2.TabIndex = 26;
             this.label2.Text = "ID Sección:";
             // 
             // cbEstudiantes
             // 
-            this.cbEstudiantes.Location = new System.Drawing.Point(124, 46);
-            this.cbEstudiantes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbEstudiantes.Location = new System.Drawing.Point(165, 57);
+            this.cbEstudiantes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbEstudiantes.Name = "cbEstudiantes";
-            this.cbEstudiantes.Size = new System.Drawing.Size(174, 21);
+            this.cbEstudiantes.Size = new System.Drawing.Size(231, 24);
             this.cbEstudiantes.TabIndex = 2;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(16, 75);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(21, 92);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 19);
+            this.label3.Size = new System.Drawing.Size(123, 23);
             this.label3.TabIndex = 22;
             this.label3.Text = "Sección:";
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(17, 50);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(23, 62);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(102, 19);
+            this.label6.Size = new System.Drawing.Size(136, 23);
             this.label6.TabIndex = 19;
             this.label6.Text = "ID Estudiante:";
             // 
             // FrmSeccion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1138, 401);
+            this.ClientSize = new System.Drawing.Size(1517, 494);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpInformacionAdicional);
             this.Controls.Add(this.grpDatosPrincipales);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.grpListadoBusqueda);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmSeccion";
             this.Text = "FrmSeccion";
             this.grpListadoBusqueda.ResumeLayout(false);

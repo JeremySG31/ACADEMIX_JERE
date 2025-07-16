@@ -239,6 +239,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.Location = new System.Drawing.Point(165, 119);
+            this.txtDescripcion.MaxLength = 10;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(231, 22);
             this.txtDescripcion.TabIndex = 25;
@@ -254,6 +255,7 @@
             // txtCurso
             // 
             this.txtCurso.Location = new System.Drawing.Point(165, 79);
+            this.txtCurso.MaxLength = 5;
             this.txtCurso.Name = "txtCurso";
             this.txtCurso.Size = new System.Drawing.Size(231, 22);
             this.txtCurso.TabIndex = 23;
@@ -276,7 +278,9 @@
             // 
             // txtIdCurso
             // 
+            this.txtIdCurso.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtIdCurso.Location = new System.Drawing.Point(165, 45);
+            this.txtIdCurso.MaxLength = 5;
             this.txtIdCurso.Name = "txtIdCurso";
             this.txtIdCurso.Size = new System.Drawing.Size(231, 22);
             this.txtIdCurso.TabIndex = 1;

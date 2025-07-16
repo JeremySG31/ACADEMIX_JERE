@@ -372,7 +372,7 @@
             // 
             this.fechaMatricula.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.fechaMatricula.Location = new System.Drawing.Point(165, 281);
-            this.fechaMatricula.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fechaMatricula.Margin = new System.Windows.Forms.Padding(4);
             this.fechaMatricula.Name = "fechaMatricula";
             this.fechaMatricula.Size = new System.Drawing.Size(231, 22);
             this.fechaMatricula.TabIndex = 30;
@@ -387,8 +387,10 @@
             // 
             // txtIdMatricula
             // 
+            this.txtIdMatricula.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtIdMatricula.Location = new System.Drawing.Point(165, 25);
             this.txtIdMatricula.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtIdMatricula.MaxLength = 5;
             this.txtIdMatricula.Name = "txtIdMatricula";
             this.txtIdMatricula.Size = new System.Drawing.Size(231, 22);
             this.txtIdMatricula.TabIndex = 5;

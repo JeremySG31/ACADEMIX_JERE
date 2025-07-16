@@ -251,6 +251,7 @@
             // txtNombres
             // 
             this.txtNombres.Location = new System.Drawing.Point(166, 111);
+            this.txtNombres.MaxLength = 10;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(231, 22);
             this.txtNombres.TabIndex = 32;
@@ -258,6 +259,7 @@
             // txtNombreUsuario
             // 
             this.txtNombreUsuario.Location = new System.Drawing.Point(166, 77);
+            this.txtNombreUsuario.MaxLength = 10;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(231, 22);
             this.txtNombreUsuario.TabIndex = 31;
@@ -265,6 +267,7 @@
             // txtApePater
             // 
             this.txtApePater.Location = new System.Drawing.Point(165, 154);
+            this.txtApePater.MaxLength = 10;
             this.txtApePater.Name = "txtApePater";
             this.txtApePater.Size = new System.Drawing.Size(231, 22);
             this.txtApePater.TabIndex = 30;
@@ -300,6 +303,7 @@
             // txtApeMater
             // 
             this.txtApeMater.Location = new System.Drawing.Point(165, 183);
+            this.txtApeMater.MaxLength = 10;
             this.txtApeMater.Name = "txtApeMater";
             this.txtApeMater.Size = new System.Drawing.Size(231, 22);
             this.txtApeMater.TabIndex = 23;
@@ -330,7 +334,9 @@
             // 
             // txtIdEstudiante
             // 
+            this.txtIdEstudiante.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtIdEstudiante.Location = new System.Drawing.Point(165, 39);
+            this.txtIdEstudiante.MaxLength = 5;
             this.txtIdEstudiante.Name = "txtIdEstudiante";
             this.txtIdEstudiante.Size = new System.Drawing.Size(231, 22);
             this.txtIdEstudiante.TabIndex = 1;

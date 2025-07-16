@@ -58,6 +58,7 @@
             this.campo_usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.campo_usuario.Location = new System.Drawing.Point(311, 90);
             this.campo_usuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.campo_usuario.MaxLength = 10;
             this.campo_usuario.Name = "campo_usuario";
             this.campo_usuario.Size = new System.Drawing.Size(225, 34);
             this.campo_usuario.TabIndex = 11;
@@ -68,6 +69,7 @@
             this.campo_contrasenia.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.campo_contrasenia.Location = new System.Drawing.Point(311, 143);
             this.campo_contrasenia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.campo_contrasenia.MaxLength = 10;
             this.campo_contrasenia.Name = "campo_contrasenia";
             this.campo_contrasenia.Size = new System.Drawing.Size(225, 34);
             this.campo_contrasenia.TabIndex = 12;
@@ -126,10 +128,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(890, 290);
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(890, 290);
-            this.MinimumSize = new System.Drawing.Size(890, 290);
+            this.ClientSize = new System.Drawing.Size(872, 243);
             this.Controls.Add(this.checkBoxMostrar);
             this.Controls.Add(this.campo_usuario);
             this.Controls.Add(this.campo_contrasenia);
@@ -137,6 +136,9 @@
             this.Controls.Add(this.usuario_login);
             this.Controls.Add(this.contrasenia_login);
             this.Controls.Add(this.login);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(890, 290);
+            this.MinimumSize = new System.Drawing.Size(890, 290);
             this.Name = "FrmLogin";
             this.Text = "FrmLogin";
             this.ResumeLayout(false);

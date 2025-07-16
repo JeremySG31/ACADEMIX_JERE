@@ -253,8 +253,10 @@
             // 
             // textBox1
             // 
+            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBox1.Location = new System.Drawing.Point(164, 21);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBox1.MaxLength = 5;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(231, 22);
             this.textBox1.TabIndex = 27;
@@ -263,6 +265,7 @@
             // 
             this.txtNombreRol.Location = new System.Drawing.Point(165, 58);
             this.txtNombreRol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNombreRol.MaxLength = 10;
             this.txtNombreRol.Name = "txtNombreRol";
             this.txtNombreRol.Size = new System.Drawing.Size(231, 22);
             this.txtNombreRol.TabIndex = 5;

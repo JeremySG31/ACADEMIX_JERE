@@ -307,6 +307,7 @@
             // 
             this.txtTelefono.Location = new System.Drawing.Point(165, 277);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTelefono.MaxLength = 9;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(231, 22);
             this.txtTelefono.TabIndex = 42;
@@ -342,6 +343,7 @@
             // 
             this.txtContrasena.Location = new System.Drawing.Point(165, 247);
             this.txtContrasena.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtContrasena.MaxLength = 8;
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Size = new System.Drawing.Size(231, 22);
             this.txtContrasena.TabIndex = 39;
@@ -371,6 +373,7 @@
             // 
             this.txtCorreo.Location = new System.Drawing.Point(165, 218);
             this.txtCorreo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCorreo.MaxLength = 20;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(231, 22);
             this.txtCorreo.TabIndex = 37;
@@ -387,6 +390,7 @@
             // 
             this.txtDni.Location = new System.Drawing.Point(165, 188);
             this.txtDni.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtDni.MaxLength = 8;
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(231, 22);
             this.txtDni.TabIndex = 35;
@@ -403,6 +407,7 @@
             // 
             this.txtApeMaterno.Location = new System.Drawing.Point(165, 159);
             this.txtApeMaterno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtApeMaterno.MaxLength = 10;
             this.txtApeMaterno.Name = "txtApeMaterno";
             this.txtApeMaterno.Size = new System.Drawing.Size(231, 22);
             this.txtApeMaterno.TabIndex = 33;
@@ -419,6 +424,7 @@
             // 
             this.txtApePaterno.Location = new System.Drawing.Point(165, 129);
             this.txtApePaterno.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtApePaterno.MaxLength = 10;
             this.txtApePaterno.Name = "txtApePaterno";
             this.txtApePaterno.Size = new System.Drawing.Size(231, 22);
             this.txtApePaterno.TabIndex = 31;
@@ -427,6 +433,7 @@
             // 
             this.txtNombres.Location = new System.Drawing.Point(165, 92);
             this.txtNombres.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNombres.MaxLength = 10;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(231, 22);
             this.txtNombres.TabIndex = 30;
@@ -435,14 +442,17 @@
             // 
             this.txtNombreUsuario.Location = new System.Drawing.Point(165, 58);
             this.txtNombreUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNombreUsuario.MaxLength = 10;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(231, 22);
             this.txtNombreUsuario.TabIndex = 29;
             // 
             // txtIdUsuario
             // 
+            this.txtIdUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtIdUsuario.Location = new System.Drawing.Point(165, 25);
             this.txtIdUsuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtIdUsuario.MaxLength = 5;
             this.txtIdUsuario.Name = "txtIdUsuario";
             this.txtIdUsuario.Size = new System.Drawing.Size(231, 22);
             this.txtIdUsuario.TabIndex = 5;

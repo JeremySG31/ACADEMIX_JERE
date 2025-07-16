@@ -18,11 +18,7 @@ namespace Academix.vista
             InitializeComponent();
         }
 
-        private void perfilToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmPerfil frmPerfil = new FrmPerfil();
-            frmPerfil.Show();
-        }
+
 
         private void historialAsistenciasToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -36,5 +32,7 @@ namespace Academix.vista
             FrmLogin login = new FrmLogin();
             this.Close();
         }
+
+
     }
 }

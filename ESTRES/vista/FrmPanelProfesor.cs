@@ -18,11 +18,6 @@ namespace Academix.vista
             InitializeComponent();
         }
 
-        private void perfilToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmPerfil frmPerfil = new FrmPerfil();
-            frmPerfil.Show();
-        }
 
         private void asistenciaToolStripMenuItem_Click(object sender, EventArgs e)
         {

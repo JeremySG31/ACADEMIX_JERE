@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btLimpiarCampos = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnInsertar = new System.Windows.Forms.Button();
@@ -44,15 +45,14 @@
             this.lblRol = new System.Windows.Forms.Label();
             this.cbIdEliminar = new System.Windows.Forms.ComboBox();
             this.grpDatosPrincipales = new System.Windows.Forms.GroupBox();
+            this.cbEstudiantes = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtCursoMatriculado = new System.Windows.Forms.TextBox();
             this.cbCursos = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbIdMatricula = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cbEstudiantes = new System.Windows.Forms.ComboBox();
-            this.btLimpiarCampos = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.grpListadoBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursosMatriculados)).BeginInit();
@@ -73,6 +73,18 @@
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ACCIONES";
+            // 
+            // btLimpiarCampos
+            // 
+            this.btLimpiarCampos.BackColor = System.Drawing.Color.Snow;
+            this.btLimpiarCampos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLimpiarCampos.ForeColor = System.Drawing.Color.Black;
+            this.btLimpiarCampos.Location = new System.Drawing.Point(31, 275);
+            this.btLimpiarCampos.Name = "btLimpiarCampos";
+            this.btLimpiarCampos.Size = new System.Drawing.Size(178, 46);
+            this.btLimpiarCampos.TabIndex = 51;
+            this.btLimpiarCampos.Text = "Limpiar campos";
+            this.btLimpiarCampos.UseVisualStyleBackColor = false;
             // 
             // btnEliminar
             // 
@@ -227,9 +239,53 @@
             this.grpDatosPrincipales.TabStop = false;
             this.grpDatosPrincipales.Text = "DATOS PRINCIPALES";
             // 
+            // cbEstudiantes
+            // 
+            this.cbEstudiantes.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N",
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U",
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z"});
+            this.cbEstudiantes.Location = new System.Drawing.Point(164, 124);
+            this.cbEstudiantes.Name = "cbEstudiantes";
+            this.cbEstudiantes.Size = new System.Drawing.Size(231, 24);
+            this.cbEstudiantes.TabIndex = 30;
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(22, 124);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(123, 23);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "ID Estudiante:";
+            // 
             // txtCursoMatriculado
             // 
+            this.txtCursoMatriculado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCursoMatriculado.Location = new System.Drawing.Point(165, 25);
+            this.txtCursoMatriculado.MaxLength = 5;
             this.txtCursoMatriculado.Name = "txtCursoMatriculado";
             this.txtCursoMatriculado.Size = new System.Drawing.Size(230, 22);
             this.txtCursoMatriculado.TabIndex = 5;
@@ -298,60 +354,6 @@
             this.label6.Size = new System.Drawing.Size(136, 23);
             this.label6.TabIndex = 19;
             this.label6.Text = "ID Matricula:";
-            // 
-            // label4
-            // 
-            this.label4.Location = new System.Drawing.Point(22, 124);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 23);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "ID Estudiante:";
-            // 
-            // cbEstudiantes
-            // 
-            this.cbEstudiantes.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "V",
-            "W",
-            "X",
-            "Y",
-            "Z"});
-            this.cbEstudiantes.Location = new System.Drawing.Point(164, 124);
-            this.cbEstudiantes.Name = "cbEstudiantes";
-            this.cbEstudiantes.Size = new System.Drawing.Size(231, 24);
-            this.cbEstudiantes.TabIndex = 30;
-            // 
-            // btLimpiarCampos
-            // 
-            this.btLimpiarCampos.BackColor = System.Drawing.Color.Snow;
-            this.btLimpiarCampos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLimpiarCampos.ForeColor = System.Drawing.Color.Black;
-            this.btLimpiarCampos.Location = new System.Drawing.Point(31, 275);
-            this.btLimpiarCampos.Name = "btLimpiarCampos";
-            this.btLimpiarCampos.Size = new System.Drawing.Size(178, 46);
-            this.btLimpiarCampos.TabIndex = 51;
-            this.btLimpiarCampos.Text = "Limpiar campos";
-            this.btLimpiarCampos.UseVisualStyleBackColor = false;
             // 
             // FrmCursosMatriculados
             // 

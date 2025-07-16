@@ -37,11 +37,7 @@ namespace ESTRES
             frmEstudiante.Show();
         }
 
-        private void perfilToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmPerfil frmPerfil = new FrmPerfil();
-            frmPerfil.Show();
-        }
+
 
 
 
@@ -87,11 +83,6 @@ namespace ESTRES
             frmConsultarHistorialA.Show();
         }
 
-        private void asistenciaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmAsistenciaMatriculados frmAsistencia = new FrmAsistenciaMatriculados();
-            frmAsistencia.Show();
-        }
 
         private void rolesToolStripMenuItem_Click(object sender, EventArgs e)
         {

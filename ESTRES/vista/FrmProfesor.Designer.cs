@@ -37,10 +37,10 @@
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btLimpiarCampos = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnInsertar = new System.Windows.Forms.Button();
-            this.btLimpiarCampos = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cbIdModificar = new System.Windows.Forms.ComboBox();
@@ -157,6 +157,19 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ACCIONES";
             // 
+            // btLimpiarCampos
+            // 
+            this.btLimpiarCampos.BackColor = System.Drawing.Color.Snow;
+            this.btLimpiarCampos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLimpiarCampos.ForeColor = System.Drawing.Color.Black;
+            this.btLimpiarCampos.Location = new System.Drawing.Point(31, 267);
+            this.btLimpiarCampos.Name = "btLimpiarCampos";
+            this.btLimpiarCampos.Size = new System.Drawing.Size(178, 52);
+            this.btLimpiarCampos.TabIndex = 49;
+            this.btLimpiarCampos.Text = "Limpiar campos";
+            this.btLimpiarCampos.UseVisualStyleBackColor = false;
+            this.btLimpiarCampos.Click += new System.EventHandler(this.btLimpiarCampos_Click_1);
+            // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Red;
@@ -192,19 +205,6 @@
             this.btnInsertar.Text = "Registrar nuevo profesor";
             this.btnInsertar.UseVisualStyleBackColor = false;
             this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
-            // 
-            // btLimpiarCampos
-            // 
-            this.btLimpiarCampos.BackColor = System.Drawing.Color.Snow;
-            this.btLimpiarCampos.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLimpiarCampos.ForeColor = System.Drawing.Color.Black;
-            this.btLimpiarCampos.Location = new System.Drawing.Point(31, 267);
-            this.btLimpiarCampos.Name = "btLimpiarCampos";
-            this.btLimpiarCampos.Size = new System.Drawing.Size(178, 52);
-            this.btLimpiarCampos.TabIndex = 49;
-            this.btLimpiarCampos.Text = "Limpiar campos";
-            this.btLimpiarCampos.UseVisualStyleBackColor = false;
-            this.btLimpiarCampos.Click += new System.EventHandler(this.btLimpiarCampos_Click_1);
             // 
             // groupBox1
             // 
@@ -282,6 +282,7 @@
             // txtNombres
             // 
             this.txtNombres.Location = new System.Drawing.Point(166, 111);
+            this.txtNombres.MaxLength = 10;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(231, 22);
             this.txtNombres.TabIndex = 32;
@@ -289,6 +290,7 @@
             // txtNombreUsuario
             // 
             this.txtNombreUsuario.Location = new System.Drawing.Point(166, 77);
+            this.txtNombreUsuario.MaxLength = 10;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(231, 22);
             this.txtNombreUsuario.TabIndex = 31;
@@ -296,6 +298,7 @@
             // txtApePater
             // 
             this.txtApePater.Location = new System.Drawing.Point(165, 154);
+            this.txtApePater.MaxLength = 10;
             this.txtApePater.Name = "txtApePater";
             this.txtApePater.Size = new System.Drawing.Size(231, 22);
             this.txtApePater.TabIndex = 30;
@@ -331,6 +334,7 @@
             // txtApeMater
             // 
             this.txtApeMater.Location = new System.Drawing.Point(165, 183);
+            this.txtApeMater.MaxLength = 10;
             this.txtApeMater.Name = "txtApeMater";
             this.txtApeMater.Size = new System.Drawing.Size(231, 22);
             this.txtApeMater.TabIndex = 23;
@@ -361,7 +365,9 @@
             // 
             // txtIdProfesor
             // 
+            this.txtIdProfesor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtIdProfesor.Location = new System.Drawing.Point(165, 39);
+            this.txtIdProfesor.MaxLength = 5;
             this.txtIdProfesor.Name = "txtIdProfesor";
             this.txtIdProfesor.Size = new System.Drawing.Size(231, 22);
             this.txtIdProfesor.TabIndex = 1;

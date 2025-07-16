@@ -271,6 +271,7 @@
             // txtParentesco
             // 
             this.txtParentesco.Location = new System.Drawing.Point(166, 150);
+            this.txtParentesco.MaxLength = 10;
             this.txtParentesco.Name = "txtParentesco";
             this.txtParentesco.Size = new System.Drawing.Size(231, 22);
             this.txtParentesco.TabIndex = 23;
@@ -301,7 +302,9 @@
             // 
             // txtVinculo
             // 
+            this.txtVinculo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVinculo.Location = new System.Drawing.Point(165, 45);
+            this.txtVinculo.MaxLength = 5;
             this.txtVinculo.Name = "txtVinculo";
             this.txtVinculo.Size = new System.Drawing.Size(231, 22);
             this.txtVinculo.TabIndex = 1;
